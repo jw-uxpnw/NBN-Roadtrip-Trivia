@@ -1,0 +1,752 @@
+[
+{
+"age": 7,
+"q": "Would you rather be able to fly or be invisible?",
+"category": "wyr"
+},
+{
+"age": 7,
+"q": "If you could have any animal in the world as a pet, what would you pick?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "If you could have one superpower, what would it be?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "What's the best smell in the whole world?",
+"category": "know"
+},
+{
+"age": 7,
+"q": "If you opened a restaurant, what food would it serve?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "What would you name a pet dragon?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "If our car could talk, what do you think it would say right now?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "Describe your dream birthday party.",
+"category": "know"
+},
+{
+"age": 7,
+"q": "If you could make one rule that everyone in the world had to follow, what would it be?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "What's the funniest word you know?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "Would you rather live in a treehouse or a secret cave?",
+"category": "wyr"
+},
+{
+"age": 7,
+"q": "If you could be any age for one week, what age would you pick?",
+"category": "know"
+},
+{
+"age": 7,
+"q": "If you could jump into any cartoon and live there, which one?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "Invent a brand new ice cream flavor. What's in it?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "If animals could talk, which one do you think would be the rudest?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "What would you do with a million dollars?",
+"category": "know"
+},
+{
+"age": 7,
+"q": "If you were the principal of your school for a day, what would you change?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "You can bring three things to a desert island. What are they?",
+"category": "know"
+},
+{
+"age": 7,
+"q": "Would you rather it always be summer or always be winter?",
+"category": "wyr"
+},
+{
+"age": 7,
+"q": "What's your favorite memory of our family?",
+"category": "family"
+},
+{
+"age": 7,
+"q": "If you could trade places with a grown-up for one day, who would it be?",
+"category": "family"
+},
+{
+"age": 7,
+"q": "What job do you want when you grow up?",
+"category": "know"
+},
+{
+"age": 7,
+"q": "If your stuffed animals came alive at night, what do you think they'd do?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "Invent a new holiday. What is it called and how do we celebrate?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "What's the best thing you've ever eaten?",
+"category": "know"
+},
+{
+"age": 7,
+"q": "Would you rather be a wizard or a superhero?",
+"category": "wyr"
+},
+{
+"age": 7,
+"q": "Would you rather shrink to the size of an ant or grow as tall as a house?",
+"category": "wyr"
+},
+{
+"age": 7,
+"q": "What song should play every time you walk into a room?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "If you could eat only one food for a whole year, what would it be?",
+"category": "know"
+},
+{
+"age": 7,
+"q": "What's the silliest thing you've ever seen an animal do?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "If you built a robot, what would it do for you?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "Would you rather have a pet dinosaur or a pet dragon?",
+"category": "wyr"
+},
+{
+"age": 7,
+"q": "What would your secret hideout look like?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "If you could paint our car any crazy design, what would it look like?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "What three toppings make the perfect pizza?",
+"category": "know"
+},
+{
+"age": 7,
+"q": "If you could talk to one kind of animal, which would you choose?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "What's something that always makes you laugh?",
+"category": "know"
+},
+{
+"age": 7,
+"q": "Would you rather swim like a fish or run as fast as a cheetah?",
+"category": "wyr"
+},
+{
+"age": 7,
+"q": "If today were 'opposite day,' what would you do first?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "What's the coolest thing you've ever built or made?",
+"category": "know"
+},
+{
+"age": 7,
+"q": "If you found a treasure chest, what do you hope is inside?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "Which person in this car snores the loudest? Take a vote.",
+"category": "family"
+},
+{
+"age": 7,
+"q": "If you could turn into any animal for a day, which one?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "What would you put in a time capsule to open in 20 years?",
+"category": "know"
+},
+{
+"age": 7,
+"q": "Would you rather have spaghetti hair or meatball eyes?",
+"category": "wyr"
+},
+{
+"age": 7,
+"q": "What's your favorite thing to do on a rainy day?",
+"category": "know"
+},
+{
+"age": 7,
+"q": "If you could meet any character from a book or movie, who?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "What's the bravest thing you can imagine doing?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "If our family had a theme song, what would it sound like?",
+"category": "family"
+},
+{
+"age": 7,
+"q": "Would you rather ride a roller coaster or a water slide right now?",
+"category": "wyr"
+},
+{
+"age": 7,
+"q": "What's one thing you're really good at?",
+"category": "know"
+},
+{
+"age": 7,
+"q": "If you could plant a magic seed, what would grow from it?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "What animal do you think you were in a past life?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "If you got to plan dinner tonight, what's on the menu?",
+"category": "family"
+},
+{
+"age": 7,
+"q": "What's the weirdest dream you remember?",
+"category": "know"
+},
+{
+"age": 7,
+"q": "Would you rather live on a boat or in an RV for a year?",
+"category": "wyr"
+},
+{
+"age": 7,
+"q": "If you could snap your fingers and be anywhere right now, where?",
+"category": "know"
+},
+{
+"age": 7,
+"q": "What's one chore you wish a robot would do forever?",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "Make up a brand-new word and tell us what it means.",
+"category": "silly"
+},
+{
+"age": 7,
+"q": "Who in this car would survive longest as a pirate, and why?",
+"category": "family"
+},
+{
+"age": 10,
+"q": "If you could time travel, would you go to the past or the future?",
+"category": "wyr"
+},
+{
+"age": 10,
+"q": "What's something you've done that you're really proud of?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "If you wrote a book, what would it be about?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "What's the bravest thing you've ever done?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "Which fictional character would be your best friend in real life?",
+"category": "silly"
+},
+{
+"age": 10,
+"q": "If you could instantly master one skill, what would it be?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "If you had a YouTube channel, what would it be about?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "What's one thing you would change about school?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "Who's the funniest person in this car, and what's your evidence?",
+"category": "family"
+},
+{
+"age": 10,
+"q": "What's a food you used to hate but like now?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "If you could ask any animal one question, what would you ask?",
+"category": "silly"
+},
+{
+"age": 10,
+"q": "If you were invisible for a day, what would you actually do?",
+"category": "silly"
+},
+{
+"age": 10,
+"q": "What world record do you think you could break?",
+"category": "silly"
+},
+{
+"age": 10,
+"q": "If you could swap lives with anyone for a week, who?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "What's the most beautiful place you've ever been?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "If you could design a video game, what would it be like?",
+"category": "silly"
+},
+{
+"age": 10,
+"q": "What's something weird that your family does that you love?",
+"category": "family"
+},
+{
+"age": 10,
+"q": "If you could be famous for one thing, what would you want it to be?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "What invention does the world really need?",
+"category": "deep"
+},
+{
+"age": 10,
+"q": "What's the nicest thing someone has ever done for you?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "If you found $100 on the sidewalk, what would you do with it?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "What's something you wish you could tell your teacher?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "Which would be worse: no internet for a year or no dessert for a year?",
+"category": "wyr"
+},
+{
+"age": 10,
+"q": "What's the hardest thing about being your age?",
+"category": "deep"
+},
+{
+"age": 10,
+"q": "If you could rename yourself, would you? What name?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "What three words describe our family best?",
+"category": "family"
+},
+{
+"age": 10,
+"q": "If you could have dinner with any cartoon villain, who and why?",
+"category": "silly"
+},
+{
+"age": 10,
+"q": "What's something grown-ups say that makes no sense to you?",
+"category": "family"
+},
+{
+"age": 10,
+"q": "If you could live inside any video game, which one?",
+"category": "silly"
+},
+{
+"age": 10,
+"q": "What's your earliest memory?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "If you could make one school subject disappear, which one goes?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "What's the best gift you've ever gotten?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "What's the best gift you've ever given?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "If our pet could review our family online, what would the review say?",
+"category": "family"
+},
+{
+"age": 10,
+"q": "What would you do if you were president for a week?",
+"category": "deep"
+},
+{
+"age": 10,
+"q": "What's a smell that instantly reminds you of something?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "Would you rather explore the deep ocean or outer space?",
+"category": "wyr"
+},
+{
+"age": 10,
+"q": "What's one thing you want to learn before next summer?",
+"category": "know"
+},
+{
+"age": 10,
+"q": "If you opened a store, what would it sell?",
+"category": "silly"
+},
+{
+"age": 10,
+"q": "What's the funniest thing that's ever happened on a family trip?",
+"category": "family"
+},
+{
+"age": 13,
+"q": "If you could have dinner with anyone, dead or alive, who would it be?",
+"category": "deep"
+},
+{
+"age": 13,
+"q": "What's a belief or opinion you've changed your mind about?",
+"category": "deep"
+},
+{
+"age": 13,
+"q": "What do you want to be remembered for?",
+"category": "deep"
+},
+{
+"age": 13,
+"q": "If you could know one thing about the future, would you want to? What?",
+"category": "deep"
+},
+{
+"age": 13,
+"q": "What's the best advice anyone has ever given you?",
+"category": "know"
+},
+{
+"age": 13,
+"q": "What does success mean to you?",
+"category": "deep"
+},
+{
+"age": 13,
+"q": "If money didn't matter at all, how would you spend your days?",
+"category": "deep"
+},
+{
+"age": 13,
+"q": "What's something you wish adults understood about being your age?",
+"category": "deep"
+},
+{
+"age": 13,
+"q": "What's a small thing that always makes your day better?",
+"category": "know"
+},
+{
+"age": 13,
+"q": "Would you rather be famous, or unknown but rich?",
+"category": "wyr"
+},
+{
+"age": 13,
+"q": "What's a risk you took that you're glad you took?",
+"category": "know"
+},
+{
+"age": 13,
+"q": "If you could live in any decade, which one and why?",
+"category": "know"
+},
+{
+"age": 13,
+"q": "What quality matters most in a friend?",
+"category": "deep"
+},
+{
+"age": 13,
+"q": "What's something hard you did that you're glad you pushed through?",
+"category": "know"
+},
+{
+"age": 13,
+"q": "Is it more important to be smart or to be kind? Defend your answer.",
+"category": "deep"
+},
+{
+"age": 13,
+"q": "What would you tell yourself from five years ago?",
+"category": "deep"
+},
+{
+"age": 13,
+"q": "What's something totally overrated? And something underrated?",
+"category": "know"
+},
+{
+"age": 13,
+"q": "If you could fix one problem in the world, which would you pick?",
+"category": "deep"
+},
+{
+"age": 13,
+"q": "What's a moment you felt really proud of someone else in this car?",
+"category": "family"
+},
+{
+"age": 13,
+"q": "What's your unpopular opinion about food?",
+"category": "know"
+},
+{
+"age": 13,
+"q": "If you wrote a letter to your future self, what's the first line?",
+"category": "deep"
+},
+{
+"age": 13,
+"q": "What's the hardest decision you've ever had to make?",
+"category": "deep"
+},
+{
+"age": 13,
+"q": "Who has influenced you the most, and how?",
+"category": "know"
+},
+{
+"age": 13,
+"q": "If you had to teach a class on anything, what could you teach?",
+"category": "know"
+},
+{
+"age": 13,
+"q": "What's something you do differently from most people?",
+"category": "know"
+},
+{
+"age": 13,
+"q": "What's a tradition you hope our family never stops doing?",
+"category": "family"
+},
+{
+"age": 13,
+"q": "When do you feel most like yourself?",
+"category": "deep"
+},
+{
+"age": 13,
+"q": "What's a compliment you've never forgotten?",
+"category": "know"
+},
+{
+"age": 13,
+"q": "If you could ask your great-great-grandparents one question, what?",
+"category": "family"
+},
+{
+"age": 13,
+"q": "What's something you used to be afraid of but aren't anymore?",
+"category": "know"
+},
+{
+"age": 13,
+"q": "What song do you have memorized start to finish?",
+"category": "know"
+},
+{
+"age": 13,
+"q": "If you could master any instrument overnight, which one?",
+"category": "know"
+},
+{
+"age": 13,
+"q": "What's the most interesting thing you've learned this year?",
+"category": "know"
+},
+{
+"age": 13,
+"q": "Would you rather always say what you think, or never be misunderstood?",
+"category": "wyr"
+},
+{
+"age": 13,
+"q": "What's one thing you'd put on a billboard for millions to see?",
+"category": "deep"
+},
+{
+"age": 16,
+"q": "What part of growing up surprised you the most?",
+"category": "deep"
+},
+{
+"age": 16,
+"q": "Does everything happen for a reason? Make your case.",
+"category": "deep"
+},
+{
+"age": 16,
+"q": "What's a moral line you would never cross, no matter what?",
+"category": "deep"
+},
+{
+"age": 16,
+"q": "When did you last change someone's mind about something that mattered?",
+"category": "deep"
+},
+{
+"age": 16,
+"q": "If you had to give a TED talk tomorrow with no prep, what's your topic?",
+"category": "know"
+},
+{
+"age": 16,
+"q": "What do you think the world will look like in 50 years?",
+"category": "deep"
+},
+{
+"age": 16,
+"q": "What's something our generation gets right that others don't?",
+"category": "deep"
+},
+{
+"age": 16,
+"q": "What's the difference between being nice and being good?",
+"category": "deep"
+},
+{
+"age": 16,
+"q": "If you could relive one day of your life so far, which one?",
+"category": "deep"
+},
+{
+"age": 16,
+"q": "What's a question you wish people asked you more often?",
+"category": "deep"
+},
+{
+"age": 16,
+"q": "Which matters more: talent or persistence? Pick one.",
+"category": "wyr"
+},
+{
+"age": 16,
+"q": "What's something you believe that most people around you don't?",
+"category": "deep"
+},
+{
+"age": 16,
+"q": "If you knew you couldn't fail, what would you attempt?",
+"category": "deep"
+},
+{
+"age": 16,
+"q": "What's the best conversation you've ever had, and what made it great?",
+"category": "know"
+},
+{
+"age": 16,
+"q": "What advice would you give someone ten years younger than you?",
+"category": "deep"
+}
+]

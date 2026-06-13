@@ -1,0 +1,4471 @@
+{
+"version": 2,
+"questions": [
+{
+"id": "pnw-001",
+"type": "trivia",
+"category": "pnw",
+"age": 7,
+"q": "What giant, hairy creature is said to hide in Northwest forests?",
+"a": "Bigfoot (Sasquatch)"
+},
+{
+"id": "pnw-002",
+"type": "trivia",
+"category": "pnw",
+"age": 7,
+"q": "What is the tallest mountain in Washington?",
+"a": "Mount Rainier"
+},
+{
+"id": "pnw-003",
+"type": "trivia",
+"category": "pnw",
+"age": 7,
+"q": "What famous Seattle tower was built for the 1962 World's Fair?",
+"a": "The Space Needle"
+},
+{
+"id": "pnw-004",
+"type": "trivia",
+"category": "pnw",
+"age": 7,
+"q": "Which Northwest state is famous for growing potatoes?",
+"a": "Idaho"
+},
+{
+"id": "pnw-005",
+"type": "trivia",
+"category": "pnw",
+"age": 7,
+"q": "What is Oregon's state animal?",
+"a": "The beaver"
+},
+{
+"id": "pnw-006",
+"type": "trivia",
+"category": "pnw",
+"age": 7,
+"q": "What black-and-white whales swim in Puget Sound?",
+"a": "Orcas (killer whales)"
+},
+{
+"id": "pnw-007",
+"type": "trivia",
+"category": "pnw",
+"age": 7,
+"q": "Seattle's NFL football team is called the ___?",
+"a": "Seahawks"
+},
+{
+"id": "pnw-008",
+"type": "trivia",
+"category": "pnw",
+"age": 7,
+"q": "Seattle's hockey team is named after what legendary sea monster?",
+"a": "The Kraken"
+},
+{
+"id": "pnw-009",
+"type": "trivia",
+"category": "pnw",
+"age": 7,
+"q": "Washington is the only state named after what kind of person?",
+"a": "A president — George Washington"
+},
+{
+"id": "pnw-010",
+"type": "trivia",
+"category": "pnw",
+"age": 7,
+"q": "What slimy yellow creature is a beloved Northwest forest mascot?",
+"a": "The banana slug"
+},
+{
+"id": "pnw-011",
+"type": "trivia",
+"category": "pnw",
+"age": 7,
+"q": "What famous Seattle wall is covered in chewed gum?",
+"a": "The Gum Wall, near Pike Place Market"
+},
+{
+"id": "pnw-012",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What is the capital of Washington?",
+"a": "Olympia"
+},
+{
+"id": "pnw-013",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What is the capital of Oregon?",
+"a": "Salem"
+},
+{
+"id": "pnw-014",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What is the capital of Idaho?",
+"a": "Boise"
+},
+{
+"id": "pnw-015",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "Which Washington volcano famously erupted in 1980?",
+"a": "Mount St. Helens"
+},
+{
+"id": "pnw-016",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What Oregon lake is the deepest lake in the United States?",
+"a": "Crater Lake"
+},
+{
+"id": "pnw-017",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What big river forms much of the border between Washington and Oregon?",
+"a": "The Columbia River"
+},
+{
+"id": "pnw-018",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What coffee company opened its first store at Seattle's Pike Place Market?",
+"a": "Starbucks"
+},
+{
+"id": "pnw-019",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "Seattle's baseball team is called the ___?",
+"a": "Mariners"
+},
+{
+"id": "pnw-020",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "Portland's NBA basketball team is called the ___?",
+"a": "Trail Blazers"
+},
+{
+"id": "pnw-021",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What is Washington's state nickname?",
+"a": "The Evergreen State"
+},
+{
+"id": "pnw-022",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What is Seattle's city nickname?",
+"a": "The Emerald City"
+},
+{
+"id": "pnw-023",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "At what famous Seattle market do workers throw fish to each other?",
+"a": "Pike Place Market"
+},
+{
+"id": "pnw-024",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What is the tallest mountain in Oregon?",
+"a": "Mount Hood"
+},
+{
+"id": "pnw-025",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What mountain range full of volcanoes runs through Washington and Oregon?",
+"a": "The Cascades"
+},
+{
+"id": "pnw-026",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "Which 1985 kids' treasure-hunt movie was filmed in Astoria, Oregon?",
+"a": "The Goonies"
+},
+{
+"id": "pnw-027",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What two explorers reached the Pacific Ocean in 1805 after crossing the Northwest?",
+"a": "Lewis and Clark"
+},
+{
+"id": "pnw-028",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What Shoshone woman helped guide the Lewis and Clark expedition?",
+"a": "Sacagawea"
+},
+{
+"id": "pnw-029",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What pioneer wagon route ended in Oregon's Willamette Valley?",
+"a": "The Oregon Trail"
+},
+{
+"id": "pnw-030",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What troll sculpture hides under a bridge in Seattle's Fremont neighborhood?",
+"a": "The Fremont Troll"
+},
+{
+"id": "pnw-031",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "Which company did Bill Gates and Paul Allen start, now headquartered in Redmond?",
+"a": "Microsoft"
+},
+{
+"id": "pnw-032",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "Jeff Bezos started which giant company near Seattle in 1994?",
+"a": "Amazon"
+},
+{
+"id": "pnw-033",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "Which state grows more apples than any other in the US?",
+"a": "Washington"
+},
+{
+"id": "pnw-034",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What sweet yellow-and-red cherry is named after a Washington mountain?",
+"a": "The Rainier cherry"
+},
+{
+"id": "pnw-035",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "Tillamook, Oregon is most famous for making what food?",
+"a": "Cheese (and ice cream)"
+},
+{
+"id": "pnw-036",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "Boise State University's football field is famously what color?",
+"a": "Blue"
+},
+{
+"id": "pnw-037",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "The Seattle Sounders' biggest soccer rivals are the Portland ___?",
+"a": "Timbers"
+},
+{
+"id": "pnw-038",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What is Oregon's state nickname?",
+"a": "The Beaver State"
+},
+{
+"id": "pnw-039",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What giant sea stack rises out of the water at Cannon Beach, Oregon?",
+"a": "Haystack Rock"
+},
+{
+"id": "pnw-040",
+"type": "trivia",
+"category": "pnw",
+"age": 10,
+"q": "What giant burrowing clam with a funny name lives in Puget Sound mud?",
+"a": "The geoduck (pronounced \"gooey-duck\")"
+},
+{
+"id": "pnw-041",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "The Twilight books are set in which rainy Washington town?",
+"a": "Forks"
+},
+{
+"id": "pnw-042",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "Which legendary guitarist, born in Seattle, headlined Woodstock in 1969?",
+"a": "Jimi Hendrix"
+},
+{
+"id": "pnw-043",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "What style of rock music made famous by Nirvana and Pearl Jam came out of Seattle?",
+"a": "Grunge"
+},
+{
+"id": "pnw-044",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "Who was the lead singer of Nirvana?",
+"a": "Kurt Cobain"
+},
+{
+"id": "pnw-045",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "Seattle is named after a chief of which two Native peoples?",
+"a": "The Duwamish and Suquamish (Chief Seattle)"
+},
+{
+"id": "pnw-046",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "Which state runs the largest ferry system in the United States?",
+"a": "Washington"
+},
+{
+"id": "pnw-047",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "What is the deepest river gorge in North America, on the Idaho-Oregon border?",
+"a": "Hells Canyon"
+},
+{
+"id": "pnw-048",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "What river carved Hells Canyon?",
+"a": "The Snake River"
+},
+{
+"id": "pnw-049",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "Boeing's airplane factory in Everett, Washington holds what world record?",
+"a": "It's the largest building in the world by volume"
+},
+{
+"id": "pnw-050",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "Nike is headquartered just outside which Oregon city?",
+"a": "Portland (in Beaverton)"
+},
+{
+"id": "pnw-051",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "What temperate rain forest sits inside Olympic National Park?",
+"a": "The Hoh Rain Forest"
+},
+{
+"id": "pnw-052",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "What Portland shop is famous for its weird and wonderful doughnuts?",
+"a": "Voodoo Doughnut"
+},
+{
+"id": "pnw-053",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "Powell's in Portland is the world's largest independent what?",
+"a": "Bookstore"
+},
+{
+"id": "pnw-054",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "Spokane's Gonzaga University is nationally famous for which sport?",
+"a": "Basketball"
+},
+{
+"id": "pnw-055",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "What is the UW Huskies vs WSU Cougars football rivalry game called?",
+"a": "The Apple Cup"
+},
+{
+"id": "pnw-056",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "Which Seattle team won Super Bowl XLVIII in February 2014?",
+"a": "The Seahawks"
+},
+{
+"id": "pnw-057",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "Sue Bird won four WNBA championships with which Seattle team?",
+"a": "The Storm"
+},
+{
+"id": "pnw-058",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "What was Seattle's NBA team called before it moved to Oklahoma City in 2008?",
+"a": "The SuperSonics"
+},
+{
+"id": "pnw-059",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "Multnomah Falls, Oregon's tallest waterfall, pours into which scenic river gorge?",
+"a": "The Columbia River Gorge"
+},
+{
+"id": "pnw-060",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "What Bavarian-style alpine village sits in Washington's Cascade mountains?",
+"a": "Leavenworth"
+},
+{
+"id": "pnw-061",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "In Oregon, all 363 miles of what are open to the public by law?",
+"a": "The coastline — every beach is public"
+},
+{
+"id": "pnw-062",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "What island sits in the middle of Crater Lake?",
+"a": "Wizard Island"
+},
+{
+"id": "pnw-063",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "Mount Baker set a world record in the winter of 1998-99 for the most what?",
+"a": "Snowfall in one season — 1,140 inches (95 feet)"
+},
+{
+"id": "pnw-064",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "What is the largest species of Pacific salmon?",
+"a": "The Chinook, also called the king salmon"
+},
+{
+"id": "pnw-065",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "Which long-running medical drama is set at a fictional Seattle hospital?",
+"a": "Grey's Anatomy"
+},
+{
+"id": "pnw-066",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "Keiko, the orca star of Free Willy, lived at an aquarium in which Oregon coast town?",
+"a": "Newport (Oregon Coast Aquarium)"
+},
+{
+"id": "pnw-067",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "Lake Washington's Highway 520 bridge holds what world record?",
+"a": "Longest floating bridge in the world"
+},
+{
+"id": "pnw-068",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "Which Seattle rapper made \"Thrift Shop\" a #1 hit?",
+"a": "Macklemore"
+},
+{
+"id": "pnw-069",
+"type": "trivia",
+"category": "pnw",
+"age": 13,
+"q": "What's the nickname for Portland's NBA fan base and arena scene?",
+"a": "Rip City"
+},
+{
+"id": "pnw-070",
+"type": "trivia",
+"category": "pnw",
+"age": 16,
+"q": "Starbucks is named after a character from which classic novel?",
+"a": "Moby-Dick — Starbuck was the first mate"
+},
+{
+"id": "pnw-071",
+"type": "trivia",
+"category": "pnw",
+"age": 16,
+"q": "Oregon's Willamette Valley is world-famous for which wine grape?",
+"a": "Pinot noir"
+},
+{
+"id": "pnw-072",
+"type": "trivia",
+"category": "pnw",
+"age": 16,
+"q": "Crater Lake formed when which ancient volcano collapsed about 7,700 years ago?",
+"a": "Mount Mazama"
+},
+{
+"id": "pnw-073",
+"type": "trivia",
+"category": "pnw",
+"age": 16,
+"q": "Which sitcom about a Seattle radio psychiatrist won a record pile of Emmys?",
+"a": "Frasier"
+},
+{
+"id": "pnw-074",
+"type": "trivia",
+"category": "pnw",
+"age": 16,
+"q": "Which sketch comedy show lovingly mocked Portland's quirks?",
+"a": "Portlandia"
+},
+{
+"id": "pnw-075",
+"type": "trivia",
+"category": "pnw",
+"age": 16,
+"q": "Snoqualmie Falls appeared in the opening credits of which cult 1990s TV series?",
+"a": "Twin Peaks"
+},
+{
+"id": "pnw-076",
+"type": "trivia",
+"category": "pnw",
+"age": 16,
+"q": "Tom Hanks and Meg Ryan starred in which 1993 romance set on Lake Union?",
+"a": "Sleepless in Seattle"
+},
+{
+"id": "pnw-077",
+"type": "trivia",
+"category": "pnw",
+"age": 16,
+"q": "The world's first chairlift was built in 1936 at which Idaho ski resort?",
+"a": "Sun Valley"
+},
+{
+"id": "pnw-078",
+"type": "trivia",
+"category": "pnw",
+"age": 16,
+"q": "What is the name of the inland sea shared by Washington and British Columbia?",
+"a": "The Salish Sea"
+},
+{
+"id": "pnw-079",
+"type": "trivia",
+"category": "pnw",
+"age": 16,
+"q": "Which Mariners outfielder set the single-season hits record with 262 in 2004?",
+"a": "Ichiro Suzuki"
+},
+{
+"id": "pnw-080",
+"type": "trivia",
+"category": "pnw",
+"age": 16,
+"q": "Which Mariners legend was nicknamed \"The Kid\"?",
+"a": "Ken Griffey Jr."
+},
+{
+"id": "animals-001",
+"type": "trivia",
+"category": "animals",
+"age": 7,
+"q": "What is the tallest animal in the world?",
+"a": "The giraffe"
+},
+{
+"id": "animals-002",
+"type": "trivia",
+"category": "animals",
+"age": 7,
+"q": "What is the fastest land animal?",
+"a": "The cheetah"
+},
+{
+"id": "animals-003",
+"type": "trivia",
+"category": "animals",
+"age": 7,
+"q": "What is the largest animal that has ever lived?",
+"a": "The blue whale"
+},
+{
+"id": "animals-004",
+"type": "trivia",
+"category": "animals",
+"age": 7,
+"q": "How many legs does a spider have?",
+"a": "Eight"
+},
+{
+"id": "animals-005",
+"type": "trivia",
+"category": "animals",
+"age": 7,
+"q": "What do caterpillars turn into?",
+"a": "Butterflies (or moths)"
+},
+{
+"id": "animals-006",
+"type": "trivia",
+"category": "animals",
+"age": 7,
+"q": "What do bees make that we eat?",
+"a": "Honey"
+},
+{
+"id": "animals-007",
+"type": "trivia",
+"category": "animals",
+"age": 7,
+"q": "What animal is called the king of the jungle?",
+"a": "The lion"
+},
+{
+"id": "animals-008",
+"type": "trivia",
+"category": "animals",
+"age": 7,
+"q": "What is the largest animal that lives on land?",
+"a": "The African elephant"
+},
+{
+"id": "animals-009",
+"type": "trivia",
+"category": "animals",
+"age": 7,
+"q": "What is the biggest bird in the world?",
+"a": "The ostrich"
+},
+{
+"id": "animals-010",
+"type": "trivia",
+"category": "animals",
+"age": 7,
+"q": "Do penguins live near the North Pole or the South Pole?",
+"a": "The South Pole"
+},
+{
+"id": "animals-011",
+"type": "trivia",
+"category": "animals",
+"age": 7,
+"q": "What do giant pandas mostly eat?",
+"a": "Bamboo"
+},
+{
+"id": "animals-012",
+"type": "trivia",
+"category": "animals",
+"age": 7,
+"q": "What is a baby kangaroo called?",
+"a": "A joey"
+},
+{
+"id": "animals-013",
+"type": "trivia",
+"category": "animals",
+"age": 7,
+"q": "What animal carries its house on its back?",
+"a": "A turtle (or a snail)"
+},
+{
+"id": "animals-014",
+"type": "trivia",
+"category": "animals",
+"age": 10,
+"q": "What is a group of lions called?",
+"a": "A pride"
+},
+{
+"id": "animals-015",
+"type": "trivia",
+"category": "animals",
+"age": 10,
+"q": "What is a group of crows called?",
+"a": "A murder"
+},
+{
+"id": "animals-016",
+"type": "trivia",
+"category": "animals",
+"age": 10,
+"q": "How many hearts does an octopus have?",
+"a": "Three"
+},
+{
+"id": "animals-017",
+"type": "trivia",
+"category": "animals",
+"age": 10,
+"q": "What is the slowest mammal in the world?",
+"a": "The sloth"
+},
+{
+"id": "animals-018",
+"type": "trivia",
+"category": "animals",
+"age": 10,
+"q": "What is the only mammal that can truly fly?",
+"a": "The bat"
+},
+{
+"id": "animals-019",
+"type": "trivia",
+"category": "animals",
+"age": 10,
+"q": "Which bird can fly backward?",
+"a": "The hummingbird"
+},
+{
+"id": "animals-020",
+"type": "trivia",
+"category": "animals",
+"age": 10,
+"q": "What is the largest reptile in the world?",
+"a": "The saltwater crocodile"
+},
+{
+"id": "animals-021",
+"type": "trivia",
+"category": "animals",
+"age": 10,
+"q": "What is the largest cat species?",
+"a": "The tiger"
+},
+{
+"id": "animals-022",
+"type": "trivia",
+"category": "animals",
+"age": 10,
+"q": "Which male animal carries the babies and gives birth?",
+"a": "The seahorse"
+},
+{
+"id": "animals-023",
+"type": "trivia",
+"category": "animals",
+"age": 10,
+"q": "What furry Australian mammal lays eggs and has a duck-like bill?",
+"a": "The platypus"
+},
+{
+"id": "animals-024",
+"type": "trivia",
+"category": "animals",
+"age": 10,
+"q": "How do dolphins breathe?",
+"a": "With lungs, through a blowhole — they're mammals"
+},
+{
+"id": "animals-025",
+"type": "trivia",
+"category": "animals",
+"age": 10,
+"q": "What is a group of wolves called?",
+"a": "A pack"
+},
+{
+"id": "animals-026",
+"type": "trivia",
+"category": "animals",
+"age": 10,
+"q": "Elephants use what body part to grab things, smell, and drink?",
+"a": "Their trunk"
+},
+{
+"id": "animals-027",
+"type": "trivia",
+"category": "animals",
+"age": 10,
+"q": "What color is a polar bear's skin under its fur?",
+"a": "Black"
+},
+{
+"id": "animals-028",
+"type": "trivia",
+"category": "animals",
+"age": 13,
+"q": "What color is octopus blood?",
+"a": "Blue"
+},
+{
+"id": "animals-029",
+"type": "trivia",
+"category": "animals",
+"age": 13,
+"q": "Shark skeletons are made of what instead of bone?",
+"a": "Cartilage"
+},
+{
+"id": "animals-030",
+"type": "trivia",
+"category": "animals",
+"age": 13,
+"q": "Which bird makes the longest migration, flying between the Arctic and Antarctica?",
+"a": "The Arctic tern"
+},
+{
+"id": "animals-031",
+"type": "trivia",
+"category": "animals",
+"age": 13,
+"q": "What is the tallest species of tree on Earth?",
+"a": "The coast redwood"
+},
+{
+"id": "animals-032",
+"type": "trivia",
+"category": "animals",
+"age": 13,
+"q": "What is the largest living structure on Earth, visible from space?",
+"a": "The Great Barrier Reef"
+},
+{
+"id": "animals-033",
+"type": "trivia",
+"category": "animals",
+"age": 13,
+"q": "Which Mexican salamander can regrow entire limbs?",
+"a": "The axolotl"
+},
+{
+"id": "animals-034",
+"type": "trivia",
+"category": "animals",
+"age": 13,
+"q": "Which animal's fingerprints are so similar to humans' they can confuse investigators?",
+"a": "The koala"
+},
+{
+"id": "animals-035",
+"type": "trivia",
+"category": "animals",
+"age": 13,
+"q": "What tiny eight-legged 'water bear' can survive in outer space?",
+"a": "The tardigrade"
+},
+{
+"id": "animals-036",
+"type": "trivia",
+"category": "animals",
+"age": 13,
+"q": "What food made by insects basically never spoils?",
+"a": "Honey"
+},
+{
+"id": "animals-037",
+"type": "trivia",
+"category": "animals",
+"age": 16,
+"q": "Some cicadas spend how many years underground before emerging — 13 and what?",
+"a": "17 years"
+},
+{
+"id": "animals-038",
+"type": "trivia",
+"category": "animals",
+"age": 16,
+"q": "Which jellyfish is nicknamed 'immortal' because it can revert to its young form?",
+"a": "Turritopsis dohrnii, the immortal jellyfish"
+},
+{
+"id": "animals-039",
+"type": "trivia",
+"category": "animals",
+"age": 16,
+"q": "Which famously clever birds can recognize and remember human faces?",
+"a": "Crows"
+},
+{
+"id": "animals-040",
+"type": "trivia",
+"category": "animals",
+"age": 16,
+"q": "An octopus is often said to have nine of what?",
+"a": "Brains — one central, plus one in each arm"
+},
+{
+"id": "movies-001",
+"type": "trivia",
+"category": "movies",
+"age": 7,
+"q": "In Frozen, what is the name of Elsa's sister?",
+"a": "Anna"
+},
+{
+"id": "movies-002",
+"type": "trivia",
+"category": "movies",
+"age": 7,
+"q": "In The Lion King, what kind of animal is Simba?",
+"a": "A lion"
+},
+{
+"id": "movies-003",
+"type": "trivia",
+"category": "movies",
+"age": 7,
+"q": "In Toy Story, what is the cowboy doll's name?",
+"a": "Woody"
+},
+{
+"id": "movies-004",
+"type": "trivia",
+"category": "movies",
+"age": 7,
+"q": "What is Buzz Lightyear's famous catchphrase?",
+"a": "\"To infinity and beyond!\""
+},
+{
+"id": "movies-005",
+"type": "trivia",
+"category": "movies",
+"age": 7,
+"q": "In Finding Nemo, what kind of fish is Nemo?",
+"a": "A clownfish"
+},
+{
+"id": "movies-006",
+"type": "trivia",
+"category": "movies",
+"age": 7,
+"q": "Who lives in a pineapple under the sea?",
+"a": "SpongeBob SquarePants"
+},
+{
+"id": "movies-007",
+"type": "trivia",
+"category": "movies",
+"age": 7,
+"q": "What kind of creature is Shrek?",
+"a": "An ogre"
+},
+{
+"id": "movies-008",
+"type": "trivia",
+"category": "movies",
+"age": 7,
+"q": "In Moana, what is the name of the demigod with the magic fishhook?",
+"a": "Maui"
+},
+{
+"id": "movies-009",
+"type": "trivia",
+"category": "movies",
+"age": 7,
+"q": "What number is painted on Lightning McQueen?",
+"a": "95"
+},
+{
+"id": "movies-010",
+"type": "trivia",
+"category": "movies",
+"age": 7,
+"q": "The Minions work for which villain?",
+"a": "Gru"
+},
+{
+"id": "movies-011",
+"type": "trivia",
+"category": "movies",
+"age": 7,
+"q": "In Encanto, who does the family not talk about?",
+"a": "Bruno"
+},
+{
+"id": "movies-012",
+"type": "trivia",
+"category": "movies",
+"age": 7,
+"q": "What kind of animal is Bluey?",
+"a": "A dog — a blue heeler puppy"
+},
+{
+"id": "movies-013",
+"type": "trivia",
+"category": "movies",
+"age": 10,
+"q": "What school does Harry Potter attend?",
+"a": "Hogwarts"
+},
+{
+"id": "movies-014",
+"type": "trivia",
+"category": "movies",
+"age": 10,
+"q": "What is the name of Harry Potter's pet owl?",
+"a": "Hedwig"
+},
+{
+"id": "movies-015",
+"type": "trivia",
+"category": "movies",
+"age": 10,
+"q": "Who is revealed to be Luke Skywalker's father?",
+"a": "Darth Vader"
+},
+{
+"id": "movies-016",
+"type": "trivia",
+"category": "movies",
+"age": 10,
+"q": "In The Wizard of Oz, what is Dorothy's dog named?",
+"a": "Toto"
+},
+{
+"id": "movies-017",
+"type": "trivia",
+"category": "movies",
+"age": 10,
+"q": "What is Spider-Man's real name?",
+"a": "Peter Parker"
+},
+{
+"id": "movies-018",
+"type": "trivia",
+"category": "movies",
+"age": 10,
+"q": "Black Panther rules which hidden country?",
+"a": "Wakanda"
+},
+{
+"id": "movies-019",
+"type": "trivia",
+"category": "movies",
+"age": 10,
+"q": "Who trains Po in Kung Fu Panda?",
+"a": "Master Shifu"
+},
+{
+"id": "movies-020",
+"type": "trivia",
+"category": "movies",
+"age": 10,
+"q": "In E.T., what does E.T. famously want to do?",
+"a": "Phone home"
+},
+{
+"id": "movies-021",
+"type": "trivia",
+"category": "movies",
+"age": 10,
+"q": "What are the four Hogwarts houses?",
+"a": "Gryffindor, Hufflepuff, Ravenclaw, and Slytherin"
+},
+{
+"id": "movies-022",
+"type": "trivia",
+"category": "movies",
+"age": 10,
+"q": "In The Mandalorian, what is the real name of 'Baby Yoda'?",
+"a": "Grogu"
+},
+{
+"id": "movies-023",
+"type": "trivia",
+"category": "movies",
+"age": 10,
+"q": "What was the first full-length animated movie, released in 1937?",
+"a": "Snow White and the Seven Dwarfs"
+},
+{
+"id": "movies-024",
+"type": "trivia",
+"category": "movies",
+"age": 13,
+"q": "What is the highest-grossing movie of all time?",
+"a": "Avatar"
+},
+{
+"id": "movies-025",
+"type": "trivia",
+"category": "movies",
+"age": 13,
+"q": "Who directed Jaws, E.T., and Jurassic Park?",
+"a": "Steven Spielberg"
+},
+{
+"id": "movies-026",
+"type": "trivia",
+"category": "movies",
+"age": 13,
+"q": "What rare metal is Captain America's shield made of?",
+"a": "Vibranium"
+},
+{
+"id": "movies-027",
+"type": "trivia",
+"category": "movies",
+"age": 13,
+"q": "In Stranger Things, what is the dark alternate dimension called?",
+"a": "The Upside Down"
+},
+{
+"id": "movies-028",
+"type": "trivia",
+"category": "movies",
+"age": 13,
+"q": "Katniss Everdeen is the hero of which book and movie series?",
+"a": "The Hunger Games"
+},
+{
+"id": "movies-029",
+"type": "trivia",
+"category": "movies",
+"age": 13,
+"q": "What is James Bond's code number?",
+"a": "007"
+},
+{
+"id": "movies-030",
+"type": "trivia",
+"category": "movies",
+"age": 13,
+"q": "What is the name of Tony Stark's AI assistant in the first Iron Man movies?",
+"a": "JARVIS"
+},
+{
+"id": "movies-031",
+"type": "trivia",
+"category": "movies",
+"age": 13,
+"q": "Thor's hammer has what hard-to-pronounce name?",
+"a": "Mjölnir"
+},
+{
+"id": "movies-032",
+"type": "trivia",
+"category": "movies",
+"age": 13,
+"q": "In Back to the Future, what car is the time machine?",
+"a": "A DeLorean"
+},
+{
+"id": "movies-033",
+"type": "trivia",
+"category": "movies",
+"age": 16,
+"q": "Which movie gave us the line \"I'll be back\"?",
+"a": "The Terminator"
+},
+{
+"id": "movies-034",
+"type": "trivia",
+"category": "movies",
+"age": 16,
+"q": "\"Here's looking at you, kid\" comes from which classic 1942 film?",
+"a": "Casablanca"
+},
+{
+"id": "movies-035",
+"type": "trivia",
+"category": "movies",
+"age": 16,
+"q": "Who played Jack in Titanic?",
+"a": "Leonardo DiCaprio"
+},
+{
+"id": "movies-036",
+"type": "trivia",
+"category": "movies",
+"age": 16,
+"q": "Who directed The Godfather?",
+"a": "Francis Ford Coppola"
+},
+{
+"id": "movies-037",
+"type": "trivia",
+"category": "movies",
+"age": 16,
+"q": "Alfred Hitchcock's famous shower scene is from which movie?",
+"a": "Psycho"
+},
+{
+"id": "movies-038",
+"type": "trivia",
+"category": "movies",
+"age": 16,
+"q": "In The Office, what is the name of the paper company?",
+"a": "Dunder Mifflin"
+},
+{
+"id": "movies-039",
+"type": "trivia",
+"category": "movies",
+"age": 16,
+"q": "In Friends, what is the name of the coffee shop?",
+"a": "Central Perk"
+},
+{
+"id": "movies-040",
+"type": "trivia",
+"category": "movies",
+"age": 16,
+"q": "\"You can't handle the truth!\" is shouted in which 1992 courtroom drama?",
+"a": "A Few Good Men"
+},
+{
+"id": "music-001",
+"type": "trivia",
+"category": "music",
+"age": 7,
+"q": "How many strings does a regular guitar have?",
+"a": "Six"
+},
+{
+"id": "music-002",
+"type": "trivia",
+"category": "music",
+"age": 7,
+"q": "What big instrument has 88 black and white keys?",
+"a": "The piano"
+},
+{
+"id": "music-003",
+"type": "trivia",
+"category": "music",
+"age": 7,
+"q": "What instrument do you play by hitting it with sticks?",
+"a": "The drums"
+},
+{
+"id": "music-004",
+"type": "trivia",
+"category": "music",
+"age": 7,
+"q": "\"Twinkle Twinkle Little Star\" has the same tune as which other song?",
+"a": "The Alphabet Song (and \"Baa Baa Black Sheep\")"
+},
+{
+"id": "music-005",
+"type": "trivia",
+"category": "music",
+"age": 7,
+"q": "What do you call a group of people singing together?",
+"a": "A choir"
+},
+{
+"id": "music-006",
+"type": "trivia",
+"category": "music",
+"age": 7,
+"q": "Which instrument is bigger: a violin or a cello?",
+"a": "A cello"
+},
+{
+"id": "music-007",
+"type": "trivia",
+"category": "music",
+"age": 10,
+"q": "What are Taylor Swift's fans called?",
+"a": "Swifties"
+},
+{
+"id": "music-008",
+"type": "trivia",
+"category": "music",
+"age": 10,
+"q": "Which band sang \"Hey Jude\" and \"Let It Be\"?",
+"a": "The Beatles"
+},
+{
+"id": "music-009",
+"type": "trivia",
+"category": "music",
+"age": 10,
+"q": "Name all four Beatles.",
+"a": "John Lennon, Paul McCartney, George Harrison, Ringo Starr"
+},
+{
+"id": "music-010",
+"type": "trivia",
+"category": "music",
+"age": 10,
+"q": "Who sings \"Uptown Funk\"?",
+"a": "Bruno Mars (with Mark Ronson)"
+},
+{
+"id": "music-011",
+"type": "trivia",
+"category": "music",
+"age": 10,
+"q": "The band BTS comes from which country?",
+"a": "South Korea"
+},
+{
+"id": "music-012",
+"type": "trivia",
+"category": "music",
+"age": 10,
+"q": "Who is called the King of Pop?",
+"a": "Michael Jackson"
+},
+{
+"id": "music-013",
+"type": "trivia",
+"category": "music",
+"age": 10,
+"q": "Who is called the King of Rock and Roll?",
+"a": "Elvis Presley"
+},
+{
+"id": "music-014",
+"type": "trivia",
+"category": "music",
+"age": 10,
+"q": "The trumpet belongs to which instrument family?",
+"a": "Brass"
+},
+{
+"id": "music-015",
+"type": "trivia",
+"category": "music",
+"age": 10,
+"q": "What is the largest instrument in the violin family?",
+"a": "The double bass"
+},
+{
+"id": "music-016",
+"type": "trivia",
+"category": "music",
+"age": 10,
+"q": "What does DJ stand for?",
+"a": "Disc jockey"
+},
+{
+"id": "music-017",
+"type": "trivia",
+"category": "music",
+"age": 13,
+"q": "Who was the lead singer of Queen?",
+"a": "Freddie Mercury"
+},
+{
+"id": "music-018",
+"type": "trivia",
+"category": "music",
+"age": 13,
+"q": "Which band recorded \"Bohemian Rhapsody\"?",
+"a": "Queen"
+},
+{
+"id": "music-019",
+"type": "trivia",
+"category": "music",
+"age": 13,
+"q": "Taylor Swift's record-breaking 2023-24 concert tour was called what?",
+"a": "The Eras Tour"
+},
+{
+"id": "music-020",
+"type": "trivia",
+"category": "music",
+"age": 13,
+"q": "What girl group was Beyoncé in before going solo?",
+"a": "Destiny's Child"
+},
+{
+"id": "music-021",
+"type": "trivia",
+"category": "music",
+"age": 13,
+"q": "Who produces Billie Eilish's music (he's also her brother)?",
+"a": "Finneas"
+},
+{
+"id": "music-022",
+"type": "trivia",
+"category": "music",
+"age": 13,
+"q": "\"Old Town Road\" was a record-breaking hit for which artist?",
+"a": "Lil Nas X"
+},
+{
+"id": "music-023",
+"type": "trivia",
+"category": "music",
+"age": 13,
+"q": "What is the best-selling album of all time?",
+"a": "Thriller by Michael Jackson"
+},
+{
+"id": "music-024",
+"type": "trivia",
+"category": "music",
+"age": 13,
+"q": "Which great composer kept writing music even after going deaf?",
+"a": "Beethoven"
+},
+{
+"id": "music-025",
+"type": "trivia",
+"category": "music",
+"age": 13,
+"q": "Mozart started composing music at around what age?",
+"a": "Five years old"
+},
+{
+"id": "music-026",
+"type": "trivia",
+"category": "music",
+"age": 13,
+"q": "Who created and starred in the musical Hamilton?",
+"a": "Lin-Manuel Miranda"
+},
+{
+"id": "music-027",
+"type": "trivia",
+"category": "music",
+"age": 16,
+"q": "The famous Woodstock festival happened in what year?",
+"a": "1969"
+},
+{
+"id": "music-028",
+"type": "trivia",
+"category": "music",
+"age": 16,
+"q": "Jimi Hendrix, Janis Joplin, and Kurt Cobain all died at what age?",
+"a": "27 — the so-called \"27 Club\""
+},
+{
+"id": "music-029",
+"type": "trivia",
+"category": "music",
+"age": 16,
+"q": "Who is the lead singer of the Rolling Stones?",
+"a": "Mick Jagger"
+},
+{
+"id": "music-030",
+"type": "trivia",
+"category": "music",
+"age": 16,
+"q": "Which songwriter won the Nobel Prize in Literature in 2016?",
+"a": "Bob Dylan"
+},
+{
+"id": "music-031",
+"type": "trivia",
+"category": "music",
+"age": 16,
+"q": "ABBA comes from which country?",
+"a": "Sweden"
+},
+{
+"id": "music-032",
+"type": "trivia",
+"category": "music",
+"age": 16,
+"q": "Who is known as the Queen of Soul?",
+"a": "Aretha Franklin"
+},
+{
+"id": "music-033",
+"type": "trivia",
+"category": "music",
+"age": 16,
+"q": "What are the four standard choir voice parts?",
+"a": "Soprano, alto, tenor, bass"
+},
+{
+"id": "music-034",
+"type": "trivia",
+"category": "music",
+"age": 16,
+"q": "Which reggae legend sang \"Three Little Birds\" and \"One Love\"?",
+"a": "Bob Marley"
+},
+{
+"id": "music-035",
+"type": "trivia",
+"category": "music",
+"age": 16,
+"q": "Stevie Wonder, The Supremes, and Marvin Gaye all recorded for which famous Detroit label?",
+"a": "Motown"
+},
+{
+"id": "food-001",
+"type": "trivia",
+"category": "food",
+"age": 7,
+"q": "What fruit turns into a raisin when it dries?",
+"a": "A grape"
+},
+{
+"id": "food-002",
+"type": "trivia",
+"category": "food",
+"age": 7,
+"q": "Pizza was invented in which country?",
+"a": "Italy"
+},
+{
+"id": "food-003",
+"type": "trivia",
+"category": "food",
+"age": 7,
+"q": "What green fruit is the main ingredient in guacamole?",
+"a": "Avocado"
+},
+{
+"id": "food-004",
+"type": "trivia",
+"category": "food",
+"age": 7,
+"q": "What do you call bread before it's baked?",
+"a": "Dough"
+},
+{
+"id": "food-005",
+"type": "trivia",
+"category": "food",
+"age": 7,
+"q": "What vegetable turns into a pickle?",
+"a": "A cucumber"
+},
+{
+"id": "food-006",
+"type": "trivia",
+"category": "food",
+"age": 7,
+"q": "Chocolate is made from the beans of what tree?",
+"a": "The cacao tree"
+},
+{
+"id": "food-007",
+"type": "trivia",
+"category": "food",
+"age": 7,
+"q": "What food do astronauts famously eat from squeeze tubes and pouches?",
+"a": "Space food (freeze-dried meals)"
+},
+{
+"id": "food-008",
+"type": "trivia",
+"category": "food",
+"age": 10,
+"q": "Sushi originally comes from which country?",
+"a": "Japan"
+},
+{
+"id": "food-009",
+"type": "trivia",
+"category": "food",
+"age": 10,
+"q": "What is America's most popular pizza topping?",
+"a": "Pepperoni"
+},
+{
+"id": "food-010",
+"type": "trivia",
+"category": "food",
+"age": 10,
+"q": "Which fruit wears its seeds on the outside?",
+"a": "The strawberry"
+},
+{
+"id": "food-011",
+"type": "trivia",
+"category": "food",
+"age": 10,
+"q": "Tofu is made from what bean?",
+"a": "Soybeans"
+},
+{
+"id": "food-012",
+"type": "trivia",
+"category": "food",
+"age": 10,
+"q": "Which country is famous for the croissant?",
+"a": "France"
+},
+{
+"id": "food-013",
+"type": "trivia",
+"category": "food",
+"age": 10,
+"q": "What spice is made from the bark of a tree?",
+"a": "Cinnamon"
+},
+{
+"id": "food-014",
+"type": "trivia",
+"category": "food",
+"age": 10,
+"q": "What nut is traditionally used in pesto?",
+"a": "Pine nuts"
+},
+{
+"id": "food-015",
+"type": "trivia",
+"category": "food",
+"age": 10,
+"q": "Botanically speaking, is a tomato a fruit or a vegetable?",
+"a": "A fruit"
+},
+{
+"id": "food-016",
+"type": "trivia",
+"category": "food",
+"age": 10,
+"q": "Maple syrup is made from the sap of what tree?",
+"a": "The maple tree"
+},
+{
+"id": "food-017",
+"type": "trivia",
+"category": "food",
+"age": 10,
+"q": "What's the difference between a smoothie and a milkshake?",
+"a": "Smoothies are fruit-based; milkshakes are ice-cream-based"
+},
+{
+"id": "food-018",
+"type": "trivia",
+"category": "food",
+"age": 10,
+"q": "French fries are most often made from which vegetable?",
+"a": "Potatoes"
+},
+{
+"id": "food-019",
+"type": "trivia",
+"category": "food",
+"age": 13,
+"q": "What is the most expensive spice in the world by weight?",
+"a": "Saffron"
+},
+{
+"id": "food-020",
+"type": "trivia",
+"category": "food",
+"age": 13,
+"q": "What is the savory 'fifth taste' called?",
+"a": "Umami"
+},
+{
+"id": "food-021",
+"type": "trivia",
+"category": "food",
+"age": 13,
+"q": "What is the main ingredient in hummus?",
+"a": "Chickpeas"
+},
+{
+"id": "food-022",
+"type": "trivia",
+"category": "food",
+"age": 13,
+"q": "Most 'wasabi' served in the US is actually what?",
+"a": "Horseradish dyed green"
+},
+{
+"id": "food-023",
+"type": "trivia",
+"category": "food",
+"age": 13,
+"q": "What compound makes chili peppers hot?",
+"a": "Capsaicin"
+},
+{
+"id": "food-024",
+"type": "trivia",
+"category": "food",
+"age": 13,
+"q": "What scale measures how spicy a pepper is?",
+"a": "The Scoville scale"
+},
+{
+"id": "food-025",
+"type": "trivia",
+"category": "food",
+"age": 13,
+"q": "What cheese goes on a true Margherita pizza?",
+"a": "Mozzarella"
+},
+{
+"id": "food-026",
+"type": "trivia",
+"category": "food",
+"age": 13,
+"q": "The Margherita pizza is named after what kind of person?",
+"a": "An Italian queen — Queen Margherita"
+},
+{
+"id": "food-027",
+"type": "trivia",
+"category": "food",
+"age": 13,
+"q": "Which country eats the most chocolate per person?",
+"a": "Switzerland"
+},
+{
+"id": "food-028",
+"type": "trivia",
+"category": "food",
+"age": 13,
+"q": "What makes sourdough bread sour?",
+"a": "Fermentation — wild yeast and friendly bacteria"
+},
+{
+"id": "food-029",
+"type": "trivia",
+"category": "food",
+"age": 16,
+"q": "Which famously smelly fruit is banned on public transit in parts of Southeast Asia?",
+"a": "Durian"
+},
+{
+"id": "food-030",
+"type": "trivia",
+"category": "food",
+"age": 16,
+"q": "What short-grain rice is traditionally used for risotto?",
+"a": "Arborio"
+},
+{
+"id": "food-031",
+"type": "trivia",
+"category": "food",
+"age": 16,
+"q": "What's the difference between sushi and sashimi?",
+"a": "Sushi includes seasoned rice; sashimi is just sliced raw fish"
+},
+{
+"id": "food-032",
+"type": "trivia",
+"category": "food",
+"age": 16,
+"q": "Haggis is the national dish of which country?",
+"a": "Scotland"
+},
+{
+"id": "food-033",
+"type": "trivia",
+"category": "food",
+"age": 16,
+"q": "What is the Maillard reaction?",
+"a": "The browning that gives seared and baked food its flavor"
+},
+{
+"id": "food-034",
+"type": "trivia",
+"category": "food",
+"age": 16,
+"q": "Champagne can only be called champagne if it comes from where?",
+"a": "The Champagne region of France"
+},
+{
+"id": "food-035",
+"type": "trivia",
+"category": "food",
+"age": 16,
+"q": "What Italian dessert's name means 'pick me up'?",
+"a": "Tiramisu"
+},
+{
+"id": "sports-001",
+"type": "trivia",
+"category": "sports",
+"age": 7,
+"q": "How many players from one soccer team are on the field at once?",
+"a": "Eleven"
+},
+{
+"id": "sports-002",
+"type": "trivia",
+"category": "sports",
+"age": 7,
+"q": "What sport is played with a puck on ice?",
+"a": "Hockey"
+},
+{
+"id": "sports-003",
+"type": "trivia",
+"category": "sports",
+"age": 7,
+"q": "In baseball, how many strikes make an out?",
+"a": "Three"
+},
+{
+"id": "sports-004",
+"type": "trivia",
+"category": "sports",
+"age": 7,
+"q": "How many rings are on the Olympic flag?",
+"a": "Five"
+},
+{
+"id": "sports-005",
+"type": "trivia",
+"category": "sports",
+"age": 7,
+"q": "The Super Bowl is the championship of which sport?",
+"a": "Football"
+},
+{
+"id": "sports-006",
+"type": "trivia",
+"category": "sports",
+"age": 7,
+"q": "In basketball, how many points is a regular basket worth?",
+"a": "Two"
+},
+{
+"id": "sports-007",
+"type": "trivia",
+"category": "sports",
+"age": 7,
+"q": "What do you swing at a ball in baseball?",
+"a": "A bat"
+},
+{
+"id": "sports-008",
+"type": "trivia",
+"category": "sports",
+"age": 10,
+"q": "How often are the Summer Olympics held?",
+"a": "Every four years"
+},
+{
+"id": "sports-009",
+"type": "trivia",
+"category": "sports",
+"age": 10,
+"q": "How many points is a touchdown worth?",
+"a": "Six"
+},
+{
+"id": "sports-010",
+"type": "trivia",
+"category": "sports",
+"age": 10,
+"q": "What does NBA stand for?",
+"a": "National Basketball Association"
+},
+{
+"id": "sports-011",
+"type": "trivia",
+"category": "sports",
+"age": 10,
+"q": "In golf, what is one stroke under par called?",
+"a": "A birdie"
+},
+{
+"id": "sports-012",
+"type": "trivia",
+"category": "sports",
+"age": 10,
+"q": "Who invented basketball in 1891?",
+"a": "James Naismith"
+},
+{
+"id": "sports-013",
+"type": "trivia",
+"category": "sports",
+"age": 10,
+"q": "What do most countries outside the US call soccer?",
+"a": "Football"
+},
+{
+"id": "sports-014",
+"type": "trivia",
+"category": "sports",
+"age": 10,
+"q": "How long is a marathon?",
+"a": "26.2 miles"
+},
+{
+"id": "sports-015",
+"type": "trivia",
+"category": "sports",
+"age": 10,
+"q": "How high is a regulation basketball hoop?",
+"a": "10 feet"
+},
+{
+"id": "sports-016",
+"type": "trivia",
+"category": "sports",
+"age": 10,
+"q": "What color jersey does the leader of the Tour de France wear?",
+"a": "Yellow"
+},
+{
+"id": "sports-017",
+"type": "trivia",
+"category": "sports",
+"age": 10,
+"q": "The Tour de France is a famous race in which sport?",
+"a": "Cycling"
+},
+{
+"id": "sports-018",
+"type": "trivia",
+"category": "sports",
+"age": 10,
+"q": "Counting home plate, how many bases are on a baseball diamond?",
+"a": "Four"
+},
+{
+"id": "sports-019",
+"type": "trivia",
+"category": "sports",
+"age": 13,
+"q": "Which country has won the most soccer World Cups?",
+"a": "Brazil, with five"
+},
+{
+"id": "sports-020",
+"type": "trivia",
+"category": "sports",
+"age": 13,
+"q": "What jersey number did Michael Jordan make famous?",
+"a": "23"
+},
+{
+"id": "sports-021",
+"type": "trivia",
+"category": "sports",
+"age": 13,
+"q": "In tennis, what is a score of zero called?",
+"a": "Love"
+},
+{
+"id": "sports-022",
+"type": "trivia",
+"category": "sports",
+"age": 13,
+"q": "How many Grand Slam tournaments are there in tennis each year?",
+"a": "Four"
+},
+{
+"id": "sports-023",
+"type": "trivia",
+"category": "sports",
+"age": 13,
+"q": "Who has won the most Olympic gold medals ever?",
+"a": "Swimmer Michael Phelps, with 23"
+},
+{
+"id": "sports-024",
+"type": "trivia",
+"category": "sports",
+"age": 13,
+"q": "Simone Biles is the most decorated American athlete in which sport?",
+"a": "Gymnastics"
+},
+{
+"id": "sports-025",
+"type": "trivia",
+"category": "sports",
+"age": 13,
+"q": "Babe Ruth was a legend in which sport?",
+"a": "Baseball"
+},
+{
+"id": "sports-026",
+"type": "trivia",
+"category": "sports",
+"age": 13,
+"q": "Muhammad Ali was a champion in which sport?",
+"a": "Boxing"
+},
+{
+"id": "sports-027",
+"type": "trivia",
+"category": "sports",
+"age": 13,
+"q": "Scoring three goals in one game is called a what?",
+"a": "A hat trick"
+},
+{
+"id": "sports-028",
+"type": "trivia",
+"category": "sports",
+"age": 13,
+"q": "Serena Williams dominated which sport for two decades?",
+"a": "Tennis"
+},
+{
+"id": "sports-029",
+"type": "trivia",
+"category": "sports",
+"age": 16,
+"q": "Where were the first modern Olympics held in 1896?",
+"a": "Athens, Greece"
+},
+{
+"id": "sports-030",
+"type": "trivia",
+"category": "sports",
+"age": 16,
+"q": "What is a perfect score in bowling?",
+"a": "300"
+},
+{
+"id": "sports-031",
+"type": "trivia",
+"category": "sports",
+"age": 16,
+"q": "What was Muhammad Ali's birth name?",
+"a": "Cassius Clay"
+},
+{
+"id": "sports-032",
+"type": "trivia",
+"category": "sports",
+"age": 16,
+"q": "Hockey great Wayne Gretzky is known by what nickname?",
+"a": "The Great One"
+},
+{
+"id": "sports-033",
+"type": "trivia",
+"category": "sports",
+"age": 16,
+"q": "What three races make up horse racing's Triple Crown?",
+"a": "The Kentucky Derby, the Preakness, and the Belmont Stakes"
+},
+{
+"id": "sports-034",
+"type": "trivia",
+"category": "sports",
+"age": 16,
+"q": "The America's Cup is the oldest trophy in which sport?",
+"a": "Sailing"
+},
+{
+"id": "sports-035",
+"type": "trivia",
+"category": "sports",
+"age": 16,
+"q": "Which boxer said he could \"float like a butterfly, sting like a bee\"?",
+"a": "Muhammad Ali"
+},
+{
+"id": "science-001",
+"type": "trivia",
+"category": "science",
+"age": 7,
+"q": "How many planets are in our solar system?",
+"a": "Eight"
+},
+{
+"id": "science-002",
+"type": "trivia",
+"category": "science",
+"age": 7,
+"q": "Which planet is called the Red Planet?",
+"a": "Mars"
+},
+{
+"id": "science-003",
+"type": "trivia",
+"category": "science",
+"age": 7,
+"q": "What is at the center of our solar system?",
+"a": "The Sun"
+},
+{
+"id": "science-004",
+"type": "trivia",
+"category": "science",
+"age": 7,
+"q": "How many legs do insects have?",
+"a": "Six"
+},
+{
+"id": "science-005",
+"type": "trivia",
+"category": "science",
+"age": 7,
+"q": "What gas do we need to breathe to stay alive?",
+"a": "Oxygen"
+},
+{
+"id": "science-006",
+"type": "trivia",
+"category": "science",
+"age": 7,
+"q": "What is the biggest planet in our solar system?",
+"a": "Jupiter"
+},
+{
+"id": "science-007",
+"type": "trivia",
+"category": "science",
+"age": 7,
+"q": "What invisible force pulls things down to the ground?",
+"a": "Gravity"
+},
+{
+"id": "science-008",
+"type": "trivia",
+"category": "science",
+"age": 7,
+"q": "At what temperature does water freeze?",
+"a": "32°F (0°C)"
+},
+{
+"id": "science-009",
+"type": "trivia",
+"category": "science",
+"age": 7,
+"q": "What body part lets you smell things?",
+"a": "Your nose"
+},
+{
+"id": "science-010",
+"type": "trivia",
+"category": "science",
+"age": 10,
+"q": "Who was the first person to walk on the Moon?",
+"a": "Neil Armstrong"
+},
+{
+"id": "science-011",
+"type": "trivia",
+"category": "science",
+"age": 10,
+"q": "In what year did humans first land on the Moon?",
+"a": "1969"
+},
+{
+"id": "science-012",
+"type": "trivia",
+"category": "science",
+"age": 10,
+"q": "Which planet is famous for its beautiful rings?",
+"a": "Saturn"
+},
+{
+"id": "science-013",
+"type": "trivia",
+"category": "science",
+"age": 10,
+"q": "Which planet is closest to the Sun?",
+"a": "Mercury"
+},
+{
+"id": "science-014",
+"type": "trivia",
+"category": "science",
+"age": 10,
+"q": "Which planet is the hottest, thanks to its thick atmosphere?",
+"a": "Venus"
+},
+{
+"id": "science-015",
+"type": "trivia",
+"category": "science",
+"age": 10,
+"q": "What is H2O better known as?",
+"a": "Water"
+},
+{
+"id": "science-016",
+"type": "trivia",
+"category": "science",
+"age": 10,
+"q": "Which organ pumps blood through your body?",
+"a": "The heart"
+},
+{
+"id": "science-017",
+"type": "trivia",
+"category": "science",
+"age": 10,
+"q": "How many bones are in the adult human body?",
+"a": "206"
+},
+{
+"id": "science-018",
+"type": "trivia",
+"category": "science",
+"age": 10,
+"q": "What do you call animals that have a backbone?",
+"a": "Vertebrates"
+},
+{
+"id": "science-019",
+"type": "trivia",
+"category": "science",
+"age": 10,
+"q": "What is the chemical symbol for gold?",
+"a": "Au"
+},
+{
+"id": "science-020",
+"type": "trivia",
+"category": "science",
+"age": 10,
+"q": "What gas do plants give off that we breathe in?",
+"a": "Oxygen"
+},
+{
+"id": "science-021",
+"type": "trivia",
+"category": "science",
+"age": 10,
+"q": "What is the process plants use to turn sunlight into food?",
+"a": "Photosynthesis"
+},
+{
+"id": "science-022",
+"type": "trivia",
+"category": "science",
+"age": 13,
+"q": "What is the smallest unit of a chemical element?",
+"a": "The atom"
+},
+{
+"id": "science-023",
+"type": "trivia",
+"category": "science",
+"age": 13,
+"q": "What galaxy do we live in?",
+"a": "The Milky Way"
+},
+{
+"id": "science-024",
+"type": "trivia",
+"category": "science",
+"age": 13,
+"q": "What part of the cell is called the powerhouse?",
+"a": "The mitochondria"
+},
+{
+"id": "science-025",
+"type": "trivia",
+"category": "science",
+"age": 13,
+"q": "What does DNA stand for?",
+"a": "Deoxyribonucleic acid"
+},
+{
+"id": "science-026",
+"type": "trivia",
+"category": "science",
+"age": 13,
+"q": "Who developed the theory of relativity?",
+"a": "Albert Einstein"
+},
+{
+"id": "science-027",
+"type": "trivia",
+"category": "science",
+"age": 13,
+"q": "Who proposed evolution by natural selection?",
+"a": "Charles Darwin"
+},
+{
+"id": "science-028",
+"type": "trivia",
+"category": "science",
+"age": 13,
+"q": "What is the most abundant gas in Earth's atmosphere?",
+"a": "Nitrogen — about 78%"
+},
+{
+"id": "science-029",
+"type": "trivia",
+"category": "science",
+"age": 13,
+"q": "What is the hardest naturally occurring substance?",
+"a": "Diamond"
+},
+{
+"id": "science-030",
+"type": "trivia",
+"category": "science",
+"age": 13,
+"q": "Does sound travel faster through water or air?",
+"a": "Water — about four times faster"
+},
+{
+"id": "science-031",
+"type": "trivia",
+"category": "science",
+"age": 13,
+"q": "What little helicopter flew on Mars alongside the Perseverance rover?",
+"a": "Ingenuity"
+},
+{
+"id": "science-032",
+"type": "trivia",
+"category": "science",
+"age": 13,
+"q": "Roughly how fast does light travel?",
+"a": "About 186,000 miles per second (300,000 km/s)"
+},
+{
+"id": "science-033",
+"type": "trivia",
+"category": "science",
+"age": 13,
+"q": "What does NASA stand for?",
+"a": "National Aeronautics and Space Administration"
+},
+{
+"id": "science-034",
+"type": "trivia",
+"category": "science",
+"age": 16,
+"q": "Marie Curie won Nobel Prizes in which two sciences?",
+"a": "Physics and chemistry"
+},
+{
+"id": "science-035",
+"type": "trivia",
+"category": "science",
+"age": 16,
+"q": "Which subatomic particle carries a negative charge?",
+"a": "The electron"
+},
+{
+"id": "science-036",
+"type": "trivia",
+"category": "science",
+"age": 16,
+"q": "What is absolute zero in Celsius?",
+"a": "−273.15°C"
+},
+{
+"id": "science-037",
+"type": "trivia",
+"category": "science",
+"age": 16,
+"q": "Roughly how old is the universe?",
+"a": "About 13.8 billion years"
+},
+{
+"id": "science-038",
+"type": "trivia",
+"category": "science",
+"age": 16,
+"q": "What is the first element on the periodic table?",
+"a": "Hydrogen"
+},
+{
+"id": "science-039",
+"type": "trivia",
+"category": "science",
+"age": 16,
+"q": "Schrödinger's famous thought experiment involves what animal?",
+"a": "A cat"
+},
+{
+"id": "science-040",
+"type": "trivia",
+"category": "science",
+"age": 16,
+"q": "A light-year measures what — time or distance?",
+"a": "Distance — how far light travels in a year"
+},
+{
+"id": "science-041",
+"type": "trivia",
+"category": "science",
+"age": 16,
+"q": "CRISPR is a breakthrough tool for editing what?",
+"a": "Genes (DNA)"
+},
+{
+"id": "history-001",
+"type": "trivia",
+"category": "history",
+"age": 7,
+"q": "Who was the first president of the United States?",
+"a": "George Washington"
+},
+{
+"id": "history-002",
+"type": "trivia",
+"category": "history",
+"age": 7,
+"q": "What ship carried the Pilgrims to America in 1620?",
+"a": "The Mayflower"
+},
+{
+"id": "history-003",
+"type": "trivia",
+"category": "history",
+"age": 7,
+"q": "What metal suits did knights wear for protection?",
+"a": "Armor"
+},
+{
+"id": "history-004",
+"type": "trivia",
+"category": "history",
+"age": 7,
+"q": "What giant stone structures did ancient Egyptians build for their pharaohs?",
+"a": "The pyramids"
+},
+{
+"id": "history-005",
+"type": "trivia",
+"category": "history",
+"age": 7,
+"q": "Which country built the Great Wall?",
+"a": "China"
+},
+{
+"id": "history-006",
+"type": "trivia",
+"category": "history",
+"age": 10,
+"q": "In what year did Columbus sail the ocean blue?",
+"a": "1492"
+},
+{
+"id": "history-007",
+"type": "trivia",
+"category": "history",
+"age": 10,
+"q": "Who was the main author of the Declaration of Independence?",
+"a": "Thomas Jefferson"
+},
+{
+"id": "history-008",
+"type": "trivia",
+"category": "history",
+"age": 10,
+"q": "What happened on July 4, 1776?",
+"a": "The Declaration of Independence was adopted"
+},
+{
+"id": "history-009",
+"type": "trivia",
+"category": "history",
+"age": 10,
+"q": "Who was president during the Civil War?",
+"a": "Abraham Lincoln"
+},
+{
+"id": "history-010",
+"type": "trivia",
+"category": "history",
+"age": 10,
+"q": "What was the name of Egypt's famous boy king?",
+"a": "Tutankhamun — King Tut"
+},
+{
+"id": "history-011",
+"type": "trivia",
+"category": "history",
+"age": 10,
+"q": "Who gave the famous \"I Have a Dream\" speech in 1963?",
+"a": "Martin Luther King Jr."
+},
+{
+"id": "history-012",
+"type": "trivia",
+"category": "history",
+"age": 10,
+"q": "The Vikings sailed from which part of the world?",
+"a": "Scandinavia"
+},
+{
+"id": "history-013",
+"type": "trivia",
+"category": "history",
+"age": 10,
+"q": "What four presidents are carved into Mount Rushmore?",
+"a": "Washington, Jefferson, Theodore Roosevelt, and Lincoln"
+},
+{
+"id": "history-014",
+"type": "trivia",
+"category": "history",
+"age": 13,
+"q": "In what year did the Titanic sink?",
+"a": "1912"
+},
+{
+"id": "history-015",
+"type": "trivia",
+"category": "history",
+"age": 13,
+"q": "In what year did World War I begin?",
+"a": "1914"
+},
+{
+"id": "history-016",
+"type": "trivia",
+"category": "history",
+"age": 13,
+"q": "In what year did World War II end?",
+"a": "1945"
+},
+{
+"id": "history-017",
+"type": "trivia",
+"category": "history",
+"age": 13,
+"q": "Who was the first woman to fly solo across the Atlantic?",
+"a": "Amelia Earhart"
+},
+{
+"id": "history-018",
+"type": "trivia",
+"category": "history",
+"age": 13,
+"q": "Rosa Parks made history by refusing to give up what?",
+"a": "Her seat on a segregated bus"
+},
+{
+"id": "history-019",
+"type": "trivia",
+"category": "history",
+"age": 13,
+"q": "What wall came down in 1989?",
+"a": "The Berlin Wall"
+},
+{
+"id": "history-020",
+"type": "trivia",
+"category": "history",
+"age": 13,
+"q": "Which ancient wonder of the world still stands at Giza?",
+"a": "The Great Pyramid"
+},
+{
+"id": "history-021",
+"type": "trivia",
+"category": "history",
+"age": 13,
+"q": "Who painted the Mona Lisa?",
+"a": "Leonardo da Vinci"
+},
+{
+"id": "history-022",
+"type": "trivia",
+"category": "history",
+"age": 13,
+"q": "The Renaissance began in which country?",
+"a": "Italy"
+},
+{
+"id": "history-023",
+"type": "trivia",
+"category": "history",
+"age": 13,
+"q": "Ancient Rome was famously built on how many hills?",
+"a": "Seven"
+},
+{
+"id": "history-024",
+"type": "trivia",
+"category": "history",
+"age": 13,
+"q": "What was the goal of NASA's Apollo program?",
+"a": "Landing humans on the Moon"
+},
+{
+"id": "history-025",
+"type": "trivia",
+"category": "history",
+"age": 13,
+"q": "The Magna Carta, limiting a king's power, was signed in what year?",
+"a": "1215"
+},
+{
+"id": "history-026",
+"type": "trivia",
+"category": "history",
+"age": 16,
+"q": "Whose assassination in 1914 sparked World War I?",
+"a": "Archduke Franz Ferdinand"
+},
+{
+"id": "history-027",
+"type": "trivia",
+"category": "history",
+"age": 16,
+"q": "The Cold War was a standoff between which two superpowers?",
+"a": "The United States and the Soviet Union"
+},
+{
+"id": "history-028",
+"type": "trivia",
+"category": "history",
+"age": 16,
+"q": "What did Johannes Gutenberg invent in Europe around 1440?",
+"a": "The movable-type printing press"
+},
+{
+"id": "history-029",
+"type": "trivia",
+"category": "history",
+"age": 16,
+"q": "In what year did the French Revolution begin?",
+"a": "1789"
+},
+{
+"id": "history-030",
+"type": "trivia",
+"category": "history",
+"age": 16,
+"q": "Who was the first emperor of Rome?",
+"a": "Augustus"
+},
+{
+"id": "history-031",
+"type": "trivia",
+"category": "history",
+"age": 16,
+"q": "The US bought the Louisiana Territory from which country?",
+"a": "France"
+},
+{
+"id": "history-032",
+"type": "trivia",
+"category": "history",
+"age": 16,
+"q": "Cleopatra was the last ruler of which Egyptian dynasty?",
+"a": "The Ptolemaic dynasty"
+},
+{
+"id": "history-033",
+"type": "trivia",
+"category": "history",
+"age": 16,
+"q": "What 1863 document declared enslaved people in Confederate states free?",
+"a": "The Emancipation Proclamation"
+},
+{
+"id": "history-034",
+"type": "trivia",
+"category": "history",
+"age": 16,
+"q": "What 1969 event did 600 million people watch live on TV?",
+"a": "The Apollo 11 Moon landing"
+},
+{
+"id": "history-035",
+"type": "trivia",
+"category": "history",
+"age": 16,
+"q": "Which queen ruled Britain for 70 years until 2022?",
+"a": "Queen Elizabeth II"
+},
+{
+"id": "geography-001",
+"type": "trivia",
+"category": "geography",
+"age": 7,
+"q": "What is the largest ocean in the world?",
+"a": "The Pacific Ocean"
+},
+{
+"id": "geography-002",
+"type": "trivia",
+"category": "geography",
+"age": 7,
+"q": "How many continents are there?",
+"a": "Seven"
+},
+{
+"id": "geography-003",
+"type": "trivia",
+"category": "geography",
+"age": 7,
+"q": "Which country is shaped like a boot?",
+"a": "Italy"
+},
+{
+"id": "geography-004",
+"type": "trivia",
+"category": "geography",
+"age": 7,
+"q": "What is the capital of the United States?",
+"a": "Washington, D.C."
+},
+{
+"id": "geography-005",
+"type": "trivia",
+"category": "geography",
+"age": 7,
+"q": "What is the biggest US state?",
+"a": "Alaska"
+},
+{
+"id": "geography-006",
+"type": "trivia",
+"category": "geography",
+"age": 7,
+"q": "What is the smallest US state?",
+"a": "Rhode Island"
+},
+{
+"id": "geography-007",
+"type": "trivia",
+"category": "geography",
+"age": 7,
+"q": "Penguins mostly live on which frozen continent?",
+"a": "Antarctica"
+},
+{
+"id": "geography-008",
+"type": "trivia",
+"category": "geography",
+"age": 7,
+"q": "What is the biggest hot desert in the world?",
+"a": "The Sahara"
+},
+{
+"id": "geography-009",
+"type": "trivia",
+"category": "geography",
+"age": 10,
+"q": "What is traditionally called the longest river in the world?",
+"a": "The Nile"
+},
+{
+"id": "geography-010",
+"type": "trivia",
+"category": "geography",
+"age": 10,
+"q": "What is the tallest mountain above sea level?",
+"a": "Mount Everest"
+},
+{
+"id": "geography-011",
+"type": "trivia",
+"category": "geography",
+"age": 10,
+"q": "What is the capital of France?",
+"a": "Paris"
+},
+{
+"id": "geography-012",
+"type": "trivia",
+"category": "geography",
+"age": 10,
+"q": "What is the capital of Japan?",
+"a": "Tokyo"
+},
+{
+"id": "geography-013",
+"type": "trivia",
+"category": "geography",
+"age": 10,
+"q": "Which country has the most people?",
+"a": "India"
+},
+{
+"id": "geography-014",
+"type": "trivia",
+"category": "geography",
+"age": 10,
+"q": "What is the largest country by land area?",
+"a": "Russia"
+},
+{
+"id": "geography-015",
+"type": "trivia",
+"category": "geography",
+"age": 10,
+"q": "The Amazon rainforest is mostly in which country?",
+"a": "Brazil"
+},
+{
+"id": "geography-016",
+"type": "trivia",
+"category": "geography",
+"age": 10,
+"q": "How many states are in the USA?",
+"a": "Fifty"
+},
+{
+"id": "geography-017",
+"type": "trivia",
+"category": "geography",
+"age": 10,
+"q": "Which two US states don't touch any other state?",
+"a": "Alaska and Hawaii"
+},
+{
+"id": "geography-018",
+"type": "trivia",
+"category": "geography",
+"age": 10,
+"q": "The Statue of Liberty was a gift from which country?",
+"a": "France"
+},
+{
+"id": "geography-019",
+"type": "trivia",
+"category": "geography",
+"age": 10,
+"q": "What imaginary line splits Earth into northern and southern halves?",
+"a": "The equator"
+},
+{
+"id": "geography-020",
+"type": "trivia",
+"category": "geography",
+"age": 10,
+"q": "What is the capital of Canada?",
+"a": "Ottawa"
+},
+{
+"id": "geography-021",
+"type": "trivia",
+"category": "geography",
+"age": 13,
+"q": "Which continent has the most countries?",
+"a": "Africa, with 54"
+},
+{
+"id": "geography-022",
+"type": "trivia",
+"category": "geography",
+"age": 13,
+"q": "What is the smallest country in the world?",
+"a": "Vatican City"
+},
+{
+"id": "geography-023",
+"type": "trivia",
+"category": "geography",
+"age": 13,
+"q": "The Great Barrier Reef sits off the coast of which country?",
+"a": "Australia"
+},
+{
+"id": "geography-024",
+"type": "trivia",
+"category": "geography",
+"age": 13,
+"q": "Mount Everest sits on the border of Nepal and which other country?",
+"a": "China (Tibet)"
+},
+{
+"id": "geography-025",
+"type": "trivia",
+"category": "geography",
+"age": 13,
+"q": "What is the driest non-polar desert on Earth?",
+"a": "The Atacama Desert in Chile"
+},
+{
+"id": "geography-026",
+"type": "trivia",
+"category": "geography",
+"age": 13,
+"q": "What is the capital of Australia (it's not Sydney)?",
+"a": "Canberra"
+},
+{
+"id": "geography-027",
+"type": "trivia",
+"category": "geography",
+"age": 13,
+"q": "Which US state has more coastline than all the others combined?",
+"a": "Alaska"
+},
+{
+"id": "geography-028",
+"type": "trivia",
+"category": "geography",
+"age": 13,
+"q": "The Mississippi River empties into which body of water?",
+"a": "The Gulf of Mexico"
+},
+{
+"id": "geography-029",
+"type": "trivia",
+"category": "geography",
+"age": 13,
+"q": "Which city famously spans two continents?",
+"a": "Istanbul — Europe and Asia"
+},
+{
+"id": "geography-030",
+"type": "trivia",
+"category": "geography",
+"age": 13,
+"q": "What is the capital of Brazil (not Rio)?",
+"a": "Brasília"
+},
+{
+"id": "geography-031",
+"type": "trivia",
+"category": "geography",
+"age": 13,
+"q": "Reykjavik is the capital of which country?",
+"a": "Iceland"
+},
+{
+"id": "geography-032",
+"type": "trivia",
+"category": "geography",
+"age": 13,
+"q": "Which country is home to more kangaroos than people?",
+"a": "Australia"
+},
+{
+"id": "geography-033",
+"type": "trivia",
+"category": "geography",
+"age": 16,
+"q": "Which country has the most islands — around 267,000?",
+"a": "Sweden"
+},
+{
+"id": "geography-034",
+"type": "trivia",
+"category": "geography",
+"age": 16,
+"q": "Which African country was never colonized by a European power (name one of two)?",
+"a": "Ethiopia or Liberia"
+},
+{
+"id": "geography-035",
+"type": "trivia",
+"category": "geography",
+"age": 16,
+"q": "Which sea has no coastline at all?",
+"a": "The Sargasso Sea"
+},
+{
+"id": "geography-036",
+"type": "trivia",
+"category": "geography",
+"age": 16,
+"q": "Which country has three capital cities?",
+"a": "South Africa"
+},
+{
+"id": "geography-037",
+"type": "trivia",
+"category": "geography",
+"age": 16,
+"q": "What is the lowest point on land on Earth?",
+"a": "The shore of the Dead Sea"
+},
+{
+"id": "geography-038",
+"type": "trivia",
+"category": "geography",
+"age": 16,
+"q": "What strait separates Asia from North America?",
+"a": "The Bering Strait"
+},
+{
+"id": "geography-039",
+"type": "trivia",
+"category": "geography",
+"age": 16,
+"q": "Which two countries share the longest international border?",
+"a": "The United States and Canada"
+},
+{
+"id": "geography-040",
+"type": "trivia",
+"category": "geography",
+"age": 16,
+"q": "What invisible line near 180° longitude makes you skip or repeat a day?",
+"a": "The International Date Line"
+},
+{
+"id": "kids-001",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "How many colors are in a rainbow?",
+"a": "Seven — red, orange, yellow, green, blue, indigo, violet"
+},
+{
+"id": "kids-002",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "How many sides does a triangle have?",
+"a": "Three"
+},
+{
+"id": "kids-003",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "How many days are in a week?",
+"a": "Seven"
+},
+{
+"id": "kids-004",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "How many months are in a year?",
+"a": "Twelve"
+},
+{
+"id": "kids-005",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "How many minutes are in an hour?",
+"a": "Sixty"
+},
+{
+"id": "kids-006",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "How many hours are in a day?",
+"a": "Twenty-four"
+},
+{
+"id": "kids-007",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What is a baby cat called?",
+"a": "A kitten"
+},
+{
+"id": "kids-008",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What is a baby dog called?",
+"a": "A puppy"
+},
+{
+"id": "kids-009",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What is a baby sheep called?",
+"a": "A lamb"
+},
+{
+"id": "kids-010",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What is a baby cow called?",
+"a": "A calf"
+},
+{
+"id": "kids-011",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What color do blue and yellow make when mixed?",
+"a": "Green"
+},
+{
+"id": "kids-012",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What color do red and blue make when mixed?",
+"a": "Purple"
+},
+{
+"id": "kids-013",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What are the three primary colors?",
+"a": "Red, yellow, and blue"
+},
+{
+"id": "kids-014",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "How many legs does an octopus have?",
+"a": "Eight"
+},
+{
+"id": "kids-015",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "Which of Santa's reindeer has a shiny red nose?",
+"a": "Rudolph"
+},
+{
+"id": "kids-016",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What holiday has a bunny that hides eggs?",
+"a": "Easter"
+},
+{
+"id": "kids-017",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What does a caterpillar make before becoming a butterfly?",
+"a": "A chrysalis (cocoon)"
+},
+{
+"id": "kids-018",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "Which fairy tale girl lost a glass slipper?",
+"a": "Cinderella"
+},
+{
+"id": "kids-019",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "Who climbed up a giant beanstalk?",
+"a": "Jack"
+},
+{
+"id": "kids-020",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "Goldilocks snuck into whose house?",
+"a": "The three bears'"
+},
+{
+"id": "kids-021",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "How many dwarfs live with Snow White?",
+"a": "Seven"
+},
+{
+"id": "kids-022",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What is frozen water called?",
+"a": "Ice"
+},
+{
+"id": "kids-023",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What season comes right after winter?",
+"a": "Spring"
+},
+{
+"id": "kids-024",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "How many sides does a stop sign have?",
+"a": "Eight"
+},
+{
+"id": "kids-025",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "How many sides does a hexagon have?",
+"a": "Six"
+},
+{
+"id": "kids-026",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What shape has no corners at all?",
+"a": "A circle"
+},
+{
+"id": "kids-027",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "Riddle: What do cows drink?",
+"a": "Water — not milk!"
+},
+{
+"id": "kids-028",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "How many zeros are in one thousand?",
+"a": "Three"
+},
+{
+"id": "kids-029",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "How many zeros are in one million?",
+"a": "Six"
+},
+{
+"id": "kids-030",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What is 7 times 8?",
+"a": "56"
+},
+{
+"id": "kids-031",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What is half of 100?",
+"a": "50"
+},
+{
+"id": "kids-032",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "Which month is the shortest?",
+"a": "February"
+},
+{
+"id": "kids-033",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "Riddle: What has hands and a face but no arms?",
+"a": "A clock"
+},
+{
+"id": "kids-034",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "Riddle: What gets wetter the more it dries?",
+"a": "A towel"
+},
+{
+"id": "kids-035",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "Riddle: What goes up but never comes down?",
+"a": "Your age"
+},
+{
+"id": "kids-036",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "Riddle: What has teeth but can't bite?",
+"a": "A comb"
+},
+{
+"id": "kids-037",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "Riddle: What is full of holes but still holds water?",
+"a": "A sponge"
+},
+{
+"id": "kids-038",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "Riddle: The more you take, the more you leave behind. What are they?",
+"a": "Footsteps"
+},
+{
+"id": "kids-039",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "How many letters are in the English alphabet?",
+"a": "Twenty-six"
+},
+{
+"id": "kids-040",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What does a thermometer measure?",
+"a": "Temperature"
+},
+{
+"id": "kids-041",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What do bees live in?",
+"a": "A hive"
+},
+{
+"id": "kids-042",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What do you call a person who flies a plane?",
+"a": "A pilot"
+},
+{
+"id": "kids-043",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "How many wheels does a tricycle have?",
+"a": "Three"
+},
+{
+"id": "kids-044",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "Which day of the week comes after Friday?",
+"a": "Saturday"
+},
+{
+"id": "kids-045",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "Where does the President of the United States live?",
+"a": "The White House"
+},
+{
+"id": "kids-046",
+"type": "trivia",
+"category": "kids",
+"age": 7,
+"q": "What do you call hot melted rock that flows from a volcano?",
+"a": "Lava"
+},
+{
+"id": "open-001",
+"type": "open",
+"category": "wyr",
+"age": 7,
+"q": "Would you rather be able to fly or be invisible?"
+},
+{
+"id": "open-002",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "If you could have any animal in the world as a pet, what would you pick?"
+},
+{
+"id": "open-003",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "If you could have one superpower, what would it be?"
+},
+{
+"id": "open-004",
+"type": "open",
+"category": "know",
+"age": 7,
+"q": "What's the best smell in the whole world?"
+},
+{
+"id": "open-005",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "If you opened a restaurant, what food would it serve?"
+},
+{
+"id": "open-006",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "What would you name a pet dragon?"
+},
+{
+"id": "open-007",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "If our car could talk, what do you think it would say right now?"
+},
+{
+"id": "open-008",
+"type": "open",
+"category": "know",
+"age": 7,
+"q": "Describe your dream birthday party."
+},
+{
+"id": "open-009",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "If you could make one rule that everyone in the world had to follow, what would it be?"
+},
+{
+"id": "open-010",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "What's the funniest word you know?"
+},
+{
+"id": "open-011",
+"type": "open",
+"category": "wyr",
+"age": 7,
+"q": "Would you rather live in a treehouse or a secret cave?"
+},
+{
+"id": "open-012",
+"type": "open",
+"category": "know",
+"age": 7,
+"q": "If you could be any age for one week, what age would you pick?"
+},
+{
+"id": "open-013",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "If you could jump into any cartoon and live there, which one?"
+},
+{
+"id": "open-014",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "Invent a brand new ice cream flavor. What's in it?"
+},
+{
+"id": "open-015",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "If animals could talk, which one do you think would be the rudest?"
+},
+{
+"id": "open-016",
+"type": "open",
+"category": "know",
+"age": 7,
+"q": "What would you do with a million dollars?"
+},
+{
+"id": "open-017",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "If you were the principal of your school for a day, what would you change?"
+},
+{
+"id": "open-018",
+"type": "open",
+"category": "know",
+"age": 7,
+"q": "You can bring three things to a desert island. What are they?"
+},
+{
+"id": "open-019",
+"type": "open",
+"category": "wyr",
+"age": 7,
+"q": "Would you rather it always be summer or always be winter?"
+},
+{
+"id": "open-020",
+"type": "open",
+"category": "family",
+"age": 7,
+"q": "What's your favorite memory of our family?"
+},
+{
+"id": "open-021",
+"type": "open",
+"category": "family",
+"age": 7,
+"q": "If you could trade places with a grown-up for one day, who would it be?"
+},
+{
+"id": "open-022",
+"type": "open",
+"category": "know",
+"age": 7,
+"q": "What job do you want when you grow up?"
+},
+{
+"id": "open-023",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "If your stuffed animals came alive at night, what do you think they'd do?"
+},
+{
+"id": "open-024",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "Invent a new holiday. What is it called and how do we celebrate?"
+},
+{
+"id": "open-025",
+"type": "open",
+"category": "know",
+"age": 7,
+"q": "What's the best thing you've ever eaten?"
+},
+{
+"id": "open-026",
+"type": "open",
+"category": "wyr",
+"age": 7,
+"q": "Would you rather be a wizard or a superhero?"
+},
+{
+"id": "open-027",
+"type": "open",
+"category": "wyr",
+"age": 7,
+"q": "Would you rather shrink to the size of an ant or grow as tall as a house?"
+},
+{
+"id": "open-028",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "What song should play every time you walk into a room?"
+},
+{
+"id": "open-029",
+"type": "open",
+"category": "know",
+"age": 7,
+"q": "If you could eat only one food for a whole year, what would it be?"
+},
+{
+"id": "open-030",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "What's the silliest thing you've ever seen an animal do?"
+},
+{
+"id": "open-031",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "If you built a robot, what would it do for you?"
+},
+{
+"id": "open-032",
+"type": "open",
+"category": "wyr",
+"age": 7,
+"q": "Would you rather have a pet dinosaur or a pet dragon?"
+},
+{
+"id": "open-033",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "What would your secret hideout look like?"
+},
+{
+"id": "open-034",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "If you could paint our car any crazy design, what would it look like?"
+},
+{
+"id": "open-035",
+"type": "open",
+"category": "know",
+"age": 7,
+"q": "What three toppings make the perfect pizza?"
+},
+{
+"id": "open-036",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "If you could talk to one kind of animal, which would you choose?"
+},
+{
+"id": "open-037",
+"type": "open",
+"category": "know",
+"age": 7,
+"q": "What's something that always makes you laugh?"
+},
+{
+"id": "open-038",
+"type": "open",
+"category": "wyr",
+"age": 7,
+"q": "Would you rather swim like a fish or run as fast as a cheetah?"
+},
+{
+"id": "open-039",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "If today were 'opposite day,' what would you do first?"
+},
+{
+"id": "open-040",
+"type": "open",
+"category": "know",
+"age": 7,
+"q": "What's the coolest thing you've ever built or made?"
+},
+{
+"id": "open-041",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "If you found a treasure chest, what do you hope is inside?"
+},
+{
+"id": "open-042",
+"type": "open",
+"category": "family",
+"age": 7,
+"q": "Which person in this car snores the loudest? Take a vote."
+},
+{
+"id": "open-043",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "If you could turn into any animal for a day, which one?"
+},
+{
+"id": "open-044",
+"type": "open",
+"category": "know",
+"age": 7,
+"q": "What would you put in a time capsule to open in 20 years?"
+},
+{
+"id": "open-045",
+"type": "open",
+"category": "wyr",
+"age": 7,
+"q": "Would you rather have spaghetti hair or meatball eyes?"
+},
+{
+"id": "open-046",
+"type": "open",
+"category": "know",
+"age": 7,
+"q": "What's your favorite thing to do on a rainy day?"
+},
+{
+"id": "open-047",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "If you could meet any character from a book or movie, who?"
+},
+{
+"id": "open-048",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "What's the bravest thing you can imagine doing?"
+},
+{
+"id": "open-049",
+"type": "open",
+"category": "family",
+"age": 7,
+"q": "If our family had a theme song, what would it sound like?"
+},
+{
+"id": "open-050",
+"type": "open",
+"category": "wyr",
+"age": 7,
+"q": "Would you rather ride a roller coaster or a water slide right now?"
+},
+{
+"id": "open-051",
+"type": "open",
+"category": "know",
+"age": 7,
+"q": "What's one thing you're really good at?"
+},
+{
+"id": "open-052",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "If you could plant a magic seed, what would grow from it?"
+},
+{
+"id": "open-053",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "What animal do you think you were in a past life?"
+},
+{
+"id": "open-054",
+"type": "open",
+"category": "family",
+"age": 7,
+"q": "If you got to plan dinner tonight, what's on the menu?"
+},
+{
+"id": "open-055",
+"type": "open",
+"category": "know",
+"age": 7,
+"q": "What's the weirdest dream you remember?"
+},
+{
+"id": "open-056",
+"type": "open",
+"category": "wyr",
+"age": 7,
+"q": "Would you rather live on a boat or in an RV for a year?"
+},
+{
+"id": "open-057",
+"type": "open",
+"category": "know",
+"age": 7,
+"q": "If you could snap your fingers and be anywhere right now, where?"
+},
+{
+"id": "open-058",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "What's one chore you wish a robot would do forever?"
+},
+{
+"id": "open-059",
+"type": "open",
+"category": "silly",
+"age": 7,
+"q": "Make up a brand-new word and tell us what it means."
+},
+{
+"id": "open-060",
+"type": "open",
+"category": "family",
+"age": 7,
+"q": "Who in this car would survive longest as a pirate, and why?"
+},
+{
+"id": "open-061",
+"type": "open",
+"category": "wyr",
+"age": 10,
+"q": "If you could time travel, would you go to the past or the future?"
+},
+{
+"id": "open-062",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "What's something you've done that you're really proud of?"
+},
+{
+"id": "open-063",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "If you wrote a book, what would it be about?"
+},
+{
+"id": "open-064",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "What's the bravest thing you've ever done?"
+},
+{
+"id": "open-065",
+"type": "open",
+"category": "silly",
+"age": 10,
+"q": "Which fictional character would be your best friend in real life?"
+},
+{
+"id": "open-066",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "If you could instantly master one skill, what would it be?"
+},
+{
+"id": "open-067",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "If you had a YouTube channel, what would it be about?"
+},
+{
+"id": "open-068",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "What's one thing you would change about school?"
+},
+{
+"id": "open-069",
+"type": "open",
+"category": "family",
+"age": 10,
+"q": "Who's the funniest person in this car, and what's your evidence?"
+},
+{
+"id": "open-070",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "What's a food you used to hate but like now?"
+},
+{
+"id": "open-071",
+"type": "open",
+"category": "silly",
+"age": 10,
+"q": "If you could ask any animal one question, what would you ask?"
+},
+{
+"id": "open-072",
+"type": "open",
+"category": "silly",
+"age": 10,
+"q": "If you were invisible for a day, what would you actually do?"
+},
+{
+"id": "open-073",
+"type": "open",
+"category": "silly",
+"age": 10,
+"q": "What world record do you think you could break?"
+},
+{
+"id": "open-074",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "If you could swap lives with anyone for a week, who?"
+},
+{
+"id": "open-075",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "What's the most beautiful place you've ever been?"
+},
+{
+"id": "open-076",
+"type": "open",
+"category": "silly",
+"age": 10,
+"q": "If you could design a video game, what would it be like?"
+},
+{
+"id": "open-077",
+"type": "open",
+"category": "family",
+"age": 10,
+"q": "What's something weird that your family does that you love?"
+},
+{
+"id": "open-078",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "If you could be famous for one thing, what would you want it to be?"
+},
+{
+"id": "open-079",
+"type": "open",
+"category": "deep",
+"age": 10,
+"q": "What invention does the world really need?"
+},
+{
+"id": "open-080",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "What's the nicest thing someone has ever done for you?"
+},
+{
+"id": "open-081",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "If you found $100 on the sidewalk, what would you do with it?"
+},
+{
+"id": "open-082",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "What's something you wish you could tell your teacher?"
+},
+{
+"id": "open-083",
+"type": "open",
+"category": "wyr",
+"age": 10,
+"q": "Which would be worse: no internet for a year or no dessert for a year?"
+},
+{
+"id": "open-084",
+"type": "open",
+"category": "deep",
+"age": 10,
+"q": "What's the hardest thing about being your age?"
+},
+{
+"id": "open-085",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "If you could rename yourself, would you? What name?"
+},
+{
+"id": "open-086",
+"type": "open",
+"category": "family",
+"age": 10,
+"q": "What three words describe our family best?"
+},
+{
+"id": "open-087",
+"type": "open",
+"category": "silly",
+"age": 10,
+"q": "If you could have dinner with any cartoon villain, who and why?"
+},
+{
+"id": "open-088",
+"type": "open",
+"category": "family",
+"age": 10,
+"q": "What's something grown-ups say that makes no sense to you?"
+},
+{
+"id": "open-089",
+"type": "open",
+"category": "silly",
+"age": 10,
+"q": "If you could live inside any video game, which one?"
+},
+{
+"id": "open-090",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "What's your earliest memory?"
+},
+{
+"id": "open-091",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "If you could make one school subject disappear, which one goes?"
+},
+{
+"id": "open-092",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "What's the best gift you've ever gotten?"
+},
+{
+"id": "open-093",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "What's the best gift you've ever given?"
+},
+{
+"id": "open-094",
+"type": "open",
+"category": "family",
+"age": 10,
+"q": "If our pet could review our family online, what would the review say?"
+},
+{
+"id": "open-095",
+"type": "open",
+"category": "deep",
+"age": 10,
+"q": "What would you do if you were president for a week?"
+},
+{
+"id": "open-096",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "What's a smell that instantly reminds you of something?"
+},
+{
+"id": "open-097",
+"type": "open",
+"category": "wyr",
+"age": 10,
+"q": "Would you rather explore the deep ocean or outer space?"
+},
+{
+"id": "open-098",
+"type": "open",
+"category": "know",
+"age": 10,
+"q": "What's one thing you want to learn before next summer?"
+},
+{
+"id": "open-099",
+"type": "open",
+"category": "silly",
+"age": 10,
+"q": "If you opened a store, what would it sell?"
+},
+{
+"id": "open-100",
+"type": "open",
+"category": "family",
+"age": 10,
+"q": "What's the funniest thing that's ever happened on a family trip?"
+},
+{
+"id": "open-101",
+"type": "open",
+"category": "deep",
+"age": 13,
+"q": "If you could have dinner with anyone, dead or alive, who would it be?"
+},
+{
+"id": "open-102",
+"type": "open",
+"category": "deep",
+"age": 13,
+"q": "What's a belief or opinion you've changed your mind about?"
+},
+{
+"id": "open-103",
+"type": "open",
+"category": "deep",
+"age": 13,
+"q": "What do you want to be remembered for?"
+},
+{
+"id": "open-104",
+"type": "open",
+"category": "deep",
+"age": 13,
+"q": "If you could know one thing about the future, would you want to? What?"
+},
+{
+"id": "open-105",
+"type": "open",
+"category": "know",
+"age": 13,
+"q": "What's the best advice anyone has ever given you?"
+},
+{
+"id": "open-106",
+"type": "open",
+"category": "deep",
+"age": 13,
+"q": "What does success mean to you?"
+},
+{
+"id": "open-107",
+"type": "open",
+"category": "deep",
+"age": 13,
+"q": "If money didn't matter at all, how would you spend your days?"
+},
+{
+"id": "open-108",
+"type": "open",
+"category": "deep",
+"age": 13,
+"q": "What's something you wish adults understood about being your age?"
+},
+{
+"id": "open-109",
+"type": "open",
+"category": "know",
+"age": 13,
+"q": "What's a small thing that always makes your day better?"
+},
+{
+"id": "open-110",
+"type": "open",
+"category": "wyr",
+"age": 13,
+"q": "Would you rather be famous, or unknown but rich?"
+},
+{
+"id": "open-111",
+"type": "open",
+"category": "know",
+"age": 13,
+"q": "What's a risk you took that you're glad you took?"
+},
+{
+"id": "open-112",
+"type": "open",
+"category": "know",
+"age": 13,
+"q": "If you could live in any decade, which one and why?"
+},
+{
+"id": "open-113",
+"type": "open",
+"category": "deep",
+"age": 13,
+"q": "What quality matters most in a friend?"
+},
+{
+"id": "open-114",
+"type": "open",
+"category": "know",
+"age": 13,
+"q": "What's something hard you did that you're glad you pushed through?"
+},
+{
+"id": "open-115",
+"type": "open",
+"category": "deep",
+"age": 13,
+"q": "Is it more important to be smart or to be kind? Defend your answer."
+},
+{
+"id": "open-116",
+"type": "open",
+"category": "deep",
+"age": 13,
+"q": "What would you tell yourself from five years ago?"
+},
+{
+"id": "open-117",
+"type": "open",
+"category": "know",
+"age": 13,
+"q": "What's something totally overrated? And something underrated?"
+},
+{
+"id": "open-118",
+"type": "open",
+"category": "deep",
+"age": 13,
+"q": "If you could fix one problem in the world, which would you pick?"
+},
+{
+"id": "open-119",
+"type": "open",
+"category": "family",
+"age": 13,
+"q": "What's a moment you felt really proud of someone else in this car?"
+},
+{
+"id": "open-120",
+"type": "open",
+"category": "know",
+"age": 13,
+"q": "What's your unpopular opinion about food?"
+},
+{
+"id": "open-121",
+"type": "open",
+"category": "deep",
+"age": 13,
+"q": "If you wrote a letter to your future self, what's the first line?"
+},
+{
+"id": "open-122",
+"type": "open",
+"category": "deep",
+"age": 13,
+"q": "What's the hardest decision you've ever had to make?"
+},
+{
+"id": "open-123",
+"type": "open",
+"category": "know",
+"age": 13,
+"q": "Who has influenced you the most, and how?"
+},
+{
+"id": "open-124",
+"type": "open",
+"category": "know",
+"age": 13,
+"q": "If you had to teach a class on anything, what could you teach?"
+},
+{
+"id": "open-125",
+"type": "open",
+"category": "know",
+"age": 13,
+"q": "What's something you do differently from most people?"
+},
+{
+"id": "open-126",
+"type": "open",
+"category": "family",
+"age": 13,
+"q": "What's a tradition you hope our family never stops doing?"
+},
+{
+"id": "open-127",
+"type": "open",
+"category": "deep",
+"age": 13,
+"q": "When do you feel most like yourself?"
+},
+{
+"id": "open-128",
+"type": "open",
+"category": "know",
+"age": 13,
+"q": "What's a compliment you've never forgotten?"
+},
+{
+"id": "open-129",
+"type": "open",
+"category": "family",
+"age": 13,
+"q": "If you could ask your great-great-grandparents one question, what?"
+},
+{
+"id": "open-130",
+"type": "open",
+"category": "know",
+"age": 13,
+"q": "What's something you used to be afraid of but aren't anymore?"
+},
+{
+"id": "open-131",
+"type": "open",
+"category": "know",
+"age": 13,
+"q": "What song do you have memorized start to finish?"
+},
+{
+"id": "open-132",
+"type": "open",
+"category": "know",
+"age": 13,
+"q": "If you could master any instrument overnight, which one?"
+},
+{
+"id": "open-133",
+"type": "open",
+"category": "know",
+"age": 13,
+"q": "What's the most interesting thing you've learned this year?"
+},
+{
+"id": "open-134",
+"type": "open",
+"category": "wyr",
+"age": 13,
+"q": "Would you rather always say what you think, or never be misunderstood?"
+},
+{
+"id": "open-135",
+"type": "open",
+"category": "deep",
+"age": 13,
+"q": "What's one thing you'd put on a billboard for millions to see?"
+},
+{
+"id": "open-136",
+"type": "open",
+"category": "deep",
+"age": 16,
+"q": "What part of growing up surprised you the most?"
+},
+{
+"id": "open-137",
+"type": "open",
+"category": "deep",
+"age": 16,
+"q": "Does everything happen for a reason? Make your case."
+},
+{
+"id": "open-138",
+"type": "open",
+"category": "deep",
+"age": 16,
+"q": "What's a moral line you would never cross, no matter what?"
+},
+{
+"id": "open-139",
+"type": "open",
+"category": "deep",
+"age": 16,
+"q": "When did you last change someone's mind about something that mattered?"
+},
+{
+"id": "open-140",
+"type": "open",
+"category": "know",
+"age": 16,
+"q": "If you had to give a TED talk tomorrow with no prep, what's your topic?"
+},
+{
+"id": "open-141",
+"type": "open",
+"category": "deep",
+"age": 16,
+"q": "What do you think the world will look like in 50 years?"
+},
+{
+"id": "open-142",
+"type": "open",
+"category": "deep",
+"age": 16,
+"q": "What's something our generation gets right that others don't?"
+},
+{
+"id": "open-143",
+"type": "open",
+"category": "deep",
+"age": 16,
+"q": "What's the difference between being nice and being good?"
+},
+{
+"id": "open-144",
+"type": "open",
+"category": "deep",
+"age": 16,
+"q": "If you could relive one day of your life so far, which one?"
+},
+{
+"id": "open-145",
+"type": "open",
+"category": "deep",
+"age": 16,
+"q": "What's a question you wish people asked you more often?"
+},
+{
+"id": "open-146",
+"type": "open",
+"category": "wyr",
+"age": 16,
+"q": "Which matters more: talent or persistence? Pick one."
+},
+{
+"id": "open-147",
+"type": "open",
+"category": "deep",
+"age": 16,
+"q": "What's something you believe that most people around you don't?"
+},
+{
+"id": "open-148",
+"type": "open",
+"category": "deep",
+"age": 16,
+"q": "If you knew you couldn't fail, what would you attempt?"
+},
+{
+"id": "open-149",
+"type": "open",
+"category": "know",
+"age": 16,
+"q": "What's the best conversation you've ever had, and what made it great?"
+},
+{
+"id": "open-150",
+"type": "open",
+"category": "deep",
+"age": 16,
+"q": "What advice would you give someone ten years younger than you?"
+}
+]
+}

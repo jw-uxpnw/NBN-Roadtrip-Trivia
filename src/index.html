@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Road Trip Trivia</title>
+  <meta name="description" content="Trivia and conversation questions for family car trips. Works offline.">
+  <meta name="theme-color" content="#0A0A08">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Trivia">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Fredoka:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- update banner -->
+  <div id="update-banner" class="update-banner" hidden>
+    <span>New version ready</span>
+    <button id="btn-update-refresh">Refresh</button>
+  </div>
+
+  <!-- ============ WELCOME ============ -->
+  <section id="screen-splash" class="screen" hidden>
+    <div class="splash-inner">
+      <p class="splash-tour">2026 Summer Tour</p>
+      <div class="splash-hero">
+        <img src="assets/Naughtybynature_front.png" alt="Naughty by Nature 2026" width="320" height="320">
+      </div>
+      <h1 class="splash-title">Road Trip Trivia</h1>
+      <p class="splash-blurb">Family trivia for the car. Download questions before the drive so you can play without service.</p>
+      <button id="btn-setup-phone" class="btn-primary btn-splash">Set up on this phone</button>
+      <button id="btn-play-browser" class="btn-text">Play in browser</button>
+      <button id="btn-welcome-help" class="btn-text">How to use this app</button>
+      <p class="splash-foot">Works without service after setup</p>
+    </div>
+  </section>
+
+  <!-- ============ INSTALL INSTRUCTIONS ============ -->
+  <section id="screen-install" class="screen" hidden>
+    <div class="sheet-inner">
+      <button id="btn-install-back" class="link-back">‹ Back</button>
+
+      <div id="install-ios" class="install-variant" hidden>
+        <h1 class="sheet-title">Add Road Trip Trivia to your Home Screen</h1>
+        <ol class="steps">
+          <li>Open this page in <b>Safari</b>.</li>
+          <li>Tap the <b>Share</b> button.</li>
+          <li>Tap <b>“Add to Home Screen.”</b></li>
+          <li>Tap <b>“Add.”</b></li>
+        </ol>
+        <p class="sheet-help">After that, open Road Trip Trivia from your Home Screen like a regular app.</p>
+        <p class="sheet-note">Already added it? Open the Road Trip Trivia icon from your Home Screen.</p>
+      </div>
+
+      <div id="install-android" class="install-variant" hidden>
+        <h1 class="sheet-title">Install Road Trip Trivia</h1>
+        <button id="btn-native-install" class="btn-primary" hidden>Install app</button>
+        <ol class="steps">
+          <li>Open this page in <b>Chrome</b>.</li>
+          <li>Tap the <b>⋮</b> menu (top-right).</li>
+          <li>Tap <b>“Add to Home screen”</b> or <b>“Install app.”</b></li>
+          <li>Tap <b>“Install”</b> or <b>“Add.”</b></li>
+        </ol>
+        <p class="sheet-help">After that, open Road Trip Trivia from your Home Screen like a regular app.</p>
+      </div>
+
+      <div id="install-unknown" class="install-variant" hidden>
+        <h1 class="sheet-title">Add this app to your phone</h1>
+        <p class="sheet-body">For best results, open this link in Safari on iPhone or Chrome on Android, then add it to your Home Screen.</p>
+        <button id="btn-copy-link" class="btn-secondary">Copy link</button>
+        <p id="copy-status" class="sheet-note" hidden>Link copied!</p>
+      </div>
+
+      <button id="btn-install-play" class="btn-text">Play in browser instead</button>
+    </div>
+  </section>
+
+  <!-- ============ OFFLINE READINESS ============ -->
+  <section id="screen-readiness" class="screen" hidden>
+    <div class="sheet-inner">
+      <h1 class="sheet-title">Get ready for the road</h1>
+      <p class="sheet-body">Your questions are already on this phone, so the game works even without service. Download more for extra variety.</p>
+      <ul class="checklist">
+        <li class="check done"><span class="check-mark">✓</span> App added to your phone</li>
+        <li class="check done"><span class="check-mark">✓</span> Starter questions included</li>
+        <li id="check-extra" class="check"><span class="check-mark">○</span> Extra question packs <span class="check-opt">(optional)</span></li>
+        <li class="check done"><span class="check-mark">✓</span> Ready for offline play</li>
+      </ul>
+      <p id="readiness-status" class="readiness-status"></p>
+      <button id="btn-readiness-download" class="btn-secondary">Download more questions</button>
+      <button id="btn-readiness-play" class="btn-primary">Start playing</button>
+    </div>
+  </section>
+
+  <!-- ============ HELP ============ -->
+  <section id="screen-help" class="screen" hidden>
+    <div class="sheet-inner">
+      <button id="btn-help-back" class="link-back">‹ Back</button>
+      <h1 class="sheet-title">How to use this app</h1>
+      <div class="help-list">
+        <div class="help-item"><span class="help-emoji">🎮</span><div class="help-text"><b>Pick a mode</b><p>Trivia has questions with answers. Table Talk is conversation starters — no wrong answers, just fun things to chat about.</p></div></div>
+        <div class="help-item"><span class="help-emoji">✅</span><div class="help-text"><b>Choose your topics</b><p>Tap categories to turn them on or off, and set how many questions you want per round.</p></div></div>
+        <div class="help-item"><span class="help-emoji">👆</span><div class="help-text"><b>Play</b><p>Tap the big question to reveal the answer, then tap again for the next one. For multiple-choice, tap the answer you think is right.</p></div></div>
+        <div class="help-item"><span class="help-emoji">🏆</span><div class="help-text"><b>Keep score (optional)</b><p>Turn it on in setup. You’ll mark whether you got each answer right; multiple-choice scores itself. It’s just for fun.</p></div></div>
+        <div class="help-item"><span class="help-emoji">❤️</span><div class="help-text"><b>Save favorites</b><p>Tap the heart on a question you love. Open “Saved questions” to find them again.</p></div></div>
+        <div class="help-item"><span class="help-emoji">✖️</span><div class="help-text"><b>Skip for good</b><p>Tap the ✕ to skip a question you don’t like — you won’t see it again.</p></div></div>
+        <div class="help-item"><span class="help-emoji">⬇️</span><div class="help-text"><b>Download more</b><p>On Wi-Fi, download extra trivia packs before the drive. They stay on your phone.</p></div></div>
+        <div class="help-item"><span class="help-emoji">📵</span><div class="help-text"><b>Works offline</b><p>Add the app to your home screen and it plays with no internet — perfect for spotty coverage.</p></div></div>
+      </div>
+      <button id="btn-help-done" class="btn-primary">Got it</button>
+    </div>
+  </section>
+
+  <!-- ============ SETUP ============ -->
+  <section id="screen-setup" class="screen" hidden>
+    <div class="setup-inner">
+      <div class="setup-header">
+        <h1 class="app-name">Naughty by Nature</h1>
+        <p class="app-sub">2026 Summer Tour</p>
+      </div>
+
+      <div class="setup-block">
+        <h2>What are we playing?</h2>
+        <div class="mode-cards" role="radiogroup" aria-label="Game type">
+          <button id="mode-trivia" class="mode-card" role="radio" data-mode="trivia">
+            <span class="mode-title">Trivia</span>
+            <span class="mode-sub">Questions with answers. Tap to reveal.</span>
+          </button>
+          <button id="mode-open" class="mode-card" role="radio" data-mode="open">
+            <span class="mode-title">Table Talk</span>
+            <span class="mode-sub">Conversation starters. No wrong answers.</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="block-trivia-cats" class="setup-block" hidden>
+        <h2>Trivia categories</h2>
+        <div id="category-grid" class="chip-grid"></div>
+        <p id="category-hint" class="hint" hidden>Keep at least one category on.</p>
+      </div>
+
+      <div id="block-open-cats" class="setup-block" hidden>
+        <h2>What kind of conversation?</h2>
+        <div id="open-category-grid" class="chip-grid"></div>
+        <p id="open-category-hint" class="hint" hidden>Keep at least one category on.</p>
+      </div>
+
+      <div id="block-length" class="setup-block" hidden>
+        <h2>Round length</h2>
+        <div id="length-control" class="segmented" role="radiogroup" aria-label="Round length">
+          <button data-length="10" role="radio">10</button>
+          <button data-length="25" role="radio">25</button>
+          <button data-length="50" role="radio">50</button>
+          <button data-length="0" role="radio">Endless</button>
+        </div>
+      </div>
+
+      <div id="block-score" class="setup-block" hidden>
+        <h2>Keep score</h2>
+        <div id="score-control" class="segmented" role="radiogroup" aria-label="Keep score">
+          <button data-score="0" role="radio">Off</button>
+          <button data-score="1" role="radio">On</button>
+        </div>
+        <p class="block-note">When on, answer-only questions ask "Did you get it right?" and multiple-choice is scored by your pick.</p>
+      </div>
+
+      <div id="block-otdb" class="setup-block" hidden>
+        <h2>Download more trivia</h2>
+        <p class="block-note">Needs internet. Pulls questions from free trivia sources into your offline bank — grab a batch on Wi-Fi before the drive.</p>
+        <div class="otdb-row">
+          <select id="otdb-source" aria-label="Question source">
+            <option value="otdb">Open Trivia DB</option>
+            <option value="tta">The Trivia API</option>
+          </select>
+        </div>
+        <div class="otdb-row">
+          <select id="otdb-category" aria-label="Trivia category">
+            <option value="">Any category</option>
+          </select>
+        </div>
+        <div class="otdb-row">
+          <select id="otdb-difficulty" aria-label="Difficulty">
+            <option value="">Any difficulty</option>
+            <option value="easy">Easy (10+)</option>
+            <option value="medium">Medium (13+)</option>
+            <option value="hard">Hard (16+)</option>
+          </select>
+          <select id="otdb-amount" aria-label="How many questions">
+            <option value="10">10</option>
+            <option value="25" selected>25</option>
+            <option value="50">50</option>
+          </select>
+        </div>
+        <button id="btn-otdb" class="btn-secondary">Download questions</button>
+        <p id="otdb-status" class="otdb-status" hidden></p>
+        <div id="otdb-packs" class="otdb-packs"></div>
+        <button id="btn-otdb-clear" class="btn-text danger" hidden>Remove all downloaded questions</button>
+      </div>
+
+      <button id="btn-start" class="btn-primary">Start</button>
+      <button id="btn-setup-saved" class="btn-text">Saved questions</button>
+      <button id="btn-setup-help" class="btn-text">How to use this app</button>
+    </div>
+  </section>
+
+  <!-- ============ PLAY ============ -->
+  <section id="screen-play" class="screen" hidden>
+    <header class="play-bar">
+      <button id="btn-back" class="icon-btn" aria-label="Back" hidden>
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </button>
+      <button id="btn-home" class="icon-btn" aria-label="Home">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </button>
+      <div id="progress-bar" class="progress-bar-wrap">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+      <button id="btn-saved" class="icon-btn" aria-label="Saved questions">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+      </button>
+    </header>
+
+    <main id="question-area" class="question-area" role="button" tabindex="0" aria-label="Question. Tap to continue.">
+      <span id="for-pill" class="for-pill" hidden></span>
+      <span id="category-pill" class="category-pill"></span>
+      <p id="question-text" class="question-text"></p>
+      <div id="choices" class="choices" hidden></div>
+      <p id="answer-text" class="answer-text" hidden></p>
+      <div id="selfscore" class="selfscore" hidden>
+        <p class="selfscore-q">Did you get it right?</p>
+        <div class="selfscore-btns">
+          <button id="ss-yes" class="ss-btn ss-yes">Yes</button>
+          <button id="ss-no" class="ss-btn ss-no">No</button>
+        </div>
+      </div>
+      <p id="tap-hint" class="tap-hint"></p>
+    </main>
+
+    <footer class="play-actions">
+      <button id="btn-skip" class="action-btn" aria-label="Skip — never show this question again">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <button id="btn-heart" class="action-btn heart" aria-label="Save this question">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </button>
+    </footer>
+  </section>
+
+  <!-- ============ SAVED ============ -->
+  <section id="screen-saved" class="screen" hidden>
+    <header class="play-bar">
+      <button id="btn-saved-back" class="icon-btn" aria-label="Back">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </button>
+      <span class="round-counter">Saved</span>
+      <span class="icon-btn" aria-hidden="true"></span>
+    </header>
+    <div id="saved-list" class="saved-list"></div>
+  </section>
+
+  <!-- ============ ROUND DONE ============ -->
+  <section id="screen-done" class="screen" hidden>
+    <div class="done-inner">
+      <p class="done-emoji">🏁</p>
+      <h2 class="done-title">Round complete!</h2>
+      <p id="done-count" class="done-count"></p>
+      <button id="btn-again" class="btn-primary">Play again</button>
+      <button id="btn-done-setup" class="btn-text">Change setup</button>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
