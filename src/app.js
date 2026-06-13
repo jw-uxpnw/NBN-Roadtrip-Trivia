@@ -441,7 +441,6 @@
   const $ = id => document.getElementById(id);
   const screens = {
     splash:    $('screen-splash'),
-    install:   $('screen-install'),
     readiness: $('screen-readiness'),
     help:      $('screen-help'),
     setup:     $('screen-setup'),
@@ -858,72 +857,29 @@
     routeEntry();
   };
 
-  // ---------- install / offline setup ----------
+  // ---------- entry routing ----------
 
-  const detectPlatform = () => {
-    if (matchMedia('(display-mode: standalone)').matches || navigator.standalone === true) return 'standalone';
-    const ua = navigator.userAgent || '';
-    if (/iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) return 'ios';
-    if (/Android/.test(ua)) return 'android';
-    return 'unknown';
-  };
-
-  // Captured so Android's "Install app" button can fire the native prompt.
-  let deferredInstallPrompt = null;
-  window.addEventListener('beforeinstallprompt', e => {
-    e.preventDefault();
-    deferredInstallPrompt = e;
-    $('btn-native-install').hidden = false;
-  });
-
-  // Installed/standalone users skip the welcome+install and land on readiness.
-  const routeEntry = () => {
-    if (detectPlatform() === 'standalone') {
-      renderReadiness();
-      show('readiness');
-    } else {
-      show('splash');
-    }
-  };
+  const isStandalone = () =>
+    matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
 
   const goToSetup = () => { renderSetup(); show('setup'); };
 
-  // Welcome
-  $('btn-setup-phone').addEventListener('click', () => {
-    const p = detectPlatform();
-    $('install-ios').hidden = p !== 'ios';
-    $('install-android').hidden = p !== 'android';
-    $('install-unknown').hidden = p === 'ios' || p === 'android';
-    $('btn-native-install').hidden = !(p === 'android' && deferredInstallPrompt);
-    $('copy-status').hidden = true;
-    show('install');
-  });
-  $('btn-play-browser').addEventListener('click', goToSetup);
+  // Installed/standalone users land on readiness; everyone else sees the welcome.
+  const routeEntry = () => {
+    if (isStandalone()) { renderReadiness(); show('readiness'); }
+    else show('splash');
+  };
 
-  // Help screen — returns to whichever screen opened it
-  let helpReturnTo = 'splash';
+  // Welcome
+  $('btn-play-now').addEventListener('click', goToSetup);
+
+  // Help screen — reached from setup; returns there
+  let helpReturnTo = 'setup';
   const openHelp = from => { helpReturnTo = from; show('help'); window.scrollTo(0, 0); };
   const closeHelp = () => show(helpReturnTo);
-  $('btn-welcome-help').addEventListener('click', () => openHelp('splash'));
   $('btn-setup-help').addEventListener('click', () => openHelp('setup'));
   $('btn-help-back').addEventListener('click', closeHelp);
   $('btn-help-done').addEventListener('click', closeHelp);
-
-  // Install screen
-  $('btn-install-back').addEventListener('click', () => show('splash'));
-  $('btn-install-play').addEventListener('click', goToSetup);
-  $('btn-native-install').addEventListener('click', async () => {
-    if (!deferredInstallPrompt) return;
-    deferredInstallPrompt.prompt();
-    await deferredInstallPrompt.userChoice;
-    deferredInstallPrompt = null;
-    $('btn-native-install').hidden = true;
-  });
-  $('btn-copy-link').addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(location.href); $('copy-status').textContent = 'Link copied!'; }
-    catch { $('copy-status').textContent = location.href; }
-    $('copy-status').hidden = false;
-  });
 
   // Readiness
   const renderReadiness = () => {
