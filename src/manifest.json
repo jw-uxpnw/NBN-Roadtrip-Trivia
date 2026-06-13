@@ -1,7 +1,7 @@
 {
-  "name": "Road Trip Trivia",
-  "short_name": "Trivia",
-  "description": "A family trivia game for the road. Works offline.",
+  "name": "Naughty by Nature Quiz",
+  "short_name": "NBN Quiz",
+  "description": "The Naughty by Nature family quiz game for the road. Works offline.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
