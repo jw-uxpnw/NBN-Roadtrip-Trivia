@@ -59,7 +59,6 @@
     categories: Object.fromEntries(Object.keys(CATEGORIES).map(c => [c, true])),
     openCategories: Object.fromEntries(Object.keys(OPEN_CATEGORIES).map(c => [c, true])),
     roundLength: 25,
-    keepScore: false,
   });
 
   const defaultWeights = () => ({
@@ -501,7 +500,6 @@
     const trivia = settings.mode === 'trivia';
     $('block-trivia-cats').hidden = !trivia;
     $('block-length').hidden = !trivia;
-    $('block-score').hidden = !trivia;
     $('block-otdb').hidden = !trivia;
     $('block-open-cats').hidden = trivia;
   };
@@ -524,9 +522,6 @@
     renderChipGrid('open-category-grid', 'open-category-hint', OPEN_CATEGORIES, settings.openCategories);
     renderSegmented('length-control', 'length', settings.roundLength, v => {
       settings.roundLength = v; save(KEYS.settings, settings);
-    });
-    renderSegmented('score-control', 'score', settings.keepScore ? 1 : 0, v => {
-      settings.keepScore = !!v; save(KEYS.settings, settings);
     });
     $('category-hint').hidden = true;
     $('open-category-hint').hidden = true;
@@ -604,23 +599,17 @@
     choicesEl.innerHTML = '';
     choicesEl.hidden = !q.choices;
     if (q.choices) {
-      const scored = settings.keepScore;
       for (const c of q.choices) {
-        const d = document.createElement(scored ? 'button' : 'div');
+        const d = document.createElement('div');
         d.className = 'choice';
         d.textContent = c;
-        if (scored) d.addEventListener('click', e => { e.stopPropagation(); pickChoice(c); });
         choicesEl.appendChild(d);
       }
     }
     $('answer-text').hidden = true;
     $('answer-text').textContent = q.a || '';
-    $('selfscore').hidden = true;
     $('tap-hint').hidden = false;
-    $('tap-hint').textContent =
-      q.type !== 'trivia' ? 'Tap for next question'
-      : (q.choices && settings.keepScore) ? 'Pick your answer'
-      : 'Tap to reveal answer';
+    $('tap-hint').textContent = q.type !== 'trivia' ? 'Tap for next question' : 'Tap to reveal answer';
     $('btn-heart').classList.toggle('saved', saved.includes(q.id));
     // update back button visibility and progress
     const endless = settings.mode === 'open' || settings.roundLength === 0;
@@ -630,19 +619,15 @@
       : Math.round((round.count / settings.roundLength) * 100) + '%';
   };
 
-  const scoreLine = () => round.score.answered > 0
-    ? ` You got ${round.score.correct} of ${round.score.answered} you scored.`
-    : '';
-
   const advance = () => {
     if (settings.mode === 'trivia' && settings.roundLength !== 0 && round.count >= settings.roundLength) {
-      $('done-count').textContent = `You made it through ${round.count} questions.` + scoreLine();
+      $('done-count').textContent = `You made it through ${round.count} questions.`;
       show('done');
       return;
     }
     const q = nextQuestion();
     if (!q) {
-      $('done-count').textContent = 'You’ve been through every question in the bank!' + scoreLine();
+      $('done-count').textContent = 'You’ve been through every question in the bank!';
       show('done');
       return;
     }
@@ -651,65 +636,31 @@
   };
 
   const startRound = () => {
-    round = { count: 0, current: null, revealed: false, forName: null, history: [],
-              score: { correct: 0, answered: 0 } };
+    round = { count: 0, current: null, revealed: false, forName: null, history: [] };
     show('play');
     advance();
   };
 
-  // Just-for-fun tally (only when Keep Score is on): MC picks + Yes/No on
-  // answer-only trivia. Table Talk is never scored.
-  const recordScore = correct => {
-    round.score.answered += 1;
-    if (correct) round.score.correct += 1;
-  };
-
-  // Scored MC: tap a choice to lock it in, validate, and reveal correct/wrong.
-  const pickChoice = chosen => {
-    const q = round.current;
-    if (!q || round.revealed) return;
-    round.revealed = true;
-    recordScore(chosen === q.a);
-    for (const d of $('choices').children) {
-      if (d.textContent === q.a) d.classList.add('correct');
-      else if (d.textContent === chosen) d.classList.add('wrong');
-      d.disabled = true;
-    }
-    $('tap-hint').textContent = 'Tap for next question';
-  };
-
+  // Tap reveals the answer (single-answer: the answer card; multiple-choice:
+  // highlights the correct option). Tap again advances. Table Talk just advances.
   $('question-area').addEventListener('click', () => {
     const q = round.current;
     if (!q) return;
-    if (q.type !== 'trivia') { advance(); return; }   // Table Talk: tap = next
+    if (q.type !== 'trivia') { advance(); return; }
     if (round.revealed) { advance(); return; }
+    round.revealed = true;
     if (q.choices) {
-      if (settings.keepScore) return;   // scored MC: must tap a choice, not the screen
-      // unscored MC: reveal the correct option (informational)
-      round.revealed = true;
       for (const d of $('choices').children) {
         d.classList.toggle('correct', d.textContent === q.a);
       }
-      $('tap-hint').textContent = 'Tap for next question';
     } else {
-      // answer-only: reveal the answer
-      round.revealed = true;
       $('answer-text').hidden = false;
-      if (settings.keepScore) {
-        $('tap-hint').hidden = true;
-        $('selfscore').hidden = false;   // Yes / No
-      } else {
-        $('tap-hint').textContent = 'Tap for next question';
-      }
     }
+    $('tap-hint').textContent = 'Tap for next question';
   });
   $('question-area').addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); $('question-area').click(); }
   });
-
-  // Self-score row for answer-only trivia (only shown when Keep Score is on).
-  $('ss-yes').addEventListener('click', e => { e.stopPropagation(); recordScore(true); advance(); });
-  $('ss-no').addEventListener('click', e => { e.stopPropagation(); recordScore(false); advance(); });
 
   $('btn-heart').addEventListener('click', () => {
     const q = round.current;
@@ -834,7 +785,6 @@
     if (!settings.openCategories) {
       settings.openCategories = defaultSettings().openCategories;
     }
-    if (typeof settings.keepScore !== 'boolean') settings.keepScore = false;
     for (const key of Object.keys(CATEGORIES)) {
       if (!(key in settings.categories)) settings.categories[key] = true;
     }
