@@ -97,17 +97,11 @@ button {
 }
 
 .splash-hero {
-  width: 300px;
-  max-width: 80vw;
-  aspect-ratio: 1;
-  background: #fff;
-  border-radius: 28px;
-  overflow: hidden;
+  width: min(420px, 92vw);
   display: grid;
   place-items: center;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
 }
-.splash-hero img { width: 100%; height: 100%; object-fit: contain; }
+.splash-hero img { width: 100%; height: auto; display: block; }
 
 .splash-title {
   font-family: var(--display);
@@ -133,11 +127,14 @@ button {
 .splash-inner .btn-text { margin-top: -8px; }
 
 .splash-foot {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  color: var(--fg-dim);
-  text-transform: uppercase;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--fg-sub);
+  text-align: center;
+  max-width: 300px;
 }
 
 /* ============ Install / Readiness sheets ============ */
@@ -331,14 +328,12 @@ button {
   gap: 26px;
 }
 
-.setup-header { text-align: center; }
+.setup-header { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
 
-.app-name {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: 24px;
-  color: var(--accent);
-  letter-spacing: 0.01em;
+.setup-logo {
+  width: min(240px, 70vw);
+  height: auto;
+  display: block;
 }
 
 .app-sub {

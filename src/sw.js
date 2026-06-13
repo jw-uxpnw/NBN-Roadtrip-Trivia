@@ -2,7 +2,7 @@
    Cache-first for everything: the whole app, including the question bank,
    is precached on install so it works with zero connectivity. */
 
-const CACHE = 'rtq-v22';
+const CACHE = 'rtq-v23';
 
 const ASSETS = [
   './',
@@ -12,6 +12,7 @@ const ASSETS = [
   './questions.json',
   './manifest.json',
   './assets/Naughtybynature_front.png',
+  './assets/nbn-logo.png',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/icon-512-maskable.png',
