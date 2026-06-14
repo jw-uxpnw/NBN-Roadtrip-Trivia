@@ -360,11 +360,17 @@ button {
   font-weight: 600;
   padding: 16px;
   border-radius: var(--radius-md);
-  margin-bottom: 16px;
+  margin-bottom: 0;
   text-align: center;
   letter-spacing: 0.02em;
 }
 .btn-surprise:active { background: color-mix(in oklch, var(--green) 10%, transparent); }
+
+.btn-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 .setup-inner {
   width: 100%;
