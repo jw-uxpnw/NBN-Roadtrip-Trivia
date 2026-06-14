@@ -72,6 +72,23 @@ button {
   margin-bottom: 12px;
 }
 
+.block-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.block-head h2 { margin-bottom: 0; }
+.select-all {
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 2px 2px;
+  flex-shrink: 0;
+}
+
 /* ============ Splash ============ */
 
 #screen-splash { align-items: center; justify-content: center; }
@@ -595,12 +612,31 @@ button {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 24px 28px;
-  gap: 18px;
+  padding: 16px 28px;
   -webkit-tap-highlight-color: transparent;
+}
+/* Two zones so the question stays anchored at center and the answer
+   appears below it without shifting the question. */
+.q-top {
+  flex: 0 0 50%;          /* pinned to half so the answer never moves the question */
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  gap: 16px;
+}
+.q-bottom {
+  flex: 0 0 50%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 14px;
+  padding-top: 20px;
 }
 
 .category-pill, .for-pill {

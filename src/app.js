@@ -32,7 +32,6 @@
     weights:  'rtq_weights',
     seen:     'rtq_seen',
     skipped:  'rtq_skipped',
-    saved:    'rtq_saved',
     imported: 'rtq_imported',
     packs:    'rtq_packs',
   };
@@ -70,7 +69,6 @@
   let weights  = load(KEYS.weights, defaultWeights());
   let seen     = load(KEYS.seen, {});      // id -> true
   let skipped  = load(KEYS.skipped, {});   // id -> true, never shown again
-  let saved    = load(KEYS.saved, []);     // ids, in save order
   let imported = load(KEYS.imported, []);  // questions downloaded from OpenTDB
   let packs    = load(KEYS.packs, []);     // metadata per download batch
 
@@ -444,11 +442,8 @@
     help:      $('screen-help'),
     setup:     $('screen-setup'),
     play:      $('screen-play'),
-    saved:     $('screen-saved'),
     done:      $('screen-done'),
   };
-
-  let savedReturnTo = 'play';
 
   const show = name => {
     for (const [key, el] of Object.entries(screens)) el.hidden = key !== name;
@@ -457,7 +452,7 @@
 
   // ---------- setup screen ----------
 
-  const renderChipGrid = (gridId, hintId, labels, store) => {
+  const renderChipGrid = (gridId, hintId, labels, store, onChange) => {
     const grid = $(gridId);
     grid.innerHTML = '';
     for (const [key, label] of Object.entries(labels)) {
@@ -484,12 +479,27 @@
         store[key] = !store[key];
         btn.setAttribute('aria-pressed', String(store[key]));
         save(KEYS.settings, settings);
-        renderChipGrid(gridId, hintId, labels, store);
+        renderChipGrid(gridId, hintId, labels, store, onChange);
         $(hintId).hidden = Object.values(store).some(Boolean);
+        if (onChange) onChange();
       });
       grid.appendChild(btn);
     }
   };
+
+  // Select-all / deselect-all toggle for the trivia categories.
+  const updateSelectAllLabel = () => {
+    const allOn = Object.keys(CATEGORIES).every(k => settings.categories[k]);
+    $('cat-select-all').textContent = allOn ? 'Deselect all' : 'Select all';
+  };
+  $('cat-select-all').addEventListener('click', () => {
+    const allOn = Object.keys(CATEGORIES).every(k => settings.categories[k]);
+    for (const k of Object.keys(CATEGORIES)) settings.categories[k] = !allOn;
+    save(KEYS.settings, settings);
+    renderChipGrid('category-grid', 'category-hint', CATEGORIES, settings.categories, updateSelectAllLabel);
+    updateSelectAllLabel();
+    $('category-hint').hidden = Object.values(settings.categories).some(Boolean);
+  });
 
   // Branch the setup: trivia gets categories + round length + downloads,
   // Table Talk gets its own categories and runs endless.
@@ -518,8 +528,9 @@
 
   const renderSetup = () => {
     renderModeBlocks();
-    renderChipGrid('category-grid', 'category-hint', CATEGORIES, settings.categories);
+    renderChipGrid('category-grid', 'category-hint', CATEGORIES, settings.categories, updateSelectAllLabel);
     renderChipGrid('open-category-grid', 'open-category-hint', OPEN_CATEGORIES, settings.openCategories);
+    updateSelectAllLabel();
     renderSegmented('length-control', 'length', settings.roundLength, v => {
       settings.roundLength = v; save(KEYS.settings, settings);
     });
@@ -563,12 +574,6 @@
     startRound();
   });
 
-  $('btn-setup-saved').addEventListener('click', () => {
-    savedReturnTo = 'setup';
-    renderSaved();
-    show('saved');
-  });
-
   // ---------- play screen ----------
 
   // Bigger text for short questions, smaller for long ones, never tiny.
@@ -610,7 +615,6 @@
     $('answer-text').textContent = q.a || '';
     $('tap-hint').hidden = false;
     $('tap-hint').textContent = q.type !== 'trivia' ? 'Tap for next question' : 'Tap to reveal answer';
-    $('btn-heart').classList.toggle('saved', saved.includes(q.id));
     // update back button visibility and progress
     const endless = settings.mode === 'open' || settings.roundLength === 0;
     $('btn-back').hidden = round.history.length < 2;
@@ -662,20 +666,6 @@
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); $('question-area').click(); }
   });
 
-  $('btn-heart').addEventListener('click', () => {
-    const q = round.current;
-    if (!q) return;
-    if (saved.includes(q.id)) {
-      saved = saved.filter(id => id !== q.id);
-      $('btn-heart').classList.remove('saved');
-    } else {
-      saved.push(q.id);
-      $('btn-heart').classList.add('saved');
-      adjustWeights(q, true);
-    }
-    save(KEYS.saved, saved);
-  });
-
   $('btn-skip').addEventListener('click', () => {
     const q = round.current;
     if (!q) return;
@@ -692,74 +682,6 @@
   });
 
   $('btn-back').addEventListener('click', goBack);
-
-  $('btn-saved').addEventListener('click', () => {
-    savedReturnTo = 'play';
-    renderSaved();
-    show('saved');
-  });
-
-  // ---------- saved screen ----------
-
-  const renderSaved = () => {
-    const list = $('saved-list');
-    list.innerHTML = '';
-    if (saved.length === 0) {
-      const p = document.createElement('p');
-      p.className = 'saved-empty';
-      p.textContent = 'Tap the heart on a question you like and it’ll live here.';
-      list.appendChild(p);
-      return;
-    }
-    for (const id of [...saved].reverse()) {
-      const q = byId[id];
-      if (!q) continue;
-      const card = document.createElement('div');
-      card.className = 'saved-card';
-
-      const body = document.createElement('div');
-      body.className = 'body';
-      const qEl = document.createElement('p');
-      qEl.className = 'q';
-      qEl.textContent = q.q;
-      body.appendChild(qEl);
-      if (q.a) {
-        const aEl = document.createElement('p');
-        aEl.className = 'a';
-        aEl.textContent = q.a;
-        body.appendChild(aEl);
-      }
-      const meta = document.createElement('p');
-      meta.className = 'meta';
-      meta.textContent = q.type === 'trivia'
-        ? (q.catLabel || CATEGORIES[q.category])
-        : OPEN_CATEGORIES[q.category];
-      body.appendChild(meta);
-
-      const unsave = document.createElement('button');
-      unsave.className = 'unsave';
-      unsave.setAttribute('aria-label', 'Remove from saved');
-      unsave.textContent = '✕';
-      unsave.addEventListener('click', () => {
-        saved = saved.filter(x => x !== id);
-        save(KEYS.saved, saved);
-        renderSaved();
-      });
-
-      card.append(body, unsave);
-      list.appendChild(card);
-    }
-  };
-
-  $('btn-saved-back').addEventListener('click', () => {
-    if (savedReturnTo === 'play' && round.current) {
-      show('play');
-      renderQuestion();
-    } else {
-      renderSetup();
-      show('setup');
-    }
-  });
 
   // ---------- done screen ----------
 

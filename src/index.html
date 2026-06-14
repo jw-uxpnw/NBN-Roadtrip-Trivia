@@ -99,7 +99,10 @@
       </div>
 
       <div id="block-trivia-cats" class="setup-block" hidden>
-        <h2>Trivia categories</h2>
+        <div class="block-head">
+          <h2>Trivia categories</h2>
+          <button id="cat-select-all" class="select-all">Deselect all</button>
+        </div>
         <div id="category-grid" class="chip-grid"></div>
         <p id="category-hint" class="hint" hidden>Keep at least one category on.</p>
       </div>
@@ -154,7 +157,6 @@
       </div>
 
       <button id="btn-start" class="btn-primary">Start</button>
-      <button id="btn-setup-saved" class="btn-text">Saved questions</button>
       <button id="btn-setup-help" class="btn-text">How to use this app</button>
     </div>
   </section>
@@ -171,40 +173,26 @@
       <div id="progress-bar" class="progress-bar-wrap">
         <div id="progress-fill" class="progress-fill"></div>
       </div>
-      <button id="btn-saved" class="icon-btn" aria-label="Saved questions">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
-      </button>
     </header>
 
     <main id="question-area" class="question-area" role="button" tabindex="0" aria-label="Question. Tap to continue.">
-      <span id="for-pill" class="for-pill" hidden></span>
-      <span id="category-pill" class="category-pill"></span>
-      <p id="question-text" class="question-text"></p>
-      <div id="choices" class="choices" hidden></div>
-      <p id="answer-text" class="answer-text" hidden></p>
-      <p id="tap-hint" class="tap-hint"></p>
+      <div class="q-top">
+        <span id="for-pill" class="for-pill" hidden></span>
+        <span id="category-pill" class="category-pill"></span>
+        <p id="question-text" class="question-text"></p>
+      </div>
+      <div class="q-bottom">
+        <div id="choices" class="choices" hidden></div>
+        <p id="answer-text" class="answer-text" hidden></p>
+        <p id="tap-hint" class="tap-hint"></p>
+      </div>
     </main>
 
     <footer class="play-actions">
       <button id="btn-skip" class="action-btn" aria-label="Skip — never show this question again">
         <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
-      <button id="btn-heart" class="action-btn heart" aria-label="Save this question">
-        <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      </button>
     </footer>
-  </section>
-
-  <!-- ============ SAVED ============ -->
-  <section id="screen-saved" class="screen" hidden>
-    <header class="play-bar">
-      <button id="btn-saved-back" class="icon-btn" aria-label="Back">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-      </button>
-      <span class="round-counter">Saved</span>
-      <span class="icon-btn" aria-hidden="true"></span>
-    </header>
-    <div id="saved-list" class="saved-list"></div>
   </section>
 
   <!-- ============ ROUND DONE ============ -->
