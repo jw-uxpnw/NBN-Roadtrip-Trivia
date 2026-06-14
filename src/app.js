@@ -697,14 +697,19 @@
     }
     $('answer-text').hidden = true;
     $('answer-text').textContent = q.a || '';
-    $('tap-hint').hidden = false;
-    $('tap-hint').textContent =
-      q.type !== 'trivia' ? 'Tap for next question'
-      : q.choices ? 'Pick your answer'
-      : 'Tap to reveal answer';
-    // update back button visibility and progress
+    const revealBtn = $('btn-show-answer');
+    if (q.type !== 'trivia') {
+      revealBtn.textContent = 'Next Question';
+      revealBtn.disabled = false;
+    } else if (q.choices) {
+      revealBtn.textContent = 'Show Me the Answer';
+      revealBtn.disabled = true;
+    } else {
+      revealBtn.textContent = 'Show Me the Answer';
+      revealBtn.disabled = false;
+    }
+    $('btn-prev').disabled = round.history.length < 2;
     const endless = settings.mode === 'open' || settings.roundLength === 0;
-    $('btn-back').hidden = round.history.length < 2;
     $('progress-fill').style.width = endless
       ? '0%'
       : Math.round((round.count / settings.roundLength) * 100) + '%';
@@ -745,24 +750,22 @@
       else if (val === chosen) { btn.classList.add('wrong'); mark.textContent = '✗'; }
       btn.disabled = true;
     }
-    $('tap-hint').textContent = 'Tap for next question';
+    $('btn-show-answer').textContent = 'Next Question';
+    $('btn-show-answer').disabled = false;
   };
 
-  // Tapping the screen: single-answer reveals the answer then advances;
-  // Car Talk advances; multiple-choice does nothing until a choice is picked.
-  $('question-area').addEventListener('click', () => {
+  $('btn-show-answer').addEventListener('click', () => {
     const q = round.current;
     if (!q) return;
     if (q.type !== 'trivia') { advance(); return; }
     if (round.revealed) { advance(); return; }
-    if (q.choices) return;   // must tap a choice
+    if (q.choices) return;
     round.revealed = true;
     $('answer-text').hidden = false;
-    $('tap-hint').textContent = 'Tap for next question';
+    $('btn-show-answer').textContent = 'Next Question';
   });
-  $('question-area').addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); $('question-area').click(); }
-  });
+
+  $('btn-prev').addEventListener('click', goBack);
 
   $('btn-skip').addEventListener('click', () => {
     const q = round.current;
@@ -775,8 +778,6 @@
   });
 
   $('btn-home').addEventListener('click', () => show('mode'));
-
-  $('btn-back').addEventListener('click', goBack);
 
   // ---------- done screen ----------
 

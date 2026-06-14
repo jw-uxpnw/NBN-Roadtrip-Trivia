@@ -902,28 +902,36 @@ button {
 
 .play-actions {
   display: flex;
-  justify-content: center;
-  gap: 56px;
-  padding: 10px 0 26px;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 20px 32px;
 }
 
-.action-btn {
-  width: 60px; height: 60px;
-  border-radius: var(--radius-pill);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  display: grid;
-  place-items: center;
+.btn-reveal {
+  width: 100%;
+}
+.btn-reveal:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.play-secondary-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-play-text {
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 500;
   color: var(--fg-sub);
-  transition: transform 0.15s ease, color 0.15s ease, background 0.15s ease;
+  padding: 10px 4px;
 }
-.action-btn:active { transform: scale(0.92); }
-.action-btn.heart.saved {
-  color: var(--accent-fg);
-  background: var(--accent);
-  border-color: var(--accent);
+.btn-play-text:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
-.action-btn.heart.saved svg { fill: currentColor; }
 
 /* ============ Saved ============ */
 
