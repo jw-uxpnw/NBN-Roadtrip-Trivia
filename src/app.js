@@ -698,16 +698,8 @@
     $('answer-text').hidden = true;
     $('answer-text').textContent = q.a || '';
     const revealBtn = $('btn-show-answer');
-    if (q.type !== 'trivia') {
-      revealBtn.textContent = 'Next Question';
-      revealBtn.disabled = false;
-    } else if (q.choices) {
-      revealBtn.textContent = 'Show Me the Answer';
-      revealBtn.disabled = true;
-    } else {
-      revealBtn.textContent = 'Show Me the Answer';
-      revealBtn.disabled = false;
-    }
+    revealBtn.textContent = q.type !== 'trivia' ? 'Next' : 'Show Me the Answer';
+    revealBtn.disabled = !!(q.choices && q.type === 'trivia');
     $('btn-prev').disabled = round.history.length < 2;
     const endless = settings.mode === 'open' || settings.roundLength === 0;
     $('progress-fill').style.width = endless
@@ -750,7 +742,7 @@
       else if (val === chosen) { btn.classList.add('wrong'); mark.textContent = '✗'; }
       btn.disabled = true;
     }
-    $('btn-show-answer').textContent = 'Next Question';
+    $('btn-show-answer').textContent = 'Show Me the Answer';
     $('btn-show-answer').disabled = false;
   };
 
@@ -762,7 +754,6 @@
     if (q.choices) return;
     round.revealed = true;
     $('answer-text').hidden = false;
-    $('btn-show-answer').textContent = 'Next Question';
   });
 
   $('btn-prev').addEventListener('click', goBack);
@@ -816,6 +807,7 @@
   const openHelp = from => { helpReturnTo = from; show('help'); window.scrollTo(0, 0); };
   const closeHelp = () => show(helpReturnTo);
   $('btn-setup-help').addEventListener('click', () => openHelp('trivia'));
+  $('btn-cartalk-help').addEventListener('click', () => openHelp('cartalk'));
   $('btn-help-back').addEventListener('click', closeHelp);
   $('btn-help-done').addEventListener('click', closeHelp);
 

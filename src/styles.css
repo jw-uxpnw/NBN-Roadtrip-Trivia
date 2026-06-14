@@ -375,7 +375,21 @@ button {
   gap: 26px;
 }
 
-.screen-nav { margin: 0 -6px; }
+.screen-nav {
+  margin: 0 -6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-help {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg-sub);
+  padding: 8px 6px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 .setup-header { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
 
@@ -933,13 +947,16 @@ button {
 
 .btn-play-text {
   font-family: var(--body);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--fg-sub);
-  padding: 10px 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg);
+  padding: 12px 20px;
+  border: 1.5px solid rgba(232, 198, 138, 0.3);
+  border-radius: 10px;
+  background: rgba(232, 198, 138, 0.06);
 }
 .btn-play-text:disabled {
-  opacity: 0.3;
+  opacity: 0.25;
   cursor: default;
 }
 
