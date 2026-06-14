@@ -132,7 +132,7 @@
   };
 
   // every question has a category now, so hearts and skips shape
-  // Table Talk rounds the same way they shape trivia
+  // Car Talk rounds the same way they shape trivia
   const pickFrom = pool => {
     if (pool.length === 0) return null;
     const cat = weightedPickCategory(pool);
@@ -502,7 +502,7 @@
   });
 
   // Branch the setup: trivia gets categories + round length + downloads,
-  // Table Talk gets its own categories and runs endless.
+  // Car Talk gets its own categories and runs endless.
   const renderModeBlocks = () => {
     for (const card of document.querySelectorAll('.mode-card')) {
       card.setAttribute('aria-checked', String(card.dataset.mode === settings.mode));
@@ -646,7 +646,7 @@
   };
 
   // Tap reveals the answer (single-answer: the answer card; multiple-choice:
-  // highlights the correct option). Tap again advances. Table Talk just advances.
+  // highlights the correct option). Tap again advances. Car Talk just advances.
   $('question-area').addEventListener('click', () => {
     const q = round.current;
     if (!q) return;
