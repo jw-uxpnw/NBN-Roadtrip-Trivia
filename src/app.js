@@ -55,7 +55,7 @@
   const defaultSettings = () => ({
     mode: 'trivia',
     players: [],
-    categories: Object.fromEntries(Object.keys(CATEGORIES).map(c => [c, true])),
+    categories: Object.fromEntries(Object.keys(CATEGORIES).map(c => [c, false])),
     openCategories: Object.fromEntries(Object.keys(OPEN_CATEGORIES).map(c => [c, true])),
     roundLength: 25,
   });
@@ -84,6 +84,12 @@
   // round state (memory only)
   let round = { count: 0, current: null, revealed: false, forName: null, history: [] };
 
+  // Active category overrides for Surprise Me — set before startRound, cleared after.
+  // When non-null, these override settings.categories / settings.openCategories for
+  // the duration of the round without persisting to localStorage.
+  let activeCategories = null;
+  let activeOpenCategories = null;
+
   // ---------- age bands ----------
 
   // With no players configured, everyone is treated as 16+ and no
@@ -99,8 +105,8 @@
   const eligible = q =>
     !skipped[q.id] &&
     (q.type === 'open'
-      ? settings.openCategories[q.category]
-      : settings.categories[q.category]);
+      ? (activeOpenCategories || settings.openCategories)[q.category]
+      : (activeCategories || settings.categories)[q.category]);
 
   // Pool for the whole group (filtered to youngest player's band)
   const groupPool = (type, includeSeen) => {
@@ -263,9 +269,25 @@
     return otdbCats;
   };
 
+  const getSelectedSource = () => {
+    const el = document.querySelector('.source-card[aria-pressed="true"]');
+    return el ? el.dataset.source : 'otdb';
+  };
+
+  const initSourceCards = () => {
+    const cards = document.querySelectorAll('.source-card');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => c.setAttribute('aria-pressed', 'false'));
+        card.setAttribute('aria-pressed', 'true');
+        populateCategories();
+      });
+    });
+  };
+
   // Repopulate the category dropdown for the selected source.
   const populateCategories = async () => {
-    const source = $('otdb-source').value;
+    const source = getSelectedSource();
     const select = $('otdb-category');
     select.innerHTML = '<option value="">Any category</option>';
     const entries = source === 'tta'
@@ -376,10 +398,12 @@
     btn.disabled = true;
     otdbStatus('Downloading…');
     try {
-      const source = $('otdb-source').value;
+      const source = getSelectedSource();
       const cat = $('otdb-category').value;
-      const diff = $('otdb-difficulty').value;
-      const amount = $('otdb-amount').value;
+      const diffEl = document.querySelector('#difficulty-control button[aria-checked="true"]');
+      const diff = diffEl ? diffEl.dataset.difficulty : '';
+      const amountEl = document.querySelector('#amount-control button[aria-checked="true"]');
+      const amount = amountEl ? amountEl.dataset.amount : '25';
 
       const result = source === 'tta'
         ? await fetchTriviaApi(cat, diff, amount)
@@ -425,9 +449,9 @@
       save(KEYS.imported, imported);
       rebuildBank();
       updateOtdbControls();
-      otdbStatus(`Added ${added} new questions${dupes ? ` (${dupes} you already had)` : ''}. Total downloaded: ${imported.length}.`);
+      otdbStatus(`Downloaded ${amount} questions.`);
     } catch {
-      otdbStatus('Couldn’t reach the trivia service — check your connection.', true);
+      otdbStatus("Couldn't reach the trivia service — check your connection.", true);
     } finally {
       btn.disabled = false;
     }
@@ -437,12 +461,13 @@
 
   const $ = id => document.getElementById(id);
   const screens = {
-    splash:    $('screen-splash'),
-    readiness: $('screen-readiness'),
-    help:      $('screen-help'),
-    setup:     $('screen-setup'),
-    play:      $('screen-play'),
-    done:      $('screen-done'),
+    splash:  $('screen-splash'),
+    mode:    $('screen-mode'),
+    cartalk: $('screen-cartalk'),
+    help:    $('screen-help'),
+    trivia:  $('screen-trivia'),
+    play:    $('screen-play'),
+    done:    $('screen-done'),
   };
 
   const show = name => {
@@ -450,7 +475,18 @@
     window.scrollTo(0, 0);
   };
 
-  // ---------- setup screen ----------
+  // ---------- Surprise Me ----------
+
+  // Picks a random subset of keys (at least 1) using Math.random().
+  const pickRandomSubset = keys => {
+    let selected;
+    do {
+      selected = Object.fromEntries(keys.map(k => [k, Math.random() < 0.5]));
+    } while (!Object.values(selected).some(Boolean));
+    return selected;
+  };
+
+  // ---------- trivia setup screen ----------
 
   const renderChipGrid = (gridId, hintId, labels, store, onChange) => {
     const grid = $(gridId);
@@ -487,68 +523,65 @@
     }
   };
 
-  // Select-all / deselect-all toggle for the trivia categories.
-  const updateSelectAllLabel = () => {
-    const allOn = Object.keys(CATEGORIES).every(k => settings.categories[k]);
-    $('cat-select-all').textContent = allOn ? 'Deselect all' : 'Select all';
-  };
-  $('cat-select-all').addEventListener('click', () => {
-    const allOn = Object.keys(CATEGORIES).every(k => settings.categories[k]);
-    for (const k of Object.keys(CATEGORIES)) settings.categories[k] = !allOn;
-    save(KEYS.settings, settings);
-    renderChipGrid('category-grid', 'category-hint', CATEGORIES, settings.categories, updateSelectAllLabel);
-    updateSelectAllLabel();
-    $('category-hint').hidden = Object.values(settings.categories).some(Boolean);
-  });
-
-  // Branch the setup: trivia gets categories + round length + downloads,
-  // Car Talk gets its own categories and runs endless.
-  const renderModeBlocks = () => {
-    for (const card of document.querySelectorAll('.mode-card')) {
-      card.setAttribute('aria-checked', String(card.dataset.mode === settings.mode));
-    }
-    const trivia = settings.mode === 'trivia';
-    $('block-trivia-cats').hidden = !trivia;
-    $('block-length').hidden = !trivia;
-    $('block-otdb').hidden = !trivia;
-    $('block-open-cats').hidden = trivia;
-  };
-
-  const renderSegmented = (containerId, attr, current, onPick) => {
-    const container = $(containerId);
-    for (const btn of container.querySelectorAll('button')) {
-      const val = Number(btn.dataset[attr]);
-      btn.setAttribute('aria-checked', String(val === current));
-      btn.onclick = () => {
-        onPick(val);
-        renderSegmented(containerId, attr, val, onPick);
-      };
-    }
-  };
-
-  const renderSetup = () => {
-    renderModeBlocks();
-    renderChipGrid('category-grid', 'category-hint', CATEGORIES, settings.categories, updateSelectAllLabel);
-    renderChipGrid('open-category-grid', 'open-category-hint', OPEN_CATEGORIES, settings.openCategories);
-    updateSelectAllLabel();
+  const renderTriviaSetup = () => {
+    renderChipGrid('category-grid', 'category-hint', CATEGORIES, settings.categories);
     renderSegmented('length-control', 'length', settings.roundLength, v => {
       settings.roundLength = v; save(KEYS.settings, settings);
     });
     $('category-hint').hidden = true;
-    $('open-category-hint').hidden = true;
+    renderSegmentedStr('difficulty-control', 'difficulty', '', () => {});
+    renderSegmentedStr('amount-control', 'amount', '25', () => {});
     updateOtdbControls();
     populateCategories();
+    const hasDownloads = packs.length > 0;
+    $('otdb-body').hidden = !hasDownloads;
+    $('btn-otdb-toggle').setAttribute('aria-expanded', String(hasDownloads));
   };
 
-  $('otdb-source').addEventListener('change', populateCategories);
+  const renderCartalkSetup = () => {
+    renderChipGrid('open-category-grid', 'open-category-hint', OPEN_CATEGORIES, settings.openCategories);
+    $('open-category-hint').hidden = true;
+  };
 
-  for (const card of document.querySelectorAll('.mode-card')) {
-    card.addEventListener('click', () => {
-      settings.mode = card.dataset.mode;
-      save(KEYS.settings, settings);
-      renderModeBlocks();
-    });
-  }
+  // Trivia: Select All / Clear All
+  $('cat-select-all').addEventListener('click', () => {
+    for (const k of Object.keys(CATEGORIES)) settings.categories[k] = true;
+    save(KEYS.settings, settings);
+    renderChipGrid('category-grid', 'category-hint', CATEGORIES, settings.categories);
+    $('category-hint').hidden = true;
+  });
+
+  $('cat-clear-all').addEventListener('click', () => {
+    for (const k of Object.keys(CATEGORIES)) settings.categories[k] = false;
+    save(KEYS.settings, settings);
+    renderChipGrid('category-grid', 'category-hint', CATEGORIES, settings.categories);
+    $('category-hint').hidden = true;
+  });
+
+  // Car Talk: Select All / Clear All
+  $('open-select-all').addEventListener('click', () => {
+    for (const k of Object.keys(OPEN_CATEGORIES)) settings.openCategories[k] = true;
+    save(KEYS.settings, settings);
+    renderChipGrid('open-category-grid', 'open-category-hint', OPEN_CATEGORIES, settings.openCategories);
+    $('open-category-hint').hidden = true;
+  });
+
+  $('open-clear-all').addEventListener('click', () => {
+    for (const k of Object.keys(OPEN_CATEGORIES)) settings.openCategories[k] = false;
+    save(KEYS.settings, settings);
+    renderChipGrid('open-category-grid', 'open-category-hint', OPEN_CATEGORIES, settings.openCategories);
+    $('open-category-hint').hidden = true;
+  });
+
+  initSourceCards();
+
+  $('btn-otdb-toggle').addEventListener('click', () => {
+    const body = $('otdb-body');
+    const btn = $('btn-otdb-toggle');
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    body.hidden = expanded;
+    btn.setAttribute('aria-expanded', String(!expanded));
+  });
 
   $('btn-otdb').addEventListener('click', importFromSource);
 
@@ -562,17 +595,62 @@
     otdbStatus('Downloaded questions removed.');
   });
 
+  // Trivia Start
   $('btn-start').addEventListener('click', () => {
-    if (settings.mode === 'trivia' && !Object.values(settings.categories).some(Boolean)) {
+    if (!Object.values(settings.categories).some(Boolean)) {
       $('category-hint').hidden = false;
       return;
     }
-    if (settings.mode === 'open' && !Object.values(settings.openCategories).some(Boolean)) {
+    activeCategories = null;
+    activeOpenCategories = null;
+    startRound();
+  });
+
+  // Car Talk Start
+  $('btn-cartalk-start').addEventListener('click', () => {
+    if (!Object.values(settings.openCategories).some(Boolean)) {
       $('open-category-hint').hidden = false;
       return;
     }
+    activeCategories = null;
+    activeOpenCategories = null;
     startRound();
   });
+
+  // Surprise Me — Trivia
+  $('btn-surprise-trivia').addEventListener('click', () => {
+    activeCategories = pickRandomSubset(Object.keys(CATEGORIES));
+    activeOpenCategories = null;
+    settings.mode = 'trivia';
+    startRound();
+  });
+
+  // Surprise Me — Car Talk
+  $('btn-surprise-cartalk').addEventListener('click', () => {
+    activeOpenCategories = pickRandomSubset(Object.keys(OPEN_CATEGORIES));
+    activeCategories = null;
+    settings.mode = 'open';
+    startRound();
+  });
+
+  // Mode selection cards
+  $('mode-card-trivia').addEventListener('click', () => {
+    settings.mode = 'trivia';
+    save(KEYS.settings, settings);
+    renderTriviaSetup();
+    show('trivia');
+  });
+
+  $('mode-card-open').addEventListener('click', () => {
+    settings.mode = 'open';
+    save(KEYS.settings, settings);
+    renderCartalkSetup();
+    show('cartalk');
+  });
+
+  // Home buttons on setup screens
+  $('btn-cartalk-home').addEventListener('click', () => show('mode'));
+  $('btn-trivia-home').addEventListener('click', () => show('mode'));
 
   // ---------- play screen ----------
 
@@ -640,7 +718,7 @@
     }
     const q = nextQuestion();
     if (!q) {
-      $('done-count').textContent = 'You’ve been through every question in the bank!';
+      $('done-count').textContent = "You've been through every question in the bank!";
       show('done');
       return;
     }
@@ -696,20 +774,60 @@
     advance();
   });
 
-  $('btn-home').addEventListener('click', () => {
-    renderSetup();
-    show('setup');
-  });
+  $('btn-home').addEventListener('click', () => show('mode'));
 
   $('btn-back').addEventListener('click', goBack);
 
   // ---------- done screen ----------
 
   $('btn-again').addEventListener('click', startRound);
-  $('btn-done-setup').addEventListener('click', () => {
-    renderSetup();
-    show('setup');
-  });
+  $('btn-done-setup').addEventListener('click', () => show('mode'));
+
+  // ---------- segmented control ----------
+
+  const renderSegmented = (containerId, attr, current, onPick) => {
+    const container = $(containerId);
+    for (const btn of container.querySelectorAll('button')) {
+      const val = Number(btn.dataset[attr]);
+      btn.setAttribute('aria-checked', String(val === current));
+      btn.onclick = () => {
+        onPick(val);
+        renderSegmented(containerId, attr, val, onPick);
+      };
+    }
+  };
+
+  const renderSegmentedStr = (containerId, attr, current, onPick) => {
+    const container = $(containerId);
+    for (const btn of container.querySelectorAll('button')) {
+      const val = btn.dataset[attr];
+      btn.setAttribute('aria-checked', String(val === current));
+      btn.onclick = () => {
+        onPick(val);
+        renderSegmentedStr(containerId, attr, val, onPick);
+      };
+    }
+  };
+
+  // ---------- help screen ----------
+
+  let helpReturnTo = 'trivia';
+  const openHelp = from => { helpReturnTo = from; show('help'); window.scrollTo(0, 0); };
+  const closeHelp = () => show(helpReturnTo);
+  $('btn-setup-help').addEventListener('click', () => openHelp('trivia'));
+  $('btn-help-back').addEventListener('click', closeHelp);
+  $('btn-help-done').addEventListener('click', closeHelp);
+
+  // ---------- service worker + update banner ----------
+  if ('serviceWorker' in navigator) {
+    const hadController = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.register('sw.js');
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      // only when a previous version was already running → it's an update, not first install
+      if (hadController) $('update-banner').hidden = false;
+    });
+  }
+  $('btn-update-refresh').addEventListener('click', () => location.reload());
 
   // ---------- boot ----------
 
@@ -720,7 +838,6 @@
     rebuildBank();
 
     // migrate older saved settings (pre-mode, pre-openCategories)
-    const firstLaunch = !settings;
     settings = settings || defaultSettings();
     if (!settings.mode) settings.mode = 'trivia';
     if (!settings.players) settings.players = [];
@@ -728,9 +845,8 @@
       settings.openCategories = defaultSettings().openCategories;
     }
     for (const key of Object.keys(CATEGORIES)) {
-      if (!(key in settings.categories)) settings.categories[key] = true;
+      if (!(key in settings.categories)) settings.categories[key] = false;
     }
-    void firstLaunch;
 
     // migrate pre-pack downloads into one legacy pack so they're manageable
     const orphans = imported.filter(q => !q.packId);
@@ -745,65 +861,11 @@
       save(KEYS.packs, packs);
     }
 
-    renderSetup();
-    routeEntry();
+    show('splash');
   };
 
-  // ---------- entry routing ----------
-
-  const isStandalone = () =>
-    matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
-
-  const goToSetup = () => { renderSetup(); show('setup'); };
-
-  // Installed/standalone users land on readiness; everyone else sees the welcome.
-  const routeEntry = () => {
-    if (isStandalone()) { renderReadiness(); show('readiness'); }
-    else show('splash');
-  };
-
-  // Welcome
-  $('btn-play-now').addEventListener('click', goToSetup);
-
-  // Help screen — reached from setup; returns there
-  let helpReturnTo = 'setup';
-  const openHelp = from => { helpReturnTo = from; show('help'); window.scrollTo(0, 0); };
-  const closeHelp = () => show(helpReturnTo);
-  $('btn-setup-help').addEventListener('click', () => openHelp('setup'));
-  $('btn-help-back').addEventListener('click', closeHelp);
-  $('btn-help-done').addEventListener('click', closeHelp);
-
-  // Readiness
-  const renderReadiness = () => {
-    const hasExtra = imported.length > 0;
-    const extra = $('check-extra');
-    extra.classList.toggle('done', hasExtra);
-    extra.querySelector('.check-mark').textContent = hasExtra ? '✓' : '○';
-    const status = $('readiness-status');
-    status.textContent = navigator.onLine
-      ? 'Ready for offline play. Download more questions for extra variety.'
-      : 'You’re offline — playing from your downloaded and built-in questions.';
-    status.classList.toggle('offline', !navigator.onLine);
-  };
-  $('btn-readiness-play').addEventListener('click', goToSetup);
-  $('btn-readiness-download').addEventListener('click', () => {
-    settings.mode = 'trivia'; save(KEYS.settings, settings);
-    goToSetup();
-    $('block-otdb').scrollIntoView({ behavior: 'smooth', block: 'center' });
-  });
-  window.addEventListener('online', () => { if (!$('screen-readiness').hidden) renderReadiness(); });
-  window.addEventListener('offline', () => { if (!$('screen-readiness').hidden) renderReadiness(); });
-
-  // ---------- service worker + update banner ----------
-  if ('serviceWorker' in navigator) {
-    const hadController = !!navigator.serviceWorker.controller;
-    navigator.serviceWorker.register('sw.js');
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      // only when a previous version was already running → it's an update, not first install
-      if (hadController) $('update-banner').hidden = false;
-    });
-  }
-  $('btn-update-refresh').addEventListener('click', () => location.reload());
+  // Welcome → mode selection
+  $('btn-play-now').addEventListener('click', () => show('mode'));
 
   boot();
 })();

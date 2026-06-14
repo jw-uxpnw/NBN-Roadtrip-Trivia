@@ -11,8 +11,8 @@
   --fg-dim: #5A4E30;
   --accent: #D4601A;
   --accent-fg: #0A0A08;
-  --green: #3D6840;
-  --green-fg: #E8C68A;
+  --green: #3A6B52;
+  --green-fg: #0D1A12;
   --border: #2A2416;
   --danger: #C85A3C;
 
@@ -84,7 +84,7 @@ button {
   font-family: var(--body);
   font-size: 13px;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--fg-sub);
   padding: 2px 2px;
   flex-shrink: 0;
 }
@@ -174,7 +174,7 @@ button {
   font-family: var(--body);
   font-size: 15px;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--fg-sub);
   padding: 6px 2px;
 }
 
@@ -334,16 +334,60 @@ button {
 
 /* ============ Setup ============ */
 
-#screen-setup { align-items: center; }
+#screen-trivia, #screen-mode, #screen-cartalk { align-items: center; }
+
+.screen-heading {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.15;
+  color: var(--fg);
+  text-align: center;
+}
+
+/* Stacked full-width mode cards for mode selection screen */
+.mode-cards--stacked { flex-direction: column; gap: 12px; }
+
+.mode-card--large {
+  padding: 22px 20px;
+  gap: 6px;
+}
+.mode-card--large .mode-title {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 24px;
+}
+.mode-card--large .mode-sub {
+  font-size: 13px;
+}
+
+/* Surprise Me — hero button, distinct from chip grid */
+.btn-surprise {
+  width: 100%;
+  background: transparent;
+  color: var(--green);
+  border: 2px dashed var(--green);
+  font-family: var(--body);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.btn-surprise:active { background: color-mix(in oklch, var(--green) 10%, transparent); }
 
 .setup-inner {
   width: 100%;
   max-width: 480px;
-  padding: 28px 20px 48px;
+  padding: 12px 20px 48px;
   display: flex;
   flex-direction: column;
   gap: 26px;
 }
+
+.screen-nav { margin: 0 -6px; }
 
 .setup-header { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
 
@@ -441,9 +485,9 @@ button {
   min-height: 46px;
 }
 .segmented button[aria-checked="true"] {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--accent-fg);
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--green-fg);
 }
 
 /* Download card */
@@ -480,6 +524,95 @@ button {
   appearance: none;
 }
 .otdb-row select:focus { outline: 2px solid var(--accent); border-color: transparent; }
+
+/* Download section accordion toggle */
+.otdb-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--fg-sub);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0;
+}
+
+.otdb-toggle-icon {
+  font-size: 16px;
+  color: var(--fg-sub);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.otdb-toggle[aria-expanded="true"] .otdb-toggle-icon {
+  transform: rotate(90deg);
+}
+
+#otdb-body { padding-top: 14px; }
+
+/* Sub-labels inside download block */
+.otdb-label {
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--fg-sub);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  margin-top: 24px;
+}
+
+/* Source selector cards */
+.source-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.source-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+  padding: 12px 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.source-card[aria-pressed="true"] {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.source-title {
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.source-sub {
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--fg-sub);
+}
+
+.source-card[aria-pressed="true"] .source-title,
+.source-card[aria-pressed="true"] .source-sub { color: var(--green-fg); }
+
+#difficulty-control,
+#amount-control { margin-bottom: 4px; }
 
 .btn-secondary {
   width: 100%;
@@ -559,7 +692,7 @@ button {
 .btn-primary:active { filter: brightness(0.92); }
 
 .btn-text {
-  color: var(--accent);
+  color: var(--fg-sub);
   font-family: var(--body);
   font-size: 14px;
   font-weight: 600;

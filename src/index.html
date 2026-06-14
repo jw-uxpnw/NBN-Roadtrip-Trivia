@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Fredoka:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
 
@@ -33,27 +33,53 @@
       <div class="splash-hero">
         <img src="assets/nbn-logo.png" alt="Naughty by Nature 2026">
       </div>
-      <h1 class="splash-title">Quiz Game</h1>
-      <p class="splash-blurb">Family trivia for the car. Download questions before the drive so you can play without service.</p>
+      <h1 class="splash-title">Are you bored?</h1>
+      <p class="splash-blurb">Instead of complaining, try this fun trivia game! Or you can look out the window at the fields. Who knows, you might even see a buffalo!</p>
       <button id="btn-play-now" class="btn-primary btn-splash">Play Now</button>
       <p class="splash-foot">For best results, add this app to your home screen.</p>
     </div>
   </section>
 
-  <!-- ============ OFFLINE READINESS ============ -->
-  <section id="screen-readiness" class="screen" hidden>
-    <div class="sheet-inner">
-      <h1 class="sheet-title">Get ready for the road</h1>
-      <p class="sheet-body">Your questions are already on this phone, so the game works even without service. Download more for extra variety.</p>
-      <ul class="checklist">
-        <li class="check done"><span class="check-mark">✓</span> App added to your phone</li>
-        <li class="check done"><span class="check-mark">✓</span> Starter questions included</li>
-        <li id="check-extra" class="check"><span class="check-mark">○</span> Extra question packs <span class="check-opt">(optional)</span></li>
-        <li class="check done"><span class="check-mark">✓</span> Ready for offline play</li>
-      </ul>
-      <p id="readiness-status" class="readiness-status"></p>
-      <button id="btn-readiness-download" class="btn-secondary">Download more questions</button>
-      <button id="btn-readiness-play" class="btn-primary">Start playing</button>
+  <!-- ============ MODE SELECTION ============ -->
+  <section id="screen-mode" class="screen" hidden>
+    <div class="setup-inner">
+      <div class="setup-header">
+        <img class="setup-logo" src="assets/nbn-logo.png" alt="Naughty by Nature">
+        <p class="app-sub">2026 Summer Tour</p>
+      </div>
+      <h2 class="screen-heading">What do you want to play?</h2>
+      <div class="mode-cards mode-cards--stacked">
+        <button id="mode-card-trivia" class="mode-card mode-card--large">
+          <span class="mode-title">Trivia</span>
+          <span class="mode-sub">Questions with answers. Tap to reveal.</span>
+        </button>
+        <button id="mode-card-open" class="mode-card mode-card--large">
+          <span class="mode-title">Car Talk</span>
+          <span class="mode-sub">Conversation starters. No wrong answers.</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAR TALK SETUP ============ -->
+  <section id="screen-cartalk" class="screen" hidden>
+    <div class="setup-inner">
+      <div class="screen-nav">
+        <button id="btn-cartalk-home" class="icon-btn" aria-label="Home">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </button>
+      </div>
+      <h2 class="screen-heading">What kind of conversation?</h2>
+      <button id="btn-surprise-cartalk" class="btn-surprise">🎲 Surprise Me</button>
+      <div class="setup-block">
+        <div class="block-head">
+          <button id="open-select-all" class="select-all">Select all</button>
+          <button id="open-clear-all" class="select-all">Clear all</button>
+        </div>
+        <div id="open-category-grid" class="chip-grid"></div>
+        <p id="open-category-hint" class="hint" hidden>Keep at least one category on.</p>
+      </div>
+      <button id="btn-cartalk-start" class="btn-primary">Start</button>
     </div>
   </section>
 
@@ -66,9 +92,9 @@
         <div class="help-item"><span class="help-emoji">🎮</span><div class="help-text"><b>Pick a mode</b><p>Trivia has questions with answers. Car Talk is conversation starters — no wrong answers, just fun things to chat about.</p></div></div>
         <div class="help-item"><span class="help-emoji">✅</span><div class="help-text"><b>Choose your topics</b><p>Tap categories to turn them on or off, and set how many questions you want per round.</p></div></div>
         <div class="help-item"><span class="help-emoji">👆</span><div class="help-text"><b>Play</b><p>Tap the big question to reveal the answer, then tap again for the next one. For multiple-choice, tap the answer you think is right.</p></div></div>
-        <div class="help-item"><span class="help-emoji">🏆</span><div class="help-text"><b>Keep score (optional)</b><p>Turn it on in setup. You’ll mark whether you got each answer right; multiple-choice scores itself. It’s just for fun.</p></div></div>
-        <div class="help-item"><span class="help-emoji">❤️</span><div class="help-text"><b>Save favorites</b><p>Tap the heart on a question you love. Open “Saved questions” to find them again.</p></div></div>
-        <div class="help-item"><span class="help-emoji">✖️</span><div class="help-text"><b>Skip for good</b><p>Tap the ✕ to skip a question you don’t like — you won’t see it again.</p></div></div>
+        <div class="help-item"><span class="help-emoji">🏆</span><div class="help-text"><b>Keep score (optional)</b><p>Turn it on in setup. You'll mark whether you got each answer right; multiple-choice scores itself. It's just for fun.</p></div></div>
+        <div class="help-item"><span class="help-emoji">❤️</span><div class="help-text"><b>Save favorites</b><p>Tap the heart on a question you love. Open "Saved questions" to find them again.</p></div></div>
+        <div class="help-item"><span class="help-emoji">✖️</span><div class="help-text"><b>Skip for good</b><p>Tap the ✕ to skip a question you don't like — you won't see it again.</p></div></div>
         <div class="help-item"><span class="help-emoji">⬇️</span><div class="help-text"><b>Download more</b><p>On Wi-Fi, download extra trivia packs before the drive. They stay on your phone.</p></div></div>
         <div class="help-item"><span class="help-emoji">📵</span><div class="help-text"><b>Works offline</b><p>Add the app to your home screen and it plays with no internet — perfect for spotty coverage.</p></div></div>
       </div>
@@ -76,45 +102,18 @@
     </div>
   </section>
 
-  <!-- ============ SETUP ============ -->
-  <section id="screen-setup" class="screen" hidden>
+  <!-- ============ TRIVIA SETUP ============ -->
+  <section id="screen-trivia" class="screen" hidden>
     <div class="setup-inner">
-      <div class="setup-header">
-        <img class="setup-logo" src="assets/nbn-logo.png" alt="Naughty by Nature">
-        <p class="app-sub">2026 Summer Tour</p>
+
+      <div class="screen-nav">
+        <button id="btn-trivia-home" class="icon-btn" aria-label="Home">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </button>
       </div>
 
       <div class="setup-block">
-        <h2>What are we playing?</h2>
-        <div class="mode-cards" role="radiogroup" aria-label="Game type">
-          <button id="mode-trivia" class="mode-card" role="radio" data-mode="trivia">
-            <span class="mode-title">Trivia</span>
-            <span class="mode-sub">Questions with answers. Tap to reveal.</span>
-          </button>
-          <button id="mode-open" class="mode-card" role="radio" data-mode="open">
-            <span class="mode-title">Car Talk</span>
-            <span class="mode-sub">Conversation starters. No wrong answers.</span>
-          </button>
-        </div>
-      </div>
-
-      <div id="block-trivia-cats" class="setup-block" hidden>
-        <div class="block-head">
-          <h2>Trivia categories</h2>
-          <button id="cat-select-all" class="select-all">Deselect all</button>
-        </div>
-        <div id="category-grid" class="chip-grid"></div>
-        <p id="category-hint" class="hint" hidden>Keep at least one category on.</p>
-      </div>
-
-      <div id="block-open-cats" class="setup-block" hidden>
-        <h2>What kind of conversation?</h2>
-        <div id="open-category-grid" class="chip-grid"></div>
-        <p id="open-category-hint" class="hint" hidden>Keep at least one category on.</p>
-      </div>
-
-      <div id="block-length" class="setup-block" hidden>
-        <h2>Round length</h2>
+        <h2>How long do you want your round?</h2>
         <div id="length-control" class="segmented" role="radiogroup" aria-label="Round length">
           <button data-length="10" role="radio">10</button>
           <button data-length="25" role="radio">25</button>
@@ -123,37 +122,58 @@
         </div>
       </div>
 
-      <div id="block-otdb" class="setup-block" hidden>
-        <h2>Download more trivia</h2>
-        <p class="block-note">Needs internet. Pulls questions from free trivia sources into your offline bank — grab a batch on Wi-Fi before the drive.</p>
-        <div class="otdb-row">
-          <select id="otdb-source" aria-label="Question source">
-            <option value="otdb">Open Trivia DB</option>
-            <option value="tta">The Trivia API</option>
-          </select>
+      <div id="block-trivia-cats" class="setup-block">
+        <h2>Select your trivia categories</h2>
+        <button id="btn-surprise-trivia" class="btn-surprise">🎲 Surprise Me</button>
+        <div class="block-head">
+          <button id="cat-select-all" class="select-all">Select all</button>
+          <button id="cat-clear-all" class="select-all">Clear all</button>
         </div>
+        <div id="category-grid" class="chip-grid"></div>
+        <p id="category-hint" class="hint" hidden>Keep at least one category on.</p>
+      </div>
+
+      <div id="block-otdb" class="setup-block">
+        <button class="otdb-toggle" id="btn-otdb-toggle" aria-expanded="false" aria-controls="otdb-body">
+          <span>Download more questions for those extra boring and long drives!</span>
+          <span class="otdb-toggle-icon" aria-hidden="true">›</span>
+        </button>
+        <div id="otdb-body" hidden>
+<p class="otdb-label">Choose your source</p>
+        <div class="source-cards" id="source-control">
+          <button class="source-card" data-source="otdb" aria-pressed="true">
+            <span class="source-title">The Grab Bag</span>
+            <span class="source-sub">Great for variety, but you may get the occasional oddly worded, super niche, or slightly chaotic question.</span>
+          </button>
+          <button class="source-card" data-source="tta" aria-pressed="false">
+            <span class="source-title">The Curated Mix</span>
+            <span class="source-sub">More structured and polished, with stronger category and difficulty filtering. More intentional and balanced.</span>
+          </button>
+        </div>
+        <p class="otdb-label">Choose a category</p>
         <div class="otdb-row">
           <select id="otdb-category" aria-label="Trivia category">
             <option value="">Any category</option>
           </select>
         </div>
-        <div class="otdb-row">
-          <select id="otdb-difficulty" aria-label="Difficulty">
-            <option value="">Any difficulty</option>
-            <option value="easy">Easy (10+)</option>
-            <option value="medium">Medium (13+)</option>
-            <option value="hard">Hard (16+)</option>
-          </select>
-          <select id="otdb-amount" aria-label="How many questions">
-            <option value="10">10</option>
-            <option value="25" selected>25</option>
-            <option value="50">50</option>
-          </select>
+        <p class="otdb-label">Difficulty</p>
+        <div id="difficulty-control" class="segmented" role="radiogroup" aria-label="Difficulty">
+          <button data-difficulty="" role="radio">Any</button>
+          <button data-difficulty="easy" role="radio">Easy</button>
+          <button data-difficulty="medium" role="radio">Medium</button>
+          <button data-difficulty="hard" role="radio">Hard</button>
+        </div>
+        <p class="otdb-label">How many?</p>
+        <div id="amount-control" class="segmented" role="radiogroup" aria-label="How many questions">
+          <button data-amount="10" role="radio">10</button>
+          <button data-amount="25" role="radio">25</button>
+          <button data-amount="50" role="radio">50</button>
         </div>
         <button id="btn-otdb" class="btn-secondary">Download questions</button>
         <p id="otdb-status" class="otdb-status" hidden></p>
         <div id="otdb-packs" class="otdb-packs"></div>
         <button id="btn-otdb-clear" class="btn-text danger" hidden>Remove all downloaded questions</button>
+        </div>
       </div>
 
       <button id="btn-start" class="btn-primary">Start</button>
@@ -206,6 +226,6 @@
     </div>
   </section>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>
