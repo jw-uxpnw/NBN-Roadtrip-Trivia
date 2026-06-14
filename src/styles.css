@@ -335,6 +335,7 @@ button {
 /* ============ Setup ============ */
 
 #screen-trivia, #screen-mode, #screen-cartalk { align-items: center; }
+#screen-mode { justify-content: center; }
 
 .screen-heading {
   font-family: var(--display);
@@ -347,19 +348,6 @@ button {
 
 /* Stacked full-width mode cards for mode selection screen */
 .mode-cards--stacked { flex-direction: column; gap: 12px; }
-
-.mode-card--large {
-  padding: 22px 20px;
-  gap: 6px;
-}
-.mode-card--large .mode-title {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: 24px;
-}
-.mode-card--large .mode-sub {
-  font-size: 13px;
-}
 
 /* Surprise Me — hero button, distinct from chip grid */
 .btn-surprise {
@@ -392,7 +380,7 @@ button {
 .setup-header { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
 
 .setup-logo {
-  width: min(240px, 70vw);
+  width: min(280px, 80vw);
   height: auto;
   display: block;
 }
@@ -444,6 +432,32 @@ button {
 }
 .mode-card[aria-checked="true"] .mode-title,
 .mode-card[aria-checked="true"] .mode-sub { color: var(--accent-fg); }
+
+.mode-card--large {
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  padding: 0 20px 0 0;
+}
+.mode-card-img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  flex-shrink: 0;
+  mix-blend-mode: lighten;
+}
+.mode-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+.mode-card--large .mode-title {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 24px;
+}
+.mode-card--large .mode-sub { font-size: 13px; }
 
 /* Category chips */
 .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
