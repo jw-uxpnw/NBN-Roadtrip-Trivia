@@ -670,20 +670,32 @@ button {
 }
 
 .choice {
+  position: relative;
   width: 100%;
   font-family: var(--body);
   font-size: 17px;
   font-weight: 500;
   line-height: 1.3;
-  padding: 13px 16px;
+  padding: 13px 40px;          /* room for the ✓/✗ mark on the right */
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: var(--surface);
   color: var(--fg);
+  text-align: center;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
 }
 .choice:not(:disabled):active { transform: scale(0.98); border-color: var(--fg-sub); }
 .choice:disabled { cursor: default; }
+.choice-text { display: block; }
+.choice-mark {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
 .choice.correct {
   background: var(--green);
   border-color: var(--green);

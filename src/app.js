@@ -605,16 +605,25 @@
     choicesEl.hidden = !q.choices;
     if (q.choices) {
       for (const c of q.choices) {
-        const d = document.createElement('div');
-        d.className = 'choice';
-        d.textContent = c;
-        choicesEl.appendChild(d);
+        const btn = document.createElement('button');
+        btn.className = 'choice';
+        const txt = document.createElement('span');
+        txt.className = 'choice-text';
+        txt.textContent = c;
+        const mark = document.createElement('span');
+        mark.className = 'choice-mark';
+        btn.append(txt, mark);
+        btn.addEventListener('click', e => { e.stopPropagation(); pickChoice(c); });
+        choicesEl.appendChild(btn);
       }
     }
     $('answer-text').hidden = true;
     $('answer-text').textContent = q.a || '';
     $('tap-hint').hidden = false;
-    $('tap-hint').textContent = q.type !== 'trivia' ? 'Tap for next question' : 'Tap to reveal answer';
+    $('tap-hint').textContent =
+      q.type !== 'trivia' ? 'Tap for next question'
+      : q.choices ? 'Pick your answer'
+      : 'Tap to reveal answer';
     // update back button visibility and progress
     const endless = settings.mode === 'open' || settings.roundLength === 0;
     $('btn-back').hidden = round.history.length < 2;
@@ -645,21 +654,32 @@
     advance();
   };
 
-  // Tap reveals the answer (single-answer: the answer card; multiple-choice:
-  // highlights the correct option). Tap again advances. Car Talk just advances.
+  // Multiple choice: tap a choice to answer. Right = ✓; wrong = ✗ on your pick
+  // plus ✓ on the correct one. Then tap anywhere to continue.
+  const pickChoice = chosen => {
+    const q = round.current;
+    if (!q || round.revealed) return;
+    round.revealed = true;
+    for (const btn of $('choices').children) {
+      const val = btn.querySelector('.choice-text').textContent;
+      const mark = btn.querySelector('.choice-mark');
+      if (val === q.a) { btn.classList.add('correct'); mark.textContent = '✓'; }
+      else if (val === chosen) { btn.classList.add('wrong'); mark.textContent = '✗'; }
+      btn.disabled = true;
+    }
+    $('tap-hint').textContent = 'Tap for next question';
+  };
+
+  // Tapping the screen: single-answer reveals the answer then advances;
+  // Car Talk advances; multiple-choice does nothing until a choice is picked.
   $('question-area').addEventListener('click', () => {
     const q = round.current;
     if (!q) return;
     if (q.type !== 'trivia') { advance(); return; }
     if (round.revealed) { advance(); return; }
+    if (q.choices) return;   // must tap a choice
     round.revealed = true;
-    if (q.choices) {
-      for (const d of $('choices').children) {
-        d.classList.toggle('correct', d.textContent === q.a);
-      }
-    } else {
-      $('answer-text').hidden = false;
-    }
+    $('answer-text').hidden = false;
     $('tap-hint').textContent = 'Tap for next question';
   });
   $('question-area').addEventListener('keydown', e => {
