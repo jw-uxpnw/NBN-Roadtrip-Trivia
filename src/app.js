@@ -6,29 +6,41 @@
   'use strict';
 
   const CATEGORIES = {
-    pnw:       'Pacific Northwest',
-    animals:   'Animals & Nature',
-    movies:    'Movies & TV',
-    music:     'Music',
-    food:      'Food',
-    sports:    'Sports',
-    science:   'Science & Space',
-    history:   'History',
-    geography: 'Geography',
-    kids:      'Kid Classics',
-    general:   'General Knowledge',
-    film:      'Film & TV',
-    arts:      'Arts & Literature',
-    culture:   'Society & Culture',
+    pnw:        'Pacific Northwest',
+    animals:    'Animals & Nature',
+    movies:     'Movies & TV',
+    music:      'Music',
+    food:       'Food',
+    sports:     'Sports',
+    science:    'Science & Space',
+    history:    'History',
+    geography:  'Geography',
+    kids:       'Kid Classics',
+    general:    'General Knowledge',
+    film:       'Film & TV',
+    arts:       'Arts & Literature',
+    culture:    'Society & Culture',
+    mythology:  'Mythology',
+    books:      'Books',
+    videogames: 'Video Games',
+    computers:  'Computers',
+    cartoons:   'Cartoons',
+    math:       'Math',
   };
 
   // Categories that need live fetching the first time they're selected.
-  // Keys match CATEGORIES; values are the TTA category slug to fetch.
+  // tta: TTA slug (or null), otdb: OTDB category ID string (or null).
   const FETCHABLE_CATS = {
-    general: 'general_knowledge',
-    film:    'film_and_tv',
-    arts:    'arts_and_literature',
-    culture: 'society_and_culture',
+    general:    { tta: 'general_knowledge',   otdb: '9'  },
+    film:       { tta: 'film_and_tv',         otdb: '11' },
+    arts:       { tta: 'arts_and_literature', otdb: null },
+    culture:    { tta: 'society_and_culture', otdb: '22' },
+    mythology:  { tta: null,                  otdb: '20' },
+    books:      { tta: null,                  otdb: '10' },
+    videogames: { tta: null,                  otdb: '15' },
+    computers:  { tta: null,                  otdb: '18' },
+    cartoons:   { tta: null,                  otdb: '32' },
+    math:       { tta: null,                  otdb: '19' },
   };
 
   const OPEN_CATEGORIES = {
@@ -431,12 +443,13 @@
   // Silently fetch questions for a FETCHABLE_CATS category on Start.
   // Stores them with category = key so eligible() treats them like bundled ones.
   const autoFetchCategory = async key => {
-    const ttaKey = FETCHABLE_CATS[key];
-    const diff   = settings.difficulty || '';
+    const cfg  = FETCHABLE_CATS[key];
+    const diff = settings.difficulty || '';
     const amount = settings.roundLength > 0 ? settings.roundLength : 25;
 
-    let result = await tryFetch('tta', ttaKey, diff, amount);
-    if (!result.items?.length) result = await tryFetch('otdb', '', diff, amount);
+    let result = { items: [] };
+    if (cfg.tta)  result = await tryFetch('tta',  cfg.tta,  diff, amount);
+    if (!result.items?.length && cfg.otdb) result = await tryFetch('otdb', cfg.otdb, diff, amount);
     if (!result.items?.length) return 0;
 
     const packId = 'pk-' + key + '-' + Date.now().toString(36);
@@ -577,28 +590,23 @@
     for (const [key, label] of Object.entries(labels)) {
       const btn = document.createElement('button');
       btn.className = 'chip';
-      const isSelected = store[key];
-      btn.setAttribute('aria-pressed', String(isSelected));
+      btn.setAttribute('aria-pressed', String(!!store[key]));
 
-      const content = document.createElement('span');
-      content.className = 'chip-content';
+      // Checkmark is always in the DOM — visibility toggled via CSS on aria-pressed
+      // so chips never change width when selected, preventing layout shift.
+      const check = document.createElement('span');
+      check.className = 'chip-check';
+      check.setAttribute('aria-hidden', 'true');
+      check.textContent = '✓';
+
       const text = document.createElement('span');
       text.textContent = label;
-      content.appendChild(text);
 
-      if (isSelected) {
-        const checkmark = document.createElement('span');
-        checkmark.className = 'chip-check';
-        checkmark.textContent = '✓';
-        content.insertBefore(checkmark, text);
-      }
-
-      btn.appendChild(content);
+      btn.append(check, text);
       btn.addEventListener('click', () => {
         store[key] = !store[key];
         btn.setAttribute('aria-pressed', String(store[key]));
         save(KEYS.settings, settings);
-        renderChipGrid(gridId, hintId, labels, store, onChange);
         $(hintId).hidden = Object.values(store).some(Boolean);
         if (onChange) onChange();
       });
