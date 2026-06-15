@@ -69,7 +69,7 @@
     players: [],
     categories: Object.fromEntries(Object.keys(CATEGORIES).map(c => [c, false])),
     openCategories: Object.fromEntries(Object.keys(OPEN_CATEGORIES).map(c => [c, true])),
-    roundLength: 25,
+    roundLength: null,
     difficulty: '',
   });
 
@@ -826,7 +826,7 @@
   };
 
   const advance = () => {
-    if (settings.roundLength !== 0 && round.count >= settings.roundLength) {
+    if (settings.roundLength !== 0 && settings.roundLength !== null && round.count >= settings.roundLength) {
       $('done-count').textContent = `You made it through ${round.count} questions.`;
       show('done');
       return;
