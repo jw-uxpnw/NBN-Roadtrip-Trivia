@@ -585,8 +585,9 @@ button {
   color: var(--fg);
   min-height: 44px;
 }
-.chip-check { font-weight: 700; visibility: hidden; }
-.chip[aria-pressed="true"] .chip-check { visibility: visible; }
+.chip { display: inline-flex; align-items: center; gap: 8px; }
+.chip-check { display: none; font-weight: 700; }
+.chip[aria-pressed="true"] .chip-check { display: inline; }
 .chip[aria-pressed="true"] {
   background: var(--green);
   border-color: var(--green);
