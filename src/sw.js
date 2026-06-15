@@ -2,7 +2,7 @@
    Cache-first for everything: the whole app, including the question bank,
    is precached on install so it works with zero connectivity. */
 
-const CACHE = 'rtq-v60';
+const CACHE = 'rtq-v61';
 
 const ASSETS = [
   './',

@@ -734,7 +734,14 @@
 
   const showCartalkStep = n => {
     for (let i = 1; i <= 2; i++) $('cartalk-step-' + i).hidden = i !== n;
+    $('open-cat-footer').hidden = n !== 2;
     window.scrollTo(0, 0);
+  };
+
+  const updateOpenCatCount = () => {
+    const count = Object.values(settings.openCategories).filter(Boolean).length;
+    const total = Object.keys(OPEN_CATEGORIES).length;
+    $('open-cat-selected-count').textContent = `${count} of ${total} selected`;
   };
 
   const renderLengthCards = (gridId, currentLength) => {
@@ -804,10 +811,12 @@
         btn.setAttribute('aria-pressed', String(settings.openCategories[key]));
         save(KEYS.settings, settings);
         $('btn-cartalk-start').disabled = !Object.values(settings.openCategories).some(Boolean);
+        updateOpenCatCount();
       });
 
       grid.appendChild(btn);
     }
+    updateOpenCatCount();
   };
 
   const renderCartalkSetup = () => {
@@ -831,6 +840,21 @@
     renderCategoryCards();
     $('category-hint').hidden = true;
     updateCatCount();
+  });
+
+  // Car Talk: Select All / Clear All
+  $('open-cat-select-all').addEventListener('click', () => {
+    for (const k of Object.keys(OPEN_CATEGORIES)) settings.openCategories[k] = true;
+    save(KEYS.settings, settings);
+    renderOpenCatCards();
+    $('btn-cartalk-start').disabled = false;
+  });
+
+  $('open-cat-clear-all').addEventListener('click', () => {
+    for (const k of Object.keys(OPEN_CATEGORIES)) settings.openCategories[k] = false;
+    save(KEYS.settings, settings);
+    renderOpenCatCards();
+    $('btn-cartalk-start').disabled = true;
   });
 
   initSourceCards();

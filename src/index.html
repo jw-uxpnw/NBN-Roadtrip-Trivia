@@ -113,8 +113,17 @@
         <p class="setup-step-label">Step 2 of 2</p>
         <p class="wizard-heading">What do you want to talk about?</p>
         <div id="open-cat-cards" class="open-cat-cards"></div>
-        <button id="btn-cartalk-start" class="btn-primary" disabled>Start</button>
       </div>
+    </div>
+
+    <!-- Sticky footer: visible only on step 2 -->
+    <div id="open-cat-footer" class="cat-footer" hidden>
+      <div class="cat-footer-row">
+        <button id="open-cat-select-all" class="select-all">Select all</button>
+        <span id="open-cat-selected-count" class="cat-selected-count"></span>
+        <button id="open-cat-clear-all" class="select-all">Clear all</button>
+      </div>
+      <button id="btn-cartalk-start" class="btn-primary" disabled>Start</button>
     </div>
   </section>
 

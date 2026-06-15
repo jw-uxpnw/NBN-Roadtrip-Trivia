@@ -725,7 +725,7 @@ button {
   flex: 1;
 }
 
-#trivia-step-2 { padding-bottom: 140px; }
+#trivia-step-2, #cartalk-step-2 { padding-bottom: 140px; }
 
 /* Category chips */
 .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
