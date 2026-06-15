@@ -863,7 +863,8 @@
     $('answer-text').textContent = q.a || '';
     const revealBtn = $('btn-show-answer');
     revealBtn.textContent = q.type !== 'trivia' ? 'Next' : 'Show Me the Answer';
-    revealBtn.disabled = !!(q.choices && q.type === 'trivia');
+    revealBtn.hidden = !!(q.choices && q.type === 'trivia');
+    revealBtn.disabled = false;
     $('btn-prev').disabled = round.history.length < 2;
     const endless = settings.roundLength === 0;
     $('progress-fill').style.width = endless
@@ -907,6 +908,7 @@
       btn.disabled = true;
     }
     $('btn-show-answer').textContent = 'Next Question';
+    $('btn-show-answer').hidden = false;
     $('btn-show-answer').disabled = false;
   };
 
