@@ -16,7 +16,19 @@
     history:   'History',
     geography: 'Geography',
     kids:      'Kid Classics',
-    otdb:      'Downloaded',
+    general:   'General Knowledge',
+    film:      'Film & TV',
+    arts:      'Arts & Literature',
+    culture:   'Society & Culture',
+  };
+
+  // Categories that need live fetching the first time they're selected.
+  // Keys match CATEGORIES; values are the TTA category slug to fetch.
+  const FETCHABLE_CATS = {
+    general: 'general_knowledge',
+    film:    'film_and_tv',
+    arts:    'arts_and_literature',
+    culture: 'society_and_culture',
   };
 
   const OPEN_CATEGORIES = {
@@ -306,6 +318,7 @@
 
   const otdbStatus = (msg, isError) => {
     const el = $('otdb-status');
+    if (!el) return;
     el.hidden = false;
     el.textContent = msg;
     el.classList.toggle('error', !!isError);
@@ -324,6 +337,7 @@
 
   const updateOtdbControls = () => {
     const list = $('otdb-packs');
+    if (!list) return;
     list.innerHTML = '';
     for (const p of [...packs].reverse()) {
       const row = document.createElement('div');
@@ -403,6 +417,43 @@
         ? await fetchTriviaApi(cat, diff, amount)
         : await fetchOtdb(cat, diff, amount);
     } catch { return { error: true }; }
+  };
+
+  // Silently fetch questions for a FETCHABLE_CATS category on Start.
+  // Stores them with category = key so eligible() treats them like bundled ones.
+  const autoFetchCategory = async key => {
+    const ttaKey = FETCHABLE_CATS[key];
+    const diff   = settings.difficulty || '';
+    const amount = settings.roundLength > 0 ? settings.roundLength : 25;
+
+    let result = await tryFetch('tta', ttaKey, diff, amount);
+    if (!result.items?.length) result = await tryFetch('otdb', '', diff, amount);
+    if (!result.items?.length) return 0;
+
+    const packId = 'pk-' + key + '-' + Date.now().toString(36);
+    const known  = new Set(questions.map(q => normText(q.q)));
+    let added = 0;
+
+    for (const it of result.items) {
+      if (!it.q || known.has(normText(it.q))) continue;
+      known.add(normText(it.q));
+      imported.push({
+        id:       'dl-' + textHash(it.q),
+        packId,
+        source:   'auto',
+        type:     'trivia',
+        category: key,
+        catLabel: it.catLabel,
+        age:      it.age,
+        q:        it.q,
+        a:        it.a,
+        choices:  it.choices,
+      });
+      added++;
+    }
+
+    if (added > 0) { save(KEYS.imported, imported); rebuildBank(); }
+    return added;
   };
 
   const importFromSource = async () => {
@@ -572,10 +623,6 @@
     renderSegmentedStr('difficulty-control', 'difficulty', settings.difficulty || '', v => {
       settings.difficulty = v; save(KEYS.settings, settings);
     });
-    populateCategories();
-    updateOtdbControls();
-    $('add-more-body').hidden = true;
-    $('btn-add-more-toggle').textContent = '＋ Add more categories';
   };
 
   const renderCartalkSetup = () => {
@@ -653,27 +700,33 @@
     showTriviaStep(3);
   });
 
-  // Add more categories toggle
-  $('btn-add-more-toggle').addEventListener('click', () => {
-    const body = $('add-more-body');
-    body.hidden = !body.hidden;
-    $('btn-add-more-toggle').textContent = body.hidden ? '＋ Add more categories' : '− Add more categories';
-  });
+  // Trivia Start (step 3) — auto-fetches any selected fetchable categories not yet cached
+  $('btn-start').addEventListener('click', async () => {
+    const needsFetch = Object.keys(FETCHABLE_CATS).filter(key =>
+      settings.categories[key] && !imported.some(q => q.category === key)
+    );
 
-  $('btn-otdb').addEventListener('click', importFromSource);
+    if (needsFetch.length > 0) {
+      if (!navigator.onLine) {
+        // Drop uncached fetchable categories so the round can still start
+        for (const key of needsFetch) settings.categories[key] = false;
+        save(KEYS.settings, settings);
+        if (!Object.values(settings.categories).some(Boolean)) {
+          renderChipGrid('category-grid', 'category-hint', CATEGORIES, settings.categories);
+          $('category-hint').hidden = false;
+          showTriviaStep(2);
+          return;
+        }
+      } else {
+        const btn = $('btn-start');
+        btn.textContent = 'Getting your questions ready…';
+        btn.disabled = true;
+        for (const key of needsFetch) await autoFetchCategory(key);
+        btn.textContent = 'Start';
+        btn.disabled = false;
+      }
+    }
 
-  $('btn-otdb-clear').addEventListener('click', () => {
-    imported = [];
-    packs = [];
-    save(KEYS.imported, imported);
-    save(KEYS.packs, packs);
-    rebuildBank();
-    updateOtdbControls();
-    otdbStatus('Added questions removed.');
-  });
-
-  // Trivia Start (step 3)
-  $('btn-start').addEventListener('click', () => {
     activeCategories = null;
     activeOpenCategories = null;
     startRound();
