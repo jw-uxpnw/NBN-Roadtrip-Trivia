@@ -861,7 +861,7 @@
       else if (val === chosen) { btn.classList.add('wrong'); mark.textContent = '✗'; }
       btn.disabled = true;
     }
-    $('btn-show-answer').textContent = 'Show Me the Answer';
+    $('btn-show-answer').textContent = 'Next Question';
     $('btn-show-answer').disabled = false;
   };
 
@@ -873,6 +873,7 @@
     if (q.choices) return;
     round.revealed = true;
     $('answer-text').hidden = false;
+    $('btn-show-answer').textContent = 'Next Question';
   });
 
   $('btn-prev').addEventListener('click', goBack);
