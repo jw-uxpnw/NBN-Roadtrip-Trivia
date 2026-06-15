@@ -675,8 +675,13 @@
       sub.className = 'mode-sub';
       sub.textContent = meta.desc;
 
+      const check = document.createElement('span');
+      check.className = 'open-cat-check';
+      check.setAttribute('aria-hidden', 'true');
+      check.textContent = '✓';
+
       text.append(title, sub);
-      btn.append(img, text);
+      btn.append(img, text, check);
 
       btn.addEventListener('click', () => {
         settings.openCategories[key] = !settings.openCategories[key];

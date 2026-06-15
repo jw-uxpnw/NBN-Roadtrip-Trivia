@@ -578,10 +578,28 @@ button {
   gap: 12px;
 }
 
+.open-cat-card { position: relative; }
+
+.open-cat-check {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--green);
+  color: var(--green-fg);
+  font-size: 12px;
+  font-weight: 700;
+  display: none;
+  place-items: center;
+}
+
 .open-cat-card[aria-pressed="true"] {
   border-color: var(--green);
   background: color-mix(in oklch, var(--green) 18%, var(--surface));
 }
+.open-cat-card[aria-pressed="true"] .open-cat-check { display: grid; }
 
 /* Category chips */
 .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
