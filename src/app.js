@@ -51,6 +51,14 @@
     deep:   'Big Questions',
   };
 
+  const OPEN_CATEGORY_META = {
+    silly:  { img: 'assets/Silly%20-%20Imagination.png', desc: 'Weird hypotheticals. Impossible scenarios. No wrong answers, just chaos.' },
+    wyr:    { img: 'assets/Would%20You%20Rather.png',    desc: 'Two choices. Both questionable. Go.' },
+    family: { img: 'assets/Family%20-%20Us.png',         desc: 'Questions about your crew — funny, sweet, possibly embarrassing.' },
+    know:   { img: 'assets/Get%20to%20Know%20You.png',   desc: "You've been in this car for hours. Time to actually learn something." },
+    deep:   { img: 'assets/Big%20Questions.png',         desc: 'Heavy stuff. Save these for the long stretches of highway.' },
+  };
+
   const KEYS = {
     settings: 'rtq_settings',
     weights:  'rtq_weights',
@@ -642,9 +650,48 @@
     });
   };
 
+  const renderOpenCatCards = () => {
+    const grid = $('open-cat-cards');
+    grid.innerHTML = '';
+    for (const [key, label] of Object.entries(OPEN_CATEGORIES)) {
+      const meta = OPEN_CATEGORY_META[key];
+      const btn = document.createElement('button');
+      btn.className = 'open-cat-card mode-card mode-card--large';
+      btn.setAttribute('aria-pressed', String(!!settings.openCategories[key]));
+
+      const img = document.createElement('img');
+      img.className = 'mode-card-img';
+      img.src = meta.img;
+      img.alt = '';
+
+      const text = document.createElement('span');
+      text.className = 'mode-card-text';
+
+      const title = document.createElement('span');
+      title.className = 'mode-title';
+      title.textContent = label;
+
+      const sub = document.createElement('span');
+      sub.className = 'mode-sub';
+      sub.textContent = meta.desc;
+
+      text.append(title, sub);
+      btn.append(img, text);
+
+      btn.addEventListener('click', () => {
+        settings.openCategories[key] = !settings.openCategories[key];
+        btn.setAttribute('aria-pressed', String(settings.openCategories[key]));
+        save(KEYS.settings, settings);
+        $('open-category-hint').hidden = Object.values(settings.openCategories).some(Boolean);
+      });
+
+      grid.appendChild(btn);
+    }
+  };
+
   const renderCartalkSetup = () => {
     showCartalkStep(2);
-    renderChipGrid('open-category-grid', 'open-category-hint', OPEN_CATEGORIES, settings.openCategories);
+    renderOpenCatCards();
     $('open-category-hint').hidden = true;
   };
 
@@ -661,21 +708,6 @@
     save(KEYS.settings, settings);
     renderChipGrid('category-grid', 'category-hint', CATEGORIES, settings.categories);
     $('category-hint').hidden = true;
-  });
-
-  // Car Talk: Select All / Clear All
-  $('open-select-all').addEventListener('click', () => {
-    for (const k of Object.keys(OPEN_CATEGORIES)) settings.openCategories[k] = true;
-    save(KEYS.settings, settings);
-    renderChipGrid('open-category-grid', 'open-category-hint', OPEN_CATEGORIES, settings.openCategories);
-    $('open-category-hint').hidden = true;
-  });
-
-  $('open-clear-all').addEventListener('click', () => {
-    for (const k of Object.keys(OPEN_CATEGORIES)) settings.openCategories[k] = false;
-    save(KEYS.settings, settings);
-    renderChipGrid('open-category-grid', 'open-category-hint', OPEN_CATEGORIES, settings.openCategories);
-    $('open-category-hint').hidden = true;
   });
 
   initSourceCards();
@@ -802,6 +834,13 @@
       : OPEN_CATEGORIES[q.category];
     $('for-pill').hidden = !round.forName;
     if (round.forName) $('for-pill').textContent = `For: ${round.forName}`;
+    const catImg = $('cat-img');
+    if (q.type === 'open' && OPEN_CATEGORY_META[q.category]) {
+      catImg.src = OPEN_CATEGORY_META[q.category].img;
+      catImg.hidden = false;
+    } else {
+      catImg.hidden = true;
+    }
     $('question-text').textContent = q.q;
     fitQuestion(q.q, !!q.choices);
     const choicesEl = $('choices');

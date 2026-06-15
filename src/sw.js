@@ -2,7 +2,7 @@
    Cache-first for everything: the whole app, including the question bank,
    is precached on install so it works with zero connectivity. */
 
-const CACHE = 'rtq-v46';
+const CACHE = 'rtq-v47';
 
 const ASSETS = [
   './',
@@ -15,6 +15,11 @@ const ASSETS = [
   './assets/nbn-logo.png',
   './assets/TRIVIA.png',
   './assets/CAR%20TALK.png',
+  './assets/Silly%20-%20Imagination.png',
+  './assets/Would%20You%20Rather.png',
+  './assets/Family%20-%20Us.png',
+  './assets/Get%20to%20Know%20You.png',
+  './assets/Big%20Questions.png',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/icon-512-maskable.png',

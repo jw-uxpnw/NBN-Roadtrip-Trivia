@@ -571,6 +571,20 @@ button {
 }
 .mode-card--large .mode-sub { font-size: 13px; }
 
+/* Car Talk category image cards */
+.open-cat-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.open-cat-card[aria-pressed="true"] {
+  background: var(--green);
+  border-color: var(--green);
+}
+.open-cat-card[aria-pressed="true"] .mode-title,
+.open-cat-card[aria-pressed="true"] .mode-sub { color: var(--green-fg); }
+
 /* Category chips */
 .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
 
@@ -893,6 +907,13 @@ button {
   text-align: center;
   gap: 14px;
   width: 100%;
+}
+
+.cat-img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  mix-blend-mode: lighten;
 }
 
 .category-pill, .for-pill {

@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Fredoka:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="styles.css?v=19">
+  <link rel="stylesheet" href="styles.css?v=20">
 </head>
 <body>
 
@@ -113,14 +113,8 @@
         <p class="setup-step-label">Step 2 of 2</p>
         <button id="btn-cartalk-back-1" class="btn-back-link">‹ Back</button>
         <p class="wizard-heading">What do you want to talk about?</p>
-        <div class="setup-block">
-          <div class="block-head">
-            <button id="open-select-all" class="select-all">Select all</button>
-            <button id="open-clear-all" class="select-all">Clear all</button>
-          </div>
-          <div id="open-category-grid" class="chip-grid"></div>
-          <p id="open-category-hint" class="hint" hidden>Keep at least one category on.</p>
-        </div>
+        <div id="open-cat-cards" class="open-cat-cards"></div>
+        <p id="open-category-hint" class="hint" hidden>Keep at least one category on.</p>
         <button id="btn-cartalk-start" class="btn-primary">Start</button>
       </div>
     </div>
@@ -233,6 +227,7 @@
 
     <main id="question-area" class="question-area">
       <div class="q-top">
+        <img id="cat-img" class="cat-img" src="" alt="" hidden>
         <span id="for-pill" class="for-pill" hidden></span>
         <span id="category-pill" class="category-pill"></span>
         <p id="question-text" class="question-text"></p>
