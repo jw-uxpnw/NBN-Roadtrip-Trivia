@@ -1305,6 +1305,11 @@ button {
   cursor: default;
 }
 
+@media (max-width: 430px) {
+  .btn-play-label { display: none; }
+  .btn-play-text { width: 52px; }
+}
+
 /* ============ Saved ============ */
 
 .saved-list {
