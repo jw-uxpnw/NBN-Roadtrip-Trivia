@@ -968,6 +968,15 @@ button {
   width: 0%;
 }
 
+.question-counter {
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-sub);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 .round-counter {
   font-family: var(--mono);
   font-size: 12px;

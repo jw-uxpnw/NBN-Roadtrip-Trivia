@@ -978,9 +978,16 @@
     revealBtn.disabled = !!(q.choices && q.type === 'trivia');
     $('btn-prev').disabled = round.history.length < 2;
     const endless = settings.roundLength === 0;
-    $('progress-fill').style.width = endless
-      ? '0%'
-      : Math.round((round.count / settings.roundLength) * 100) + '%';
+    const progressBar = $('progress-bar');
+    const counter = $('question-counter');
+    if (endless) {
+      progressBar.hidden = true;
+      counter.textContent = `Question ${round.count}`;
+    } else {
+      progressBar.hidden = false;
+      $('progress-fill').style.width = Math.round((round.count / settings.roundLength) * 100) + '%';
+      counter.textContent = `${round.count} of ${settings.roundLength}`;
+    }
   };
 
   const advance = () => {
