@@ -59,6 +59,29 @@
     deep:   { img: 'assets/Big%20Questions.png',         desc: 'Heavy stuff. Save these for the long stretches of highway.' },
   };
 
+  const TRIVIA_CATEGORY_META = {
+    pnw:       { img: 'assets/Pacific%20Northwest.png' },
+    animals:   { img: 'assets/Animals%20%26%20Nature.png' },
+    movies:    { img: 'assets/Movies%20%26%20TV.png' },
+    music:     { img: 'assets/Music.png' },
+    food:      { img: 'assets/Food.png' },
+    sports:    { img: 'assets/Sports.png' },
+    science:   { img: 'assets/Science%20%26%20Space.png' },
+    history:   { img: 'assets/History.png' },
+    geography: { img: 'assets/Geography.png' },
+    kids:      { img: 'assets/Kid%20Classics.png' },
+    general:   { img: 'assets/General%20Knowledge.png' },
+    film:      { img: 'assets/Film%20%26%20TV.png' },
+    arts:      { img: 'assets/Arts%20%26%20Literature.png' },
+    culture:   { img: 'assets/Society%20%26%20Culture.png' },
+    mythology: { img: 'assets/Mythology.png' },
+    books:     { img: 'assets/Books.png' },
+    videogames:{ img: 'assets/Video%20Games.png' },
+    computers: { img: 'assets/Computers.png' },
+    cartoons:  { img: 'assets/Cartoons.png' },
+    math:      { img: 'assets/Math.png' },
+  };
+
   const KEYS = {
     settings: 'rtq_settings',
     weights:  'rtq_weights',
@@ -838,6 +861,9 @@
     const catImg = $('cat-img');
     if (q.type === 'open' && OPEN_CATEGORY_META[q.category]) {
       catImg.src = OPEN_CATEGORY_META[q.category].img;
+      catImg.hidden = false;
+    } else if (q.type === 'trivia' && TRIVIA_CATEGORY_META[q.category]) {
+      catImg.src = TRIVIA_CATEGORY_META[q.category].img;
       catImg.hidden = false;
     } else {
       catImg.hidden = true;
