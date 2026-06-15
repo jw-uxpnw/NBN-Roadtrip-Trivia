@@ -115,11 +115,20 @@
 
   // ---------- selection engine ----------
 
+  // Map difficulty setting → minimum age band for bundled trivia questions.
+  const diffAge = { easy: 0, medium: 13, hard: 16 };
+  const diffMatchesBand = (age, diff) => {
+    if (!diff) return true;
+    if (diff === 'easy') return age <= 10;
+    return age >= (diffAge[diff] || 0);
+  };
+
   const eligible = q =>
     !skipped[q.id] &&
     (q.type === 'open'
       ? (activeOpenCategories || settings.openCategories)[q.category]
-      : (activeCategories || settings.categories)[q.category]);
+      : (activeCategories || settings.categories)[q.category] &&
+        diffMatchesBand(q.age, settings.difficulty));
 
   // Pool for the whole group (filtered to youngest player's band)
   const groupPool = (type, includeSeen) => {
