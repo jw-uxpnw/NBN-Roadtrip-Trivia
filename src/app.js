@@ -274,16 +274,34 @@
 
   const initSourceCards = () => {};
 
-  // Populate the category dropdown with TTA categories.
-  const populateCategories = () => {
+  // Populate the category dropdown by merging TTA (instant) + OTDB (async).
+  // Option values are encoded as "tta:key" or "otdb:id" so importFromSource
+  // knows which fetcher to try first without a source selector UI.
+  const populateCategories = async () => {
     const select = $('otdb-category');
     select.innerHTML = '<option value="">Any category</option>';
-    for (const [value, label] of Object.entries(TRIVIA_API_CATS)) {
+
+    // TTA categories — hardcoded, always available
+    const ttaLabels = new Set();
+    for (const [key, label] of Object.entries(TRIVIA_API_CATS)) {
       const opt = document.createElement('option');
-      opt.value = value;
+      opt.value = 'tta:' + key;
       opt.textContent = label;
       select.appendChild(opt);
+      ttaLabels.add(label.toLowerCase());
     }
+
+    // OTDB categories — async, de-duplicated against TTA by label
+    try {
+      const cats = await loadOtdbCategories();
+      for (const c of cats) {
+        if (ttaLabels.has(c.name.toLowerCase())) continue;
+        const opt = document.createElement('option');
+        opt.value = 'otdb:' + c.id;
+        opt.textContent = c.name;
+        select.appendChild(opt);
+      }
+    } catch { /* offline — TTA list is enough */ }
   };
 
   const otdbStatus = (msg, isError) => {
@@ -378,39 +396,64 @@
     }) };
   };
 
+  // Try one fetcher; catch network errors so the caller can fall back.
+  const tryFetch = async (source, cat, diff, amount) => {
+    try {
+      return source === 'tta'
+        ? await fetchTriviaApi(cat, diff, amount)
+        : await fetchOtdb(cat, diff, amount);
+    } catch { return { error: true }; }
+  };
+
   const importFromSource = async () => {
     const btn = $('btn-otdb');
     btn.disabled = true;
     otdbStatus('Downloading…');
     try {
-      const cat = $('otdb-category').value;
-      const diff = settings.difficulty || '';
+      const optVal = $('otdb-category').value; // "tta:music", "otdb:12", or ""
+      let primarySource = 'tta', primaryCat = '';
+      if (optVal) {
+        const colon = optVal.indexOf(':');
+        primarySource = optVal.slice(0, colon);
+        primaryCat   = optVal.slice(colon + 1);
+      }
+      const fallbackSource = primarySource === 'tta' ? 'otdb' : 'tta';
+
+      const diff   = settings.difficulty || '';
       const amount = settings.roundLength > 0 ? settings.roundLength : 25;
 
-      const result = await fetchTriviaApi(cat, diff, amount);
+      let result = await tryFetch(primarySource, primaryCat, diff, amount);
+      let usedSource = primarySource;
+
+      // If primary is unavailable, try the other source (no category filter)
+      if (!result.items?.length && !result.rateLimited) {
+        otdbStatus('Trying another source…');
+        result = await tryFetch(fallbackSource, '', diff, amount);
+        usedSource = fallbackSource;
+      }
 
       if (result.rateLimited) {
-        otdbStatus('The trivia service is rate-limited — wait a few seconds and try again.', true);
+        otdbStatus('Both trivia services are busy — wait a few seconds and try again.', true);
         return;
       }
-      if (result.empty || !result.items || !result.items.length) {
-        otdbStatus('Not enough questions for that combination — try a different category or difficulty.', true);
+      if (!result.items?.length) {
+        otdbStatus('No questions found for that combination — try a different category.', true);
         return;
       }
 
-      const catLabel = cat ? $('otdb-category').selectedOptions[0].textContent : 'Any category';
+      const catLabel = optVal ? $('otdb-category').selectedOptions[0].textContent : 'Any category';
       const diffLabel = diff ? diff[0].toUpperCase() + diff.slice(1) : 'Any difficulty';
       const packId = 'pk-' + Date.now().toString(36);
 
       const known = new Set(questions.map(q => normText(q.q)));
-      let added = 0, dupes = 0;
+      let added = 0;
       for (const it of result.items) {
-        if (!it.q || known.has(normText(it.q))) { dupes++; continue; }
+        if (!it.q || known.has(normText(it.q))) continue;
         known.add(normText(it.q));
         imported.push({
           id: 'dl-' + textHash(it.q),
           packId,
-          source,
+          source: usedSource,
           type: 'trivia',
           category: 'otdb',
           catLabel: it.catLabel,
@@ -422,7 +465,7 @@
         added++;
       }
       if (added > 0) {
-        packs.push({ id: packId, source: 'tta', label: catLabel, difficulty: diffLabel,
+        packs.push({ id: packId, source: usedSource, label: catLabel, difficulty: diffLabel,
                      downloadedAt: Date.now(), count: added });
         save(KEYS.packs, packs);
       }
@@ -431,7 +474,7 @@
       updateOtdbControls();
       otdbStatus(`Downloaded ${added} questions.`);
     } catch {
-      otdbStatus("Couldn't reach the trivia service — check your connection.", true);
+      otdbStatus("Couldn't reach either trivia service — check your connection.", true);
     } finally {
       btn.disabled = false;
     }
