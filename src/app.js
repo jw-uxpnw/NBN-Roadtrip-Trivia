@@ -635,8 +635,7 @@
   };
 
   const renderCartalkSetup = () => {
-    showCartalkStep(1);
-    renderLengthCards('cartalk-length-cards', settings.roundLength);
+    showCartalkStep(2);
     renderChipGrid('open-category-grid', 'open-category-hint', OPEN_CATEGORIES, settings.openCategories);
     $('open-category-hint').hidden = true;
   };
@@ -698,7 +697,7 @@
   $('btn-trivia-back-2').addEventListener('click', () => showTriviaStep(2));
 
   // Car Talk back navigation
-  $('btn-cartalk-back-1').addEventListener('click', () => showCartalkStep(1));
+  $('btn-cartalk-back-1').addEventListener('click', () => show('mode'));
 
   // Trivia: step 2 → step 3
   $('btn-trivia-next-2').addEventListener('click', () => {
