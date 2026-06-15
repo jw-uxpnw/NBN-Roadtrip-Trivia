@@ -440,8 +440,7 @@ button {
 
 /* ============ Setup ============ */
 
-#screen-trivia, #screen-mode, #screen-cartalk { align-items: center; }
-#screen-mode { justify-content: center; }
+#screen-trivia, #screen-mode, #screen-cartalk { align-items: center; justify-content: center; }
 
 .screen-heading {
   font-family: var(--display);
