@@ -939,6 +939,15 @@ button {
   mix-blend-mode: lighten;
 }
 
+.result-img {
+  display: block;
+  width: 260px;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+  margin: 12px auto 0;
+}
+
 .category-pill, .for-pill {
   font-family: var(--body);
   font-size: 11px;

@@ -2,7 +2,7 @@
    Cache-first for everything: the whole app, including the question bank,
    is precached on install so it works with zero connectivity. */
 
-const CACHE = 'rtq-v51';
+const CACHE = 'rtq-v52';
 
 const ASSETS = [
   './',
@@ -20,6 +20,8 @@ const ASSETS = [
   './assets/Family%20-%20Us.png',
   './assets/Get%20to%20Know%20You.png',
   './assets/Big%20Questions.png',
+  './assets/Correct.png',
+  './assets/Wrong.png',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/icon-512-maskable.png',

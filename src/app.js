@@ -863,6 +863,7 @@
     }
     $('answer-text').hidden = true;
     $('answer-text').textContent = q.a || '';
+    $('result-img').hidden = true;
     const revealBtn = $('btn-show-answer');
     revealBtn.textContent = q.type !== 'trivia' ? 'Next' : 'Show Me the Answer';
     revealBtn.hidden = !!(q.choices && q.type === 'trivia');
@@ -902,6 +903,7 @@
     const q = round.current;
     if (!q || round.revealed) return;
     round.revealed = true;
+    const isCorrect = chosen === q.a;
     for (const btn of $('choices').children) {
       const val = btn.querySelector('.choice-text').textContent;
       const mark = btn.querySelector('.choice-mark');
@@ -909,6 +911,10 @@
       else if (val === chosen) { btn.classList.add('wrong'); mark.textContent = '✗'; }
       btn.disabled = true;
     }
+    const resultImg = $('result-img');
+    resultImg.src = isCorrect ? 'assets/Correct.png' : 'assets/Wrong.png';
+    resultImg.alt = isCorrect ? 'Correct!' : 'Wrong!';
+    resultImg.hidden = false;
     $('btn-show-answer').textContent = 'Next Question';
     $('btn-show-answer').hidden = false;
     $('btn-show-answer').disabled = false;
