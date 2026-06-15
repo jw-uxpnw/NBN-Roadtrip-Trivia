@@ -687,7 +687,7 @@
         settings.openCategories[key] = !settings.openCategories[key];
         btn.setAttribute('aria-pressed', String(settings.openCategories[key]));
         save(KEYS.settings, settings);
-        $('open-category-hint').hidden = Object.values(settings.openCategories).some(Boolean);
+        $('btn-cartalk-start').disabled = !Object.values(settings.openCategories).some(Boolean);
       });
 
       grid.appendChild(btn);
@@ -697,7 +697,7 @@
   const renderCartalkSetup = () => {
     showCartalkStep(2);
     renderOpenCatCards();
-    $('open-category-hint').hidden = true;
+    $('btn-cartalk-start').disabled = !Object.values(settings.openCategories).some(Boolean);
   };
 
   // Trivia: Select All / Clear All
@@ -787,10 +787,6 @@
 
   // Car Talk Start (step 2)
   $('btn-cartalk-start').addEventListener('click', () => {
-    if (!Object.values(settings.openCategories).some(Boolean)) {
-      $('open-category-hint').hidden = false;
-      return;
-    }
     activeCategories = null;
     activeOpenCategories = null;
     startRound();

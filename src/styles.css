@@ -847,6 +847,7 @@ button {
   margin-top: 4px;
 }
 .btn-primary:active { filter: brightness(0.92); }
+.btn-primary:disabled { opacity: 0.35; cursor: default; }
 
 .btn-text {
   color: var(--fg-sub);
