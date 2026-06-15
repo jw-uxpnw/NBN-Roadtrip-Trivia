@@ -337,7 +337,7 @@ button {
 .wizard-step {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
 }
 
 .setup-step-label {
@@ -376,11 +376,11 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
+  padding: 8px 16px;
   background: var(--surface);
   border: 1.5px solid var(--border);
   border-radius: var(--radius-md);
-  min-height: 64px;
+  min-height: 44px;
   transition: background 0.12s ease, border-color 0.12s ease;
 }
 .length-card:active { background: var(--surface-2); }
@@ -396,8 +396,8 @@ button {
 }
 
 .length-card-img {
-  width: 80px;
-  height: 80px;
+  width: 56px;
+  height: 56px;
   object-fit: contain;
   flex-shrink: 0;
   mix-blend-mode: lighten;
@@ -484,7 +484,7 @@ button {
   padding: 12px 20px 48px;
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 16px;
 }
 
 .screen-nav {
@@ -572,8 +572,8 @@ button {
   padding: 0 20px 0 0;
 }
 .mode-card-img {
-  width: 110px;
-  height: 110px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   flex-shrink: 0;
   mix-blend-mode: lighten;
