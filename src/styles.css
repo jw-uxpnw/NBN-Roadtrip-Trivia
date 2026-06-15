@@ -480,6 +480,12 @@ button {
   align-items: center;
 }
 
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .nav-help {
   font-size: 13px;
   font-weight: 500;

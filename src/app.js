@@ -624,8 +624,11 @@
 
   // ---------- wizard navigation ----------
 
+  let triviaStep = 1;
   const showTriviaStep = n => {
+    triviaStep = n;
     for (let i = 1; i <= 3; i++) $('trivia-step-' + i).hidden = i !== n;
+    $('btn-trivia-back').hidden = n === 1;
     window.scrollTo(0, 0);
   };
 
@@ -738,8 +741,7 @@
   }
 
   // Trivia back navigation
-  $('btn-trivia-back-1').addEventListener('click', () => showTriviaStep(1));
-  $('btn-trivia-back-2').addEventListener('click', () => showTriviaStep(2));
+  $('btn-trivia-back').addEventListener('click', () => showTriviaStep(triviaStep - 1));
 
 
   // Trivia: step 2 → step 3
