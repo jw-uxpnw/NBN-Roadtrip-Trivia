@@ -866,9 +866,9 @@
     document.querySelector('.result-img-wrap').classList.remove('expanded');
     $('result-img').src = '';
     const revealBtn = $('btn-show-answer');
-    revealBtn.textContent = q.type !== 'trivia' ? 'Next' : 'Show Me the Answer';
-    revealBtn.hidden = !!(q.choices && q.type === 'trivia');
-    revealBtn.disabled = false;
+    revealBtn.textContent = q.type !== 'trivia' ? 'Next' : (q.choices ? 'Next Question' : 'Show Me the Answer');
+    revealBtn.hidden = false;
+    revealBtn.disabled = !!(q.choices && q.type === 'trivia');
     $('btn-prev').disabled = round.history.length < 2;
     const endless = settings.roundLength === 0;
     $('progress-fill').style.width = endless
