@@ -579,11 +579,9 @@ button {
 }
 
 .open-cat-card[aria-pressed="true"] {
-  background: var(--green);
   border-color: var(--green);
+  background: color-mix(in oklch, var(--green) 18%, var(--surface));
 }
-.open-cat-card[aria-pressed="true"] .mode-title,
-.open-cat-card[aria-pressed="true"] .mode-sub { color: var(--green-fg); }
 
 /* Category chips */
 .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
