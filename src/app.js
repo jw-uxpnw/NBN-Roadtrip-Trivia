@@ -82,6 +82,29 @@
     math:      { img: 'assets/Math.png' },
   };
 
+  const TRIVIA_CAT_DISPLAY = {
+    pnw:       { desc: 'Coffee, trees, and Bigfoot. If you can name a volcano, you\'re already winning.' },
+    animals:   { desc: 'Birds, bugs, and the occasional bear. Nature knows things school never covered.' },
+    movies:    { desc: 'Wrong answers will be silently judged from the back seat.' },
+    music:     { desc: 'From bangers to classics. May cause spontaneous air guitar.' },
+    food:      { desc: 'Hungry? This is the next best thing. Marginally.' },
+    sports:    { desc: 'Stats, wins, and famous moments. Or just make something up like everyone else.' },
+    science:   { desc: 'Atoms, rockets, and things that happened before the internet. Go big.' },
+    history:   { desc: 'A lot happened before you were born. Time to prove you were paying attention.' },
+    geography: { desc: 'Capitals, continents, and places you\'ve never been but can definitely spell.' },
+    kids:      { desc: 'Technically easier. Don\'t embarrass yourself.' },
+    general:   { desc: 'The everything category. Points deducted for saying "I knew that."' },
+    film:      { desc: 'Same as Movies but fancier to say at parties.' },
+    arts:      { desc: 'Canvas, quills, and dead poets. Bring your beret.' },
+    culture:   { desc: 'People, customs, and the stuff that makes the world weird and interesting.' },
+    mythology: { desc: 'Gods, monsters, and very questionable parenting decisions.' },
+    books:     { desc: 'For the one in the car who\'s actually read a book recently.' },
+    videogames:{ desc: 'Finally, trivia you\'ve been training for your whole life.' },
+    computers: { desc: 'Bits, bytes, and things your phone does without you noticing.' },
+    cartoons:  { desc: 'Saturday mornings, existential dread, and surprisingly dark backstories.' },
+    math:      { desc: 'Numbers. Just numbers. You either love this or you don\'t.' },
+  };
+
   const KEYS = {
     settings: 'rtq_settings',
     weights:  'rtq_weights',
@@ -645,6 +668,51 @@
     }
   };
 
+  const renderCategoryCards = () => {
+    const grid = $('category-grid');
+    grid.innerHTML = '';
+    for (const [key, label] of Object.entries(CATEGORIES)) {
+      const meta = TRIVIA_CATEGORY_META[key];
+      const display = TRIVIA_CAT_DISPLAY[key];
+      const btn = document.createElement('button');
+      btn.className = 'trivia-cat-card mode-card mode-card--large';
+      btn.setAttribute('aria-pressed', String(!!settings.categories[key]));
+
+      const img = document.createElement('img');
+      img.className = 'mode-card-img';
+      img.src = meta.img;
+      img.alt = '';
+
+      const text = document.createElement('span');
+      text.className = 'mode-card-text';
+
+      const title = document.createElement('span');
+      title.className = 'mode-title';
+      title.textContent = label;
+
+      const sub = document.createElement('span');
+      sub.className = 'mode-sub';
+      sub.textContent = display.desc;
+
+      const check = document.createElement('span');
+      check.className = 'trivia-cat-check';
+      check.setAttribute('aria-hidden', 'true');
+      check.textContent = '✓';
+
+      text.append(title, sub);
+      btn.append(img, text, check);
+
+      btn.addEventListener('click', () => {
+        settings.categories[key] = !settings.categories[key];
+        btn.setAttribute('aria-pressed', String(settings.categories[key]));
+        save(KEYS.settings, settings);
+        $('category-hint').hidden = Object.values(settings.categories).some(Boolean);
+      });
+
+      grid.appendChild(btn);
+    }
+  };
+
   // ---------- wizard navigation ----------
 
   let triviaStep = 1;
@@ -669,11 +737,8 @@
   const renderTriviaSetup = () => {
     showTriviaStep(1);
     renderLengthCards('trivia-length-cards', null);
-    renderChipGrid('category-grid', 'category-hint', CATEGORIES, settings.categories);
+    renderCategoryCards();
     $('category-hint').hidden = true;
-    renderSegmentedStr('difficulty-control', 'difficulty', settings.difficulty || '', v => {
-      settings.difficulty = v; save(KEYS.settings, settings);
-    });
   };
 
   const renderOpenCatCards = () => {
@@ -730,14 +795,14 @@
   $('cat-select-all').addEventListener('click', () => {
     for (const k of Object.keys(CATEGORIES)) settings.categories[k] = true;
     save(KEYS.settings, settings);
-    renderChipGrid('category-grid', 'category-hint', CATEGORIES, settings.categories);
+    renderCategoryCards();
     $('category-hint').hidden = true;
   });
 
   $('cat-clear-all').addEventListener('click', () => {
     for (const k of Object.keys(CATEGORIES)) settings.categories[k] = false;
     save(KEYS.settings, settings);
-    renderChipGrid('category-grid', 'category-hint', CATEGORIES, settings.categories);
+    renderCategoryCards();
     $('category-hint').hidden = true;
   });
 
@@ -788,7 +853,7 @@
         for (const key of needsFetch) settings.categories[key] = false;
         save(KEYS.settings, settings);
         if (!Object.values(settings.categories).some(Boolean)) {
-          renderChipGrid('category-grid', 'category-hint', CATEGORIES, settings.categories);
+          renderCategoryCards();
           $('category-hint').hidden = false;
           showTriviaStep(2);
           return;
