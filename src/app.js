@@ -734,11 +734,27 @@
     }
   };
 
+  const syncDifficultyCards = () => {
+    const current = settings.difficulty || '';
+    for (const btn of $('difficulty-cards').querySelectorAll('.diff-card')) {
+      btn.setAttribute('aria-checked', String(btn.dataset.difficulty === current));
+    }
+  };
+
+  for (const btn of $('difficulty-cards').querySelectorAll('.diff-card')) {
+    btn.addEventListener('click', () => {
+      settings.difficulty = btn.dataset.difficulty;
+      save(KEYS.settings, settings);
+      syncDifficultyCards();
+    });
+  }
+
   const renderTriviaSetup = () => {
     showTriviaStep(1);
     renderLengthCards('trivia-length-cards', null);
     renderCategoryCards();
     $('category-hint').hidden = true;
+    syncDifficultyCards();
   };
 
   const renderOpenCatCards = () => {

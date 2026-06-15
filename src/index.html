@@ -214,14 +214,38 @@
       <!-- Step 3: Difficulty -->
       <div class="wizard-step" id="trivia-step-3" hidden>
         <p class="setup-step-label">Step 3 of 3</p>
-        <p class="wizard-heading">How hard do you want it?</p>
-        <div id="difficulty-control" class="segmented" role="radiogroup" aria-label="Difficulty">
-          <button data-difficulty="" role="radio">Any</button>
-          <button data-difficulty="easy" role="radio">Easy</button>
-          <button data-difficulty="medium" role="radio">Medium</button>
-          <button data-difficulty="hard" role="radio">Hard</button>
+        <p class="wizard-heading">Choose your level of difficulty</p>
+        <div id="difficulty-cards" class="diff-cards" role="radiogroup" aria-label="Difficulty">
+          <button class="diff-card" data-difficulty="" aria-checked="true">
+            <img class="mode-card-img" src="assets/Diff%20Any.png" alt="">
+            <span class="mode-card-text">
+              <span class="mode-title">Any</span>
+              <span class="mode-sub">Let the road decide. A mix of easy, medium, and "how was I supposed to know that."</span>
+            </span>
+          </button>
+          <button class="diff-card" data-difficulty="easy" aria-checked="false">
+            <img class="mode-card-img" src="assets/Diff%20Easy.png" alt="">
+            <span class="mode-card-text">
+              <span class="mode-title">Easy</span>
+              <span class="mode-sub">Smooth road, low stakes. You'll feel like a genius the whole way.</span>
+            </span>
+          </button>
+          <button class="diff-card" data-difficulty="medium" aria-checked="false">
+            <img class="mode-card-img" src="assets/Diff%20Medium.png" alt="">
+            <span class="mode-card-text">
+              <span class="mode-title">Medium</span>
+              <span class="mode-sub">Some hills, some curves. You know most of this. Probably.</span>
+            </span>
+          </button>
+          <button class="diff-card" data-difficulty="hard" aria-checked="false">
+            <img class="mode-card-img" src="assets/Diff%20Hard.png" alt="">
+            <span class="mode-card-text">
+              <span class="mode-title">Hard</span>
+              <span class="mode-sub">Steep climbs, no guardrails. Reserved for the show-offs in the passenger seat.</span>
+            </span>
+          </button>
         </div>
-        <button id="btn-start" class="btn-primary">Start</button>
+        <button id="btn-start" class="btn-primary">Let's Go!</button>
       </div>
 
     </div>

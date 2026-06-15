@@ -620,6 +620,33 @@ button {
 }
 .open-cat-card[aria-pressed="true"] .open-cat-check { display: grid; }
 
+/* Difficulty image cards (step 3) */
+.diff-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.diff-card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  overflow: hidden;
+  padding-right: 16px;
+}
+
+.diff-card[aria-checked="true"] {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+}
+
 /* Trivia category image cards (step 2) */
 .trivia-cat-cards {
   display: flex;
