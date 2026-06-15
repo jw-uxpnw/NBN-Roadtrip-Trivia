@@ -332,6 +332,98 @@ button {
   border-radius: 999px;
 }
 
+/* ============ Wizard ============ */
+
+.wizard-step {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.setup-step-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+
+.wizard-heading {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.2;
+  color: var(--fg);
+}
+
+.btn-back-link {
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg-sub);
+  align-self: flex-start;
+  padding: 0;
+}
+
+.length-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.length-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  min-height: 64px;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+.length-card:active { background: var(--surface-2); }
+.length-card--selected {
+  border-color: var(--green);
+  background: color-mix(in oklch, var(--green) 18%, var(--surface));
+}
+
+.length-name {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--fg);
+}
+
+.length-count {
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg-sub);
+}
+
+.add-more-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-add-more {
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+  text-align: left;
+  padding: 4px 0;
+}
+
+#add-more-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 /* ============ Setup ============ */
 
 #screen-trivia, #screen-mode, #screen-cartalk { align-items: center; }

@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Fredoka:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="styles.css?v=18">
 </head>
 <body>
 
@@ -76,23 +76,51 @@
         </button>
         <button id="btn-cartalk-help" class="btn-text nav-help">How to use this app</button>
       </div>
-      <div class="mode-card mode-card--large">
-        <img class="mode-card-img" src="assets/CAR%20TALK.png" alt="">
-        <span class="mode-card-text">
-          <span class="mode-title">Car Talk</span>
-          <span class="mode-sub">Questions to get everyone talking, laughing, or mildly concerned.</span>
-        </span>
-      </div>
-      <div class="setup-block">
-        <div class="block-head">
-          <button id="open-select-all" class="select-all">Select all</button>
-          <button id="open-clear-all" class="select-all">Clear all</button>
+
+      <!-- Step 1: Round Length -->
+      <div class="wizard-step" id="cartalk-step-1">
+        <p class="setup-step-label">Step 1 of 2</p>
+        <div class="mode-card mode-card--large">
+          <img class="mode-card-img" src="assets/CAR%20TALK.png" alt="">
+          <span class="mode-card-text">
+            <span class="mode-title">Car Talk</span>
+            <span class="mode-sub">Questions to get everyone talking, laughing, or mildly concerned.</span>
+          </span>
         </div>
-        <div id="open-category-grid" class="chip-grid"></div>
-        <p id="open-category-hint" class="hint" hidden>Keep at least one category on.</p>
+        <p class="wizard-heading">How long is this drive?</p>
+        <div class="length-cards" id="cartalk-length-cards">
+          <button class="length-card" data-length="10">
+            <span class="length-name">A Titch</span>
+            <span class="length-count">10 questions</span>
+          </button>
+          <button class="length-card" data-length="25">
+            <span class="length-name">A Scosh</span>
+            <span class="length-count">25 questions</span>
+          </button>
+          <button class="length-card" data-length="50">
+            <span class="length-name">A Bushel</span>
+            <span class="length-count">50 questions</span>
+          </button>
+          <button class="length-card" data-length="0">
+            <span class="length-name">Infinity</span>
+            <span class="length-count">As long as this drive</span>
+          </button>
+        </div>
       </div>
-      <div class="btn-stack">
-        <button id="btn-surprise-cartalk" class="btn-surprise">🎲 Surprise Me</button>
+
+      <!-- Step 2: Categories -->
+      <div class="wizard-step" id="cartalk-step-2" hidden>
+        <p class="setup-step-label">Step 2 of 2</p>
+        <button id="btn-cartalk-back-1" class="btn-back-link">‹ Back</button>
+        <p class="wizard-heading">What do you want to talk about?</p>
+        <div class="setup-block">
+          <div class="block-head">
+            <button id="open-select-all" class="select-all">Select all</button>
+            <button id="open-clear-all" class="select-all">Clear all</button>
+          </div>
+          <div id="open-category-grid" class="chip-grid"></div>
+          <p id="open-category-hint" class="hint" hidden>Keep at least one category on.</p>
+        </div>
         <button id="btn-cartalk-start" class="btn-primary">Start</button>
       </div>
     </div>
@@ -128,81 +156,81 @@
         <button id="btn-setup-help" class="btn-text nav-help">How to use this app</button>
       </div>
 
-      <div class="mode-card mode-card--large">
-        <img class="mode-card-img" src="assets/TRIVIA.png" alt="">
-        <span class="mode-card-text">
-          <span class="mode-title">Trivia</span>
-          <span class="mode-sub">Tap to reveal the answer. Then argue about it for five miles.</span>
-        </span>
-      </div>
-
-      <div class="setup-block">
-        <h2>How long do you want your round?</h2>
-        <div id="length-control" class="segmented" role="radiogroup" aria-label="Round length">
-          <button data-length="10" role="radio">10</button>
-          <button data-length="25" role="radio">25</button>
-          <button data-length="50" role="radio">50</button>
-          <button data-length="0" role="radio">Endless</button>
+      <!-- Step 1: Round Length -->
+      <div class="wizard-step" id="trivia-step-1">
+        <p class="setup-step-label">Step 1 of 3</p>
+        <div class="mode-card mode-card--large">
+          <img class="mode-card-img" src="assets/TRIVIA.png" alt="">
+          <span class="mode-card-text">
+            <span class="mode-title">Trivia</span>
+            <span class="mode-sub">Tap to reveal the answer. Then argue about it for five miles.</span>
+          </span>
         </div>
-      </div>
-
-      <div id="block-trivia-cats" class="setup-block">
-        <h2>Select your trivia categories</h2>
-        <div class="block-head">
-          <button id="cat-select-all" class="select-all">Select all</button>
-          <button id="cat-clear-all" class="select-all">Clear all</button>
-        </div>
-        <div id="category-grid" class="chip-grid"></div>
-        <p id="category-hint" class="hint" hidden>Keep at least one category on.</p>
-      </div>
-
-      <div id="block-otdb" class="setup-block">
-        <button class="otdb-toggle" id="btn-otdb-toggle" aria-expanded="false" aria-controls="otdb-body">
-          <span>Download more questions for those extra boring and long drives!</span>
-          <span class="otdb-toggle-icon" aria-hidden="true">›</span>
-        </button>
-        <div id="otdb-body" hidden>
-<p class="otdb-label">Choose your source</p>
-        <div class="source-cards" id="source-control">
-          <button class="source-card" data-source="otdb" aria-pressed="true">
-            <span class="source-title">The Grab Bag</span>
-            <span class="source-sub">Great for variety, but you may get the occasional oddly worded, super niche, or slightly chaotic question.</span>
+        <p class="wizard-heading">How long is this drive?</p>
+        <div class="length-cards" id="trivia-length-cards">
+          <button class="length-card" data-length="10">
+            <span class="length-name">A Titch</span>
+            <span class="length-count">10 questions</span>
           </button>
-          <button class="source-card" data-source="tta" aria-pressed="false">
-            <span class="source-title">The Curated Mix</span>
-            <span class="source-sub">More structured and polished, with stronger category and difficulty filtering. More intentional and balanced.</span>
+          <button class="length-card" data-length="25">
+            <span class="length-name">A Scosh</span>
+            <span class="length-count">25 questions</span>
+          </button>
+          <button class="length-card" data-length="50">
+            <span class="length-name">A Bushel</span>
+            <span class="length-count">50 questions</span>
+          </button>
+          <button class="length-card" data-length="0">
+            <span class="length-name">Infinity</span>
+            <span class="length-count">As long as this drive</span>
           </button>
         </div>
-        <p class="otdb-label">Choose a category</p>
-        <div class="otdb-row">
-          <select id="otdb-category" aria-label="Trivia category">
-            <option value="">Any category</option>
-          </select>
+      </div>
+
+      <!-- Step 2: Categories -->
+      <div class="wizard-step" id="trivia-step-2" hidden>
+        <p class="setup-step-label">Step 2 of 3</p>
+        <button id="btn-trivia-back-1" class="btn-back-link">‹ Back</button>
+        <p class="wizard-heading">What do you want to be quizzed on?</p>
+        <div class="setup-block">
+          <div class="block-head">
+            <button id="cat-select-all" class="select-all">Select all</button>
+            <button id="cat-clear-all" class="select-all">Clear all</button>
+          </div>
+          <div id="category-grid" class="chip-grid"></div>
+          <p id="category-hint" class="hint" hidden>Keep at least one category on.</p>
         </div>
-        <p class="otdb-label">Difficulty</p>
+        <div class="add-more-block">
+          <button id="btn-add-more-toggle" class="btn-add-more">＋ Add more categories</button>
+          <div id="add-more-body" hidden>
+            <div class="otdb-row">
+              <select id="otdb-category" aria-label="Trivia category">
+                <option value="">Any category</option>
+              </select>
+            </div>
+            <button id="btn-otdb" class="btn-secondary">Download questions</button>
+            <p id="otdb-status" class="otdb-status" hidden></p>
+            <div id="otdb-packs" class="otdb-packs"></div>
+            <button id="btn-otdb-clear" class="btn-text danger" hidden>Remove all downloaded questions</button>
+          </div>
+        </div>
+        <button id="btn-trivia-next-2" class="btn-primary">Next</button>
+      </div>
+
+      <!-- Step 3: Difficulty -->
+      <div class="wizard-step" id="trivia-step-3" hidden>
+        <p class="setup-step-label">Step 3 of 3</p>
+        <button id="btn-trivia-back-2" class="btn-back-link">‹ Back</button>
+        <p class="wizard-heading">How hard do you want it?</p>
         <div id="difficulty-control" class="segmented" role="radiogroup" aria-label="Difficulty">
           <button data-difficulty="" role="radio">Any</button>
           <button data-difficulty="easy" role="radio">Easy</button>
           <button data-difficulty="medium" role="radio">Medium</button>
           <button data-difficulty="hard" role="radio">Hard</button>
         </div>
-        <p class="otdb-label">How many?</p>
-        <div id="amount-control" class="segmented" role="radiogroup" aria-label="How many questions">
-          <button data-amount="10" role="radio">10</button>
-          <button data-amount="25" role="radio">25</button>
-          <button data-amount="50" role="radio">50</button>
-        </div>
-        <button id="btn-otdb" class="btn-secondary">Download questions</button>
-        <p id="otdb-status" class="otdb-status" hidden></p>
-        <div id="otdb-packs" class="otdb-packs"></div>
-        <button id="btn-otdb-clear" class="btn-text danger" hidden>Remove all downloaded questions</button>
-        </div>
-      </div>
-
-      <div class="btn-stack">
-        <button id="btn-surprise-trivia" class="btn-surprise">🎲 Surprise Me</button>
         <button id="btn-start" class="btn-primary">Start</button>
       </div>
+
     </div>
   </section>
 
@@ -249,6 +277,6 @@
     </div>
   </section>
 
-  <script src="app.js?v=7"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>

@@ -58,6 +58,7 @@
     categories: Object.fromEntries(Object.keys(CATEGORIES).map(c => [c, false])),
     openCategories: Object.fromEntries(Object.keys(OPEN_CATEGORIES).map(c => [c, true])),
     roundLength: 25,
+    difficulty: '',
   });
 
   const defaultWeights = () => ({
@@ -269,31 +270,15 @@
     return otdbCats;
   };
 
-  const getSelectedSource = () => {
-    const el = document.querySelector('.source-card[aria-pressed="true"]');
-    return el ? el.dataset.source : 'otdb';
-  };
+  const getSelectedSource = () => 'tta';
 
-  const initSourceCards = () => {
-    const cards = document.querySelectorAll('.source-card');
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        cards.forEach(c => c.setAttribute('aria-pressed', 'false'));
-        card.setAttribute('aria-pressed', 'true');
-        populateCategories();
-      });
-    });
-  };
+  const initSourceCards = () => {};
 
-  // Repopulate the category dropdown for the selected source.
-  const populateCategories = async () => {
-    const source = getSelectedSource();
+  // Populate the category dropdown with TTA categories.
+  const populateCategories = () => {
     const select = $('otdb-category');
     select.innerHTML = '<option value="">Any category</option>';
-    const entries = source === 'tta'
-      ? Object.entries(TRIVIA_API_CATS)
-      : (await loadOtdbCategories()).map(c => [String(c.id), c.name]);
-    for (const [value, label] of entries) {
+    for (const [value, label] of Object.entries(TRIVIA_API_CATS)) {
       const opt = document.createElement('option');
       opt.value = value;
       opt.textContent = label;
@@ -398,16 +383,11 @@
     btn.disabled = true;
     otdbStatus('Downloading…');
     try {
-      const source = getSelectedSource();
       const cat = $('otdb-category').value;
-      const diffEl = document.querySelector('#difficulty-control button[aria-checked="true"]');
-      const diff = diffEl ? diffEl.dataset.difficulty : '';
-      const amountEl = document.querySelector('#amount-control button[aria-checked="true"]');
-      const amount = amountEl ? amountEl.dataset.amount : '25';
+      const diff = settings.difficulty || '';
+      const amount = settings.roundLength > 0 ? settings.roundLength : 25;
 
-      const result = source === 'tta'
-        ? await fetchTriviaApi(cat, diff, amount)
-        : await fetchOtdb(cat, diff, amount);
+      const result = await fetchTriviaApi(cat, diff, amount);
 
       if (result.rateLimited) {
         otdbStatus('The trivia service is rate-limited — wait a few seconds and try again.', true);
@@ -442,14 +422,14 @@
         added++;
       }
       if (added > 0) {
-        packs.push({ id: packId, source, label: catLabel, difficulty: diffLabel,
+        packs.push({ id: packId, source: 'tta', label: catLabel, difficulty: diffLabel,
                      downloadedAt: Date.now(), count: added });
         save(KEYS.packs, packs);
       }
       save(KEYS.imported, imported);
       rebuildBank();
       updateOtdbControls();
-      otdbStatus(`Downloaded ${amount} questions.`);
+      otdbStatus(`Downloaded ${added} questions.`);
     } catch {
       otdbStatus("Couldn't reach the trivia service — check your connection.", true);
     } finally {
@@ -523,22 +503,41 @@
     }
   };
 
+  // ---------- wizard navigation ----------
+
+  const showTriviaStep = n => {
+    for (let i = 1; i <= 3; i++) $('trivia-step-' + i).hidden = i !== n;
+    window.scrollTo(0, 0);
+  };
+
+  const showCartalkStep = n => {
+    for (let i = 1; i <= 2; i++) $('cartalk-step-' + i).hidden = i !== n;
+    window.scrollTo(0, 0);
+  };
+
+  const renderLengthCards = (gridId, currentLength) => {
+    for (const btn of $(gridId).querySelectorAll('.length-card')) {
+      btn.classList.toggle('length-card--selected', Number(btn.dataset.length) === currentLength);
+    }
+  };
+
   const renderTriviaSetup = () => {
+    showTriviaStep(1);
+    renderLengthCards('trivia-length-cards', settings.roundLength);
     renderChipGrid('category-grid', 'category-hint', CATEGORIES, settings.categories);
-    renderSegmented('length-control', 'length', settings.roundLength, v => {
-      settings.roundLength = v; save(KEYS.settings, settings);
-    });
     $('category-hint').hidden = true;
-    renderSegmentedStr('difficulty-control', 'difficulty', '', () => {});
-    renderSegmentedStr('amount-control', 'amount', '25', () => {});
-    updateOtdbControls();
+    renderSegmentedStr('difficulty-control', 'difficulty', settings.difficulty || '', v => {
+      settings.difficulty = v; save(KEYS.settings, settings);
+    });
     populateCategories();
-    const hasDownloads = packs.length > 0;
-    $('otdb-body').hidden = !hasDownloads;
-    $('btn-otdb-toggle').setAttribute('aria-expanded', String(hasDownloads));
+    updateOtdbControls();
+    $('add-more-body').hidden = true;
+    $('btn-add-more-toggle').textContent = '＋ Add more categories';
   };
 
   const renderCartalkSetup = () => {
+    showCartalkStep(1);
+    renderLengthCards('cartalk-length-cards', settings.roundLength);
     renderChipGrid('open-category-grid', 'open-category-hint', OPEN_CATEGORIES, settings.openCategories);
     $('open-category-hint').hidden = true;
   };
@@ -575,12 +574,47 @@
 
   initSourceCards();
 
-  $('btn-otdb-toggle').addEventListener('click', () => {
-    const body = $('otdb-body');
-    const btn = $('btn-otdb-toggle');
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    body.hidden = expanded;
-    btn.setAttribute('aria-expanded', String(!expanded));
+  // Trivia wizard — length cards (step 1 → step 2)
+  for (const btn of document.querySelectorAll('#trivia-length-cards .length-card')) {
+    btn.addEventListener('click', () => {
+      settings.roundLength = Number(btn.dataset.length);
+      save(KEYS.settings, settings);
+      renderLengthCards('trivia-length-cards', settings.roundLength);
+      showTriviaStep(2);
+    });
+  }
+
+  // Car Talk wizard — length cards (step 1 → step 2)
+  for (const btn of document.querySelectorAll('#cartalk-length-cards .length-card')) {
+    btn.addEventListener('click', () => {
+      settings.roundLength = Number(btn.dataset.length);
+      save(KEYS.settings, settings);
+      renderLengthCards('cartalk-length-cards', settings.roundLength);
+      showCartalkStep(2);
+    });
+  }
+
+  // Trivia back navigation
+  $('btn-trivia-back-1').addEventListener('click', () => showTriviaStep(1));
+  $('btn-trivia-back-2').addEventListener('click', () => showTriviaStep(2));
+
+  // Car Talk back navigation
+  $('btn-cartalk-back-1').addEventListener('click', () => showCartalkStep(1));
+
+  // Trivia: step 2 → step 3
+  $('btn-trivia-next-2').addEventListener('click', () => {
+    if (!Object.values(settings.categories).some(Boolean)) {
+      $('category-hint').hidden = false;
+      return;
+    }
+    showTriviaStep(3);
+  });
+
+  // Add more categories toggle
+  $('btn-add-more-toggle').addEventListener('click', () => {
+    const body = $('add-more-body');
+    body.hidden = !body.hidden;
+    $('btn-add-more-toggle').textContent = body.hidden ? '＋ Add more categories' : '− Add more categories';
   });
 
   $('btn-otdb').addEventListener('click', importFromSource);
@@ -595,18 +629,14 @@
     otdbStatus('Downloaded questions removed.');
   });
 
-  // Trivia Start
+  // Trivia Start (step 3)
   $('btn-start').addEventListener('click', () => {
-    if (!Object.values(settings.categories).some(Boolean)) {
-      $('category-hint').hidden = false;
-      return;
-    }
     activeCategories = null;
     activeOpenCategories = null;
     startRound();
   });
 
-  // Car Talk Start
+  // Car Talk Start (step 2)
   $('btn-cartalk-start').addEventListener('click', () => {
     if (!Object.values(settings.openCategories).some(Boolean)) {
       $('open-category-hint').hidden = false;
@@ -614,22 +644,6 @@
     }
     activeCategories = null;
     activeOpenCategories = null;
-    startRound();
-  });
-
-  // Surprise Me — Trivia
-  $('btn-surprise-trivia').addEventListener('click', () => {
-    activeCategories = pickRandomSubset(Object.keys(CATEGORIES));
-    activeOpenCategories = null;
-    settings.mode = 'trivia';
-    startRound();
-  });
-
-  // Surprise Me — Car Talk
-  $('btn-surprise-cartalk').addEventListener('click', () => {
-    activeOpenCategories = pickRandomSubset(Object.keys(OPEN_CATEGORIES));
-    activeCategories = null;
-    settings.mode = 'open';
     startRound();
   });
 
@@ -701,14 +715,14 @@
     revealBtn.textContent = q.type !== 'trivia' ? 'Next' : 'Show Me the Answer';
     revealBtn.disabled = !!(q.choices && q.type === 'trivia');
     $('btn-prev').disabled = round.history.length < 2;
-    const endless = settings.mode === 'open' || settings.roundLength === 0;
+    const endless = settings.roundLength === 0;
     $('progress-fill').style.width = endless
       ? '0%'
       : Math.round((round.count / settings.roundLength) * 100) + '%';
   };
 
   const advance = () => {
-    if (settings.mode === 'trivia' && settings.roundLength !== 0 && round.count >= settings.roundLength) {
+    if (settings.roundLength !== 0 && round.count >= settings.roundLength) {
       $('done-count').textContent = `You made it through ${round.count} questions.`;
       show('done');
       return;
@@ -837,6 +851,7 @@
     if (!settings.openCategories) {
       settings.openCategories = defaultSettings().openCategories;
     }
+    if (!('difficulty' in settings)) settings.difficulty = '';
     for (const key of Object.keys(CATEGORIES)) {
       if (!(key in settings.categories)) settings.categories[key] = false;
     }
