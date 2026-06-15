@@ -829,7 +829,7 @@
     const q = round.current;
     if (!q) return;
     $('category-pill').textContent = q.type === 'trivia'
-      ? (q.catLabel || CATEGORIES[q.category])
+      ? (CATEGORIES[q.category] || q.catLabel)
       : OPEN_CATEGORIES[q.category];
     $('for-pill').hidden = !round.forName;
     if (round.forName) $('for-pill').textContent = `For: ${round.forName}`;
