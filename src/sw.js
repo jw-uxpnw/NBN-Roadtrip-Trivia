@@ -2,7 +2,7 @@
    Cache-first for everything: the whole app, including the question bank,
    is precached on install so it works with zero connectivity. */
 
-const CACHE = 'rtq-v56';
+const CACHE = 'rtq-v57';
 
 const ASSETS = [
   './',
@@ -26,6 +26,38 @@ const ASSETS = [
   './icons/icon-512.png',
   './icons/icon-512-maskable.png',
   './icons/apple-touch-icon.png',
+  // Primary category images (trivia gameplay + step 2 setup)
+  './assets/Pacific%20Northwest.png',
+  './assets/Animals%20%26%20Nature.png',
+  './assets/Movies%20%26%20TV.png',
+  './assets/Music.png',
+  './assets/Food.png',
+  './assets/Sports.png',
+  './assets/Science%20%26%20Space.png',
+  './assets/History.png',
+  './assets/Geography.png',
+  './assets/Kid%20Classics.png',
+  // Extra category images
+  './assets/General%20Knowledge.png',
+  './assets/Film%20%26%20TV.png',
+  './assets/Arts%20%26%20Literature.png',
+  './assets/Society%20%26%20Culture.png',
+  './assets/Mythology.png',
+  './assets/Books.png',
+  './assets/Video%20Games.png',
+  './assets/Computers.png',
+  './assets/Cartoons.png',
+  './assets/Math.png',
+  // Round length images (step 1)
+  './assets/Just%20a%20Hitch.png',
+  './assets/A%20Skosh.png',
+  './assets/A%20Bushel.png',
+  './assets/Infinity.png',
+  // Difficulty images (step 3)
+  './assets/Diff%20Any.png',
+  './assets/Diff%20Easy.png',
+  './assets/Diff%20Medium.png',
+  './assets/Diff%20Hard.png',
 ];
 
 self.addEventListener('install', event => {
