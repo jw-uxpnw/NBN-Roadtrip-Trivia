@@ -626,7 +626,7 @@
 
   const renderTriviaSetup = () => {
     showTriviaStep(1);
-    renderLengthCards('trivia-length-cards', settings.roundLength);
+    renderLengthCards('trivia-length-cards', null);
     renderChipGrid('category-grid', 'category-hint', CATEGORIES, settings.categories);
     $('category-hint').hidden = true;
     renderSegmentedStr('difficulty-control', 'difficulty', settings.difficulty || '', v => {
