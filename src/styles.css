@@ -926,8 +926,8 @@ button {
 }
 
 .cat-img {
-  width: 140px;
-  height: 140px;
+  width: 280px;
+  height: 280px;
   object-fit: contain;
   mix-blend-mode: lighten;
 }
