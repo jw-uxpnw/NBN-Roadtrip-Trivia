@@ -71,9 +71,14 @@
   <section id="screen-cartalk" class="screen" hidden>
     <div class="setup-inner">
       <div class="screen-nav">
-        <button id="btn-cartalk-home" class="icon-btn" aria-label="Home">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </button>
+        <div class="nav-left">
+          <button id="btn-cartalk-back" class="icon-btn" aria-label="Back" hidden>
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button id="btn-cartalk-home" class="icon-btn" aria-label="Home">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </button>
+        </div>
         <button id="btn-cartalk-help" class="btn-text nav-help">How to use this app</button>
       </div>
 
@@ -111,7 +116,6 @@
       <!-- Step 2: Categories -->
       <div class="wizard-step" id="cartalk-step-2" hidden>
         <p class="setup-step-label">Step 2 of 2</p>
-        <button id="btn-cartalk-back-1" class="btn-back-link">‹ Back</button>
         <p class="wizard-heading">What do you want to talk about?</p>
         <div id="open-cat-cards" class="open-cat-cards"></div>
         <button id="btn-cartalk-start" class="btn-primary" disabled>Start</button>

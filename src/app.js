@@ -696,6 +696,7 @@
 
   const renderCartalkSetup = () => {
     showCartalkStep(2);
+    $('btn-cartalk-back').hidden = false;
     renderOpenCatCards();
     $('btn-cartalk-start').disabled = !Object.values(settings.openCategories).some(Boolean);
   };
@@ -742,7 +743,7 @@
   $('btn-trivia-back-2').addEventListener('click', () => showTriviaStep(2));
 
   // Car Talk back navigation
-  $('btn-cartalk-back-1').addEventListener('click', () => show('mode'));
+  $('btn-cartalk-back').addEventListener('click', () => show('mode'));
 
   // Trivia: step 2 → step 3
   $('btn-trivia-next-2').addEventListener('click', () => {
