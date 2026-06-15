@@ -898,20 +898,25 @@
     advance();
   };
 
-  // Multiple choice: tap a choice to answer. Right = ✓; wrong = ✗ on your pick
-  // plus ✓ on the correct one. Then tap anywhere to continue.
   const pickChoice = chosen => {
     const q = round.current;
     if (!q || round.revealed) return;
     round.revealed = true;
     const isCorrect = chosen === q.a;
-    for (const btn of $('choices').children) {
-      const val = btn.querySelector('.choice-text').textContent;
-      const mark = btn.querySelector('.choice-mark');
-      if (val === q.a) { btn.classList.add('correct'); mark.textContent = '✓'; }
-      else if (val === chosen) { btn.classList.add('wrong'); mark.textContent = '✗'; }
-      btn.disabled = true;
-    }
+
+    // Replace choice buttons with a result summary
+    const choicesEl = $('choices');
+    choicesEl.innerHTML = '';
+    const addResultItem = (text, correct, delayMs) => {
+      const el = document.createElement('div');
+      el.className = 'result-answer result-answer--' + (correct ? 'correct' : 'wrong');
+      el.textContent = (correct ? '✓  ' : '✗  ') + text;
+      choicesEl.appendChild(el);
+      setTimeout(() => el.classList.add('result-answer--visible'), delayMs);
+    };
+    addResultItem(q.a, true, 180);
+    if (!isCorrect) addResultItem(chosen, false, 320);
+
     const resultImg = $('result-img');
     resultImg.src = isCorrect ? 'assets/Correct.png' : 'assets/Wrong.png';
     resultImg.alt = isCorrect ? 'Correct!' : 'Wrong!';
