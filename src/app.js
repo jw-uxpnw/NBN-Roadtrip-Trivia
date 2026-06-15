@@ -88,7 +88,7 @@
     mode: 'trivia',
     players: [],
     categories: Object.fromEntries(Object.keys(CATEGORIES).map(c => [c, false])),
-    openCategories: Object.fromEntries(Object.keys(OPEN_CATEGORIES).map(c => [c, true])),
+    openCategories: Object.fromEntries(Object.keys(OPEN_CATEGORIES).map(c => [c, false])),
     roundLength: null,
     difficulty: '',
   });
