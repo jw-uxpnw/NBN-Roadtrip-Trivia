@@ -201,14 +201,9 @@
         <p class="setup-step-label">Step 2 of 3</p>
         <p class="wizard-heading">What do you want to be quizzed on?</p>
         <div class="setup-block">
-          <div class="block-head">
-            <button id="cat-select-all" class="select-all">Select all</button>
-            <button id="cat-clear-all" class="select-all">Clear all</button>
-          </div>
           <div id="category-grid" class="trivia-cat-cards"></div>
           <p id="category-hint" class="hint" hidden>Keep at least one category on.</p>
         </div>
-        <button id="btn-trivia-next-2" class="btn-primary">Next</button>
       </div>
 
       <!-- Step 3: Difficulty -->
@@ -248,6 +243,16 @@
         <button id="btn-start" class="btn-primary">Let's Go!</button>
       </div>
 
+    </div>
+
+    <!-- Sticky footer: visible only on step 2 -->
+    <div id="cat-footer" class="cat-footer" hidden>
+      <div class="cat-footer-row">
+        <button id="cat-select-all" class="select-all">Select all</button>
+        <span id="cat-selected-count" class="cat-selected-count"></span>
+        <button id="cat-clear-all" class="select-all">Clear all</button>
+      </div>
+      <button id="btn-trivia-next-2" class="btn-primary">Next</button>
     </div>
   </section>
 

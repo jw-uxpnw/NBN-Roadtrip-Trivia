@@ -707,10 +707,12 @@
         btn.setAttribute('aria-pressed', String(settings.categories[key]));
         save(KEYS.settings, settings);
         $('category-hint').hidden = Object.values(settings.categories).some(Boolean);
+        updateCatCount();
       });
 
       grid.appendChild(btn);
     }
+    updateCatCount();
   };
 
   // ---------- wizard navigation ----------
@@ -720,7 +722,14 @@
     triviaStep = n;
     for (let i = 1; i <= 3; i++) $('trivia-step-' + i).hidden = i !== n;
     $('btn-trivia-back').hidden = n === 1;
+    $('cat-footer').hidden = n !== 2;
     window.scrollTo(0, 0);
+  };
+
+  const updateCatCount = () => {
+    const count = Object.values(settings.categories).filter(Boolean).length;
+    const total = Object.keys(CATEGORIES).length;
+    $('cat-selected-count').textContent = `${count} of ${total} selected`;
   };
 
   const showCartalkStep = n => {
@@ -813,6 +822,7 @@
     save(KEYS.settings, settings);
     renderCategoryCards();
     $('category-hint').hidden = true;
+    updateCatCount();
   });
 
   $('cat-clear-all').addEventListener('click', () => {
@@ -820,6 +830,7 @@
     save(KEYS.settings, settings);
     renderCategoryCards();
     $('category-hint').hidden = true;
+    updateCatCount();
   });
 
   initSourceCards();
