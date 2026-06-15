@@ -863,7 +863,8 @@
     }
     $('answer-text').hidden = true;
     $('answer-text').textContent = q.a || '';
-    $('result-img').hidden = true;
+    document.querySelector('.result-img-wrap').classList.remove('expanded');
+    $('result-img').src = '';
     const revealBtn = $('btn-show-answer');
     revealBtn.textContent = q.type !== 'trivia' ? 'Next' : 'Show Me the Answer';
     revealBtn.hidden = !!(q.choices && q.type === 'trivia');
@@ -914,7 +915,7 @@
     const resultImg = $('result-img');
     resultImg.src = isCorrect ? 'assets/Correct.png' : 'assets/Wrong.png';
     resultImg.alt = isCorrect ? 'Correct!' : 'Wrong!';
-    resultImg.hidden = false;
+    requestAnimationFrame(() => document.querySelector('.result-img-wrap').classList.add('expanded'));
     $('btn-show-answer').textContent = 'Next Question';
     $('btn-show-answer').hidden = false;
     $('btn-show-answer').disabled = false;
