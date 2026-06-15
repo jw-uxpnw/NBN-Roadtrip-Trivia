@@ -955,15 +955,15 @@ button {
 }
 
 .result-img-wrap.expanded {
-  width: 150px;
+  width: 190px;
 }
 
 .result-img {
   display: block;
-  width: 150px;
+  width: 190px;
   height: auto;
   mix-blend-mode: lighten;
-  transform: translateX(-150px);
+  transform: translateX(-190px);
   transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
