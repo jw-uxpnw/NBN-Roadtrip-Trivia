@@ -349,7 +349,7 @@
     }
     $('btn-otdb-clear').hidden = imported.length === 0;
     if (imported.length > 0) {
-      otdbStatus(`${imported.length} downloaded question${imported.length === 1 ? '' : 's'} in your offline bank.`);
+      otdbStatus(`${imported.length} added question${imported.length === 1 ? '' : 's'} in your offline bank.`);
     } else {
       $('otdb-status').hidden = true;
     }
@@ -408,7 +408,7 @@
   const importFromSource = async () => {
     const btn = $('btn-otdb');
     btn.disabled = true;
-    otdbStatus('Downloading…');
+    otdbStatus('Adding questions…');
     try {
       const optVal = $('otdb-category').value; // "tta:music", "otdb:12", or ""
       let primarySource = 'tta', primaryCat = '';
@@ -472,7 +472,7 @@
       save(KEYS.imported, imported);
       rebuildBank();
       updateOtdbControls();
-      otdbStatus(`Downloaded ${added} questions.`);
+      otdbStatus(`Added ${added} questions to your offline bank.`);
     } catch {
       otdbStatus("Couldn't reach either trivia service — check your connection.", true);
     } finally {
@@ -669,7 +669,7 @@
     save(KEYS.packs, packs);
     rebuildBank();
     updateOtdbControls();
-    otdbStatus('Downloaded questions removed.');
+    otdbStatus('Added questions removed.');
   });
 
   // Trivia Start (step 3)
