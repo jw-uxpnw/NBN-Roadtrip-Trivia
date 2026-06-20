@@ -313,6 +313,20 @@
     </div>
   </section>
 
+  <!-- Exhaustion modal — overlays play screen when all questions have been seen -->
+  <div id="exhaustion-modal" class="exhaustion-modal" hidden>
+    <div class="exhaustion-sheet">
+      <p class="exhaustion-emoji">🎉</p>
+      <h2 class="exhaustion-title">You've seen it all!</h2>
+      <p class="exhaustion-message">You've answered every question in your selected categories.</p>
+      <p id="exhaustion-offline-msg" class="exhaustion-offline" hidden>No internet connection. Choose an option below.</p>
+      <button id="btn-exhaust-more" class="btn-primary">Load More Questions</button>
+      <p class="exhaustion-note">Requires an internet connection</p>
+      <button id="btn-exhaust-reset" class="btn-text">Replay Questions</button>
+      <button id="btn-exhaust-home" class="btn-text exhaustion-home-btn">Go Home</button>
+    </div>
+  </div>
+
   <script src="app.js?v=9"></script>
 </body>
 </html>

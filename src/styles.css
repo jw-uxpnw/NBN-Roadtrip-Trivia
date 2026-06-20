@@ -727,6 +727,50 @@ button {
 #trivia-step-2, #cartalk-step-2 { padding-bottom: 140px; }
 
 /* Category chips */
+/* Category card seen count badge */
+.cat-card-count {
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--fg-sub);
+  margin-top: 2px;
+}
+.cat-card-count--fresh { color: var(--green); }
+.cat-card-count--empty { color: var(--danger); }
+.cat-card-count--dim   { color: var(--fg-dim); font-style: italic; }
+
+/* Exhaustion modal */
+.exhaustion-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.exhaustion-sheet {
+  width: 100%;
+  max-width: 480px;
+  background: var(--surface);
+  border-radius: 20px 20px 0 0;
+  padding: 28px 24px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+.exhaustion-emoji  { font-size: 40px; line-height: 1; margin-bottom: 4px; }
+.exhaustion-title  { font-family: var(--display); font-size: 26px; font-weight: 400; color: var(--fg); }
+.exhaustion-message { font-family: var(--body); font-size: 15px; color: var(--fg-sub); line-height: 1.4; }
+.exhaustion-note   { font-family: var(--body); font-size: 12px; color: var(--fg-dim); margin-top: -4px; }
+.exhaustion-offline { font-family: var(--body); font-size: 13px; color: var(--danger); font-weight: 500; }
+.exhaustion-home-btn { color: var(--fg-dim); font-size: 14px; margin-top: 4px; }
+.exhaustion-sheet .btn-primary { width: 100%; margin-top: 8px; }
+.exhaustion-sheet .btn-text { font-size: 15px; font-weight: 600; padding: 8px; }
+
 .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
 
 .chip {

@@ -264,8 +264,7 @@
       if (pool.length === 0) {
         const fullPool = groupPool(type, true);
         if (fullPool.length === 0) return null; // every eligible question skipped
-        resetSeenFor(fullPool.map(x => x.id));
-        pool = groupPool(type, false);
+        return { __exhausted: true, ids: fullPool.map(x => x.id) };
       }
       q = pickFrom(pool);
     }
@@ -694,12 +693,29 @@
       sub.className = 'mode-sub';
       sub.textContent = display.desc;
 
+      const qAll = questions.filter(q => q.type === 'trivia' && q.category === key && !skipped[q.id]);
+      const qFresh = qAll.filter(q => !seen[q.id]);
+      const countEl = document.createElement('span');
+      countEl.className = 'cat-card-count';
+      if (qAll.length === 0) {
+        countEl.textContent = FETCHABLE_CATS[key] ? 'Downloads on first play' : '';
+        countEl.classList.add('cat-card-count--dim');
+      } else if (qFresh.length === 0) {
+        countEl.textContent = 'All seen';
+        countEl.classList.add('cat-card-count--empty');
+      } else if (qFresh.length === qAll.length) {
+        countEl.textContent = `${qAll.length} questions`;
+      } else {
+        countEl.textContent = `${qFresh.length} of ${qAll.length} fresh`;
+        countEl.classList.add('cat-card-count--fresh');
+      }
+
       const check = document.createElement('span');
       check.className = 'trivia-cat-check';
       check.setAttribute('aria-hidden', 'true');
       check.textContent = '✓';
 
-      text.append(title, sub);
+      text.append(title, sub, countEl);
       btn.append(img, text, check);
 
       btn.addEventListener('click', () => {
@@ -1025,18 +1041,54 @@
     }
   };
 
-  const advance = () => {
+  const showExhaustionModal = () => new Promise(resolve => {
+    $('exhaustion-modal').hidden = false;
+    $('exhaustion-offline-msg').hidden = true;
+    const moreBtn = $('btn-exhaust-more');
+    moreBtn.disabled = false;
+    moreBtn.textContent = 'Load More Questions';
+
+    moreBtn.onclick = () => {
+      if (!navigator.onLine) {
+        $('exhaustion-offline-msg').hidden = false;
+        moreBtn.disabled = true;
+        return;
+      }
+      moreBtn.textContent = 'Loading…';
+      moreBtn.disabled = true;
+      $('exhaustion-modal').hidden = true;
+      resolve('more');
+    };
+    $('btn-exhaust-reset').onclick = () => { $('exhaustion-modal').hidden = true; resolve('reset'); };
+    $('btn-exhaust-home').onclick  = () => { $('exhaustion-modal').hidden = true; resolve('home'); };
+  });
+
+  const advance = async () => {
     if (settings.roundLength !== 0 && settings.roundLength !== null && round.count >= settings.roundLength) {
       $('done-count').textContent = `You made it through ${round.count} questions.`;
       show('done');
       return;
     }
-    const q = nextQuestion();
-    if (!q) {
+
+    let result = nextQuestion();
+
+    if (result && result.__exhausted) {
+      const choice = await showExhaustionModal();
+      if (choice === 'home') { show('mode'); return; }
+      if (choice === 'more') {
+        const cats = [...new Set(result.ids.map(id => byId[id]?.category).filter(c => c && FETCHABLE_CATS[c]))];
+        for (const cat of cats) await autoFetchCategory(cat);
+      }
+      resetSeenFor(result.ids);
+      result = nextQuestion();
+    }
+
+    if (!result || result.__exhausted) {
       $('done-count').textContent = "You've been through every question in the bank!";
       show('done');
       return;
     }
+
     round.count += 1;
     renderQuestion();
   };
@@ -1183,6 +1235,17 @@
       }
       save(KEYS.imported, imported);
       save(KEYS.packs, packs);
+    }
+
+    // Silently pre-fetch extra categories in background so they're available offline
+    if (navigator.onLine) {
+      (async () => {
+        for (const key of Object.keys(FETCHABLE_CATS)) {
+          if (!imported.some(q => q.category === key)) {
+            await autoFetchCategory(key);
+          }
+        }
+      })();
     }
 
     show('splash');
