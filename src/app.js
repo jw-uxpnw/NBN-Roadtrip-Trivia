@@ -6,6 +6,7 @@
   'use strict';
 
   const CATEGORIES = {
+    tour2026:   '2026 Tour Exclusive',
     pnw:        'Pacific Northwest',
     animals:    'Animals & Nature',
     movies:     'Movies & TV',
@@ -26,7 +27,6 @@
     computers:  'Computers',
     cartoons:   'Cartoons',
     math:       'Math',
-    tour2026:   '2026 Tour Exclusive',
   };
 
   // Categories that need live fetching the first time they're selected.
