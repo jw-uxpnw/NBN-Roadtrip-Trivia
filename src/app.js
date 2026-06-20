@@ -26,6 +26,7 @@
     computers:  'Computers',
     cartoons:   'Cartoons',
     math:       'Math',
+    tour2026:   '2026 Tour Exclusive',
   };
 
   // Categories that need live fetching the first time they're selected.
@@ -80,6 +81,7 @@
     computers: { img: 'assets/Computers.png' },
     cartoons:  { img: 'assets/Cartoons.png' },
     math:      { img: 'assets/Math.png' },
+    tour2026:  { img: 'assets/Naughtybynature_front.png' },
   };
 
   const TRIVIA_CAT_DISPLAY = {
@@ -103,6 +105,7 @@
     computers: { desc: 'Bits, bytes, and things your phone does without you noticing.' },
     cartoons:  { desc: 'Saturday mornings, existential dread, and surprisingly dark backstories.' },
     math:      { desc: 'Numbers. Just numbers. You either love this or you don\'t.' },
+    tour2026:  { desc: 'Devils Tower, Custer State Park, and the Badlands. You\'re living it — might as well know it.' },
   };
 
   const KEYS = {
